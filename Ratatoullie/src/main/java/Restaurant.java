@@ -1,7 +1,7 @@
 
 public class Restaurant {
 	
-	private name String;
+	private String name;
 	
 
 }
