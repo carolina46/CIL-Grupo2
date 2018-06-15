@@ -1,7 +1,7 @@
 package modelo;
 
 /**
- * Represents a descriptive name that can be associated with one o more restaurants.
+ * Represents a label that describes the type of food offered by one or more restaurants.
  * @author CIL-Grupo2
  */
 
