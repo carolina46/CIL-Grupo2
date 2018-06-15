@@ -5,7 +5,7 @@ package modelo;
  * Previous state: Visitor.
  * Next state: Gourmet.
  * 
- * @author Carolina Perez
+ * @author CIL-Grupo2
  */
 
 

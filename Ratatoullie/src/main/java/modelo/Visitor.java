@@ -4,7 +4,7 @@ package modelo;
  * Represents the FIRST state of the classification of the users according to the total number of comments made.
  * Next state: Comensal.
  * 
- * @author Carolina Perez
+ * @author CIL-Grupo2
  */
 
 

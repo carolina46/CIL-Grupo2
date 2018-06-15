@@ -1,6 +1,14 @@
 package modelo;
 import java.util.List;
 
+/**
+ * Represents a dish within one or more menus of a restaurant.
+ * 
+ * @author CIL-Grupo2
+ * 
+ */
+
+
 public class Dish {
 	
 	private String name;
