@@ -5,14 +5,16 @@ package modelo;
  * Previous state: Visitor.
  * Next state: Gourmet.
  * 
- * @param Receives the user to whom it belongs.
- * 
  * @author Carolina Perez
  */
 
 
 public class Comensal extends Ranking {
 
+	/**
+	 * Change the user's state to visitor o gourmet depending on the total of comments made.
+	 * @param Receives the user whom it belongs.
+	 */
 	@Override
 	public void updateRanking(User u) {
 		if(u.totalOfComments()>39) 
