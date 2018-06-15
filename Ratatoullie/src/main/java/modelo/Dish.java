@@ -35,12 +35,13 @@ public class Dish {
 	public void setPicture(String picture) {
 		this.picture = picture;
 	}
-	public List<Tag> getTags() {
-		return tags;
-	}
-	public void setTags(List<Tag> tags) {
-		this.tags = tags;
-	}
+
+	//Methods associated with Tag
+	public List<Tag> getTags() { return tags;}
+	public void addTag(Tag tag) {this.tags.add(tag);}
+	public void setTags(List<Tag> tags) {this.tags = tags;}
+	
+	
 	public List<VoteDish> getDishVotes() {
 		return dishVotes;
 	}

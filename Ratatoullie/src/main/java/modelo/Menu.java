@@ -13,11 +13,18 @@ public class Menu {
 	
 	private List<Dish> dishes;
 	private List<Tag> tags;
+	private MenuType menuType;
 	
+	//Methods associated with menuType
+	public MenuType getMenuType() {return menuType;}
+	public void setMenuType(MenuType menuType) {this.menuType = menuType;}
+	
+	//Methods associated with dishes
 	public void addDish(Dish dish) {this.dishes.add(dish);}
 	public List<Dish> getDishes() { return dishes;}
 	public void setDishes(List<Dish> dishes) {this.dishes = dishes;}
 	
+	//Methods associated with Tags
 	public void addTag(Tag tag) {this.tags.add(tag);}
 	public List<Tag> getTags() { return tags;}
 	public void setTags(List<Tag> tags) {this.tags = tags;}
