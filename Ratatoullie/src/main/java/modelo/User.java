@@ -14,7 +14,7 @@ public class User {
 	private String user;
 	private String password;
 	private Ranking myRanking;
-	
+		
 	public User(String fullName, String user, String password) {
 		this.fullName = fullName;
 		this.user = user;
