@@ -15,6 +15,7 @@ public class Menu {
 	private List<Tag> tags;
 	private MenuType menuType;
 	
+	
 	//Methods associated with menuType
 	public MenuType getMenuType() {return menuType;}
 	public void setMenuType(MenuType menuType) {this.menuType = menuType;}

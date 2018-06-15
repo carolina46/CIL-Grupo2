@@ -13,8 +13,17 @@ public class System {
 	private List<User> users;
 	private	List<Restaurant> restaurants;
 	
-	public void addUser(User u) {this.users.add(u);}
 	
-	public void addRestaurant(Restaurant r) {this.restaurants.add(r);}
+	//Methods associated with Users
+	public List<User> getUsers() { return users;}
+	public void addUser(User user) {this.users.add(user);}
+	public void setUsers(List<User> users) {this.users = users;}
+	
+	
+	//Methods associated with restaurants
+	public List<Restaurant> getRestaurant() { return this.restaurants;}
+	public void setRestaurant(List<Restaurant> restaurants) {this.restaurants = restaurants;}
+	public void addRestaurant(Restaurant restaurant) {this.restaurants.add(restaurant);}
 
+	
 }
