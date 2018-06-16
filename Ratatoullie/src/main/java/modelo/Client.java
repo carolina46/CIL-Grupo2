@@ -5,6 +5,7 @@ import java.util.List;
 public abstract class Client extends User {
 
 	private List<Comment> comments;
+	private Ranking ranking;
 	
 	public Client(String fullName, String user, String password) {
 		super(fullName, user, password);
@@ -21,6 +22,14 @@ public abstract class Client extends User {
 
 	public int totalOfComments() {
 		return comments.size();
+	}
+
+	public Ranking getRanking() {
+		return ranking;
+	}
+
+	public void setRanking(Ranking ranking) {
+		this.ranking = ranking;
 	}
 
 }

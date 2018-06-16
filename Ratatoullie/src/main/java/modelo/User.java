@@ -10,6 +10,7 @@ package modelo;
 
 public class User {
 	
+	//Quitamos el fullName?, sería conveniente
 	private String fullName;
 	private String user;
 	private String password;

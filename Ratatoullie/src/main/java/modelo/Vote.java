@@ -7,7 +7,7 @@ package modelo;
  *
  */
 
-public class Vote {
+public abstract class Vote {
 	
 	private Integer value; 
 	/* 
