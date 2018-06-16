@@ -10,9 +10,9 @@ package modelo;
 public abstract class Ranking {
 	
 	/**
-	 * Update the user's state according to the total number of comments made.
+	 * Update the Client's state according to the total number of comments made.
 	 * @param Receives the user to whom it belongs.
 	 */
-	public abstract void updateRanking(User u);
+	public abstract void updateRanking(Client c);
 
 }

@@ -12,16 +12,16 @@ package modelo;
 public class Comensal extends Ranking {
 
 	/**
-	 * Change the user's state to visitor o gourmet depending on the total of comments made.
+	 * Change the Client state to visitor o gourmet depending on the total of comments made.
 	 * @param Receives the user whom it belongs.
 	 */
 	@Override
-	public void updateRanking(User u) {
-		if(u.totalOfComments()>39) 
-			u.setRanking(new Gourmet());
+	public void updateRanking(Client c) {
+		if(c.totalOfComments()>39) 
+			c.setRanking(new Gourmet());
 		else
-			if(u.totalOfComments()<20)
-				u.setRanking(new Visitor());
+			if(c.totalOfComments()<20)
+				c.setRanking(new Visitor());
 	}
 
 }

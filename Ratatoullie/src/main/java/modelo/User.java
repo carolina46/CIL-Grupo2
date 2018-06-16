@@ -41,11 +41,6 @@ public class User {
 		this.password = password;
 	}
 
-	public int totalOfComments() {
-		// COMPLETAR EN BASE A LA COLECCION DE COMENTARIOS QUE VAYAMOS A USAR 
-		return 0;
-	}
-
 	public void setRanking(Ranking r) {
 		this.myRanking=r;
 	}

@@ -8,11 +8,8 @@ package modelo;
 
 public class MenuType {
 	
-	
-	private String nombre;
+	private String name;
 
-
-	
-	public String getNombre() { return nombre;}
-	public void setNombre(String nombre) { this.nombre = nombre;}
+	public String getNombre() { return name;}
+	public void setNombre(String name) { this.name = name;}
 }

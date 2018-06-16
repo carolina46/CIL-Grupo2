@@ -15,9 +15,9 @@ public class Gourmet extends Ranking {
 	 * @param Receives the user whom it belongs.
 	 */
 	@Override
-	public void updateRanking(User u) {
-		if(u.totalOfComments()<40) {
-			u.setRanking(new Comensal());
+	public void updateRanking(Client c) {
+		if(c.totalOfComments()<40) {
+			c.setRanking(new Comensal());
 		}
 
 	}
