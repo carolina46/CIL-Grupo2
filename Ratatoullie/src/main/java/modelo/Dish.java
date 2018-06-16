@@ -15,7 +15,7 @@ public class Dish {
 	private String description;
 	private String picture;
 	private List<Tag> tags; //en monguillot use ArrayList (ver diferencias y borrar este comentario)
-	private List<VoteDish> dishVotes;
+	private List<DishVote> dishVotes;
 	
 	public String getName() {
 		return name;
@@ -42,10 +42,10 @@ public class Dish {
 	public void setTags(List<Tag> tags) {this.tags = tags;}
 	
 	
-	public List<VoteDish> getDishVotes() {
+	public List<DishVote> getDishVotes() {
 		return dishVotes;
 	}
-	public void setDishVotes(List<VoteDish> dishVotes) {
+	public void setDishVotes(List<DishVote> dishVotes) {
 		this.dishVotes = dishVotes;
 	}
 	
