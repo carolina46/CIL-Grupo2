@@ -12,7 +12,7 @@ import java.util.List;
 public class Menu {
 	
 	private List<Dish> dishes;
-	private List<Tag> tags;
+	private List<Tag> tags; // Lista de Tag? puede tener mas de 1??
 	private MenuType menuType;
 	
 	

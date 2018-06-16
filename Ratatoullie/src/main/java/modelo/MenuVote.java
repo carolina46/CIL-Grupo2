@@ -9,6 +9,15 @@ package modelo;
  */
 public class MenuVote extends Vote {
 	private Dish dish;
+	private Menu menu;
+
+	public Menu getMenu() {
+		return menu;
+	}
+
+	public void setMenu(Menu menu) {
+		this.menu = menu;
+	}
 
 	public Dish getDish() {
 		return dish;
