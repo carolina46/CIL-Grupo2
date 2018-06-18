@@ -8,26 +8,26 @@ import java.util.List;
  *
  */
 
-public class System {
+public class SystemRatatouille {
 	
 	private List<User> users;
 	private	List<Restaurant> restaurants;
-	private static System uniqueSystem;
+	private static SystemRatatouille uniqueSystem;
 	
 	
 	//Private constructor, do not allow to generate default constructor.
-	private System(List<User> users, List<Restaurant>restaurants) {
+	private SystemRatatouille(List<User> users, List<Restaurant>restaurants) {
 		this.users=users;
 		this.restaurants=restaurants;
 	}
 	
 	///get a system instance
-	public static System getSystemInstance(List<User> users, List<Restaurant>restaurants) {
+	public static SystemRatatouille getSystemInstance(List<User> users, List<Restaurant>restaurants) {
 		if(uniqueSystem==null) {
-			uniqueSystem= new System(users, restaurants);
+			uniqueSystem= new SystemRatatouille(users, restaurants);
 		}
 		else {
-//			System.out.println("No se puede crear el objeto porque ya existe un objeto de la clase");
+			System.out.println("No se puede crear el objeto porque ya existe un objeto de la clase SystemRatotuille");
 		}
 		return uniqueSystem;
 	}
@@ -35,18 +35,22 @@ public class System {
 	
 	//Override clone method
 	@Override
-	public System clone(){
+	public SystemRatatouille clone(){
 	    try {
 	        throw new CloneNotSupportedException();
 	    } catch (CloneNotSupportedException ex) {
-//	        System.out.println("No se puede clonar un objeto de la clase SoyUnico");
+//	        System.out.println("No se puede clonar un objeto de la clase System");
 	    }
 	    return null; 
 	}
 	
 	//Methods associated with Users
 	public List<User> getUsers() { return users;}
-	public void addUser(User user) {this.users.add(user);}
+	
+	public void addUser(User user) {
+		this.users.add(user);
+		}
+	
 	public void setUsers(List<User> users) {this.users = users;}
 	
 	
