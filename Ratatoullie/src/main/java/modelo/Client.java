@@ -69,6 +69,9 @@ public abstract class Client extends User {
 		c.setDate(date);
 		c.setDescription(comment);
 		this.getComments().add(c);
+		
+		//update my position in the ranking
+		this.ranking.updateRanking(this);
 	}
 
 }
