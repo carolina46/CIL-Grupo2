@@ -1,5 +1,6 @@
 package modelo;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 /**
@@ -12,12 +13,12 @@ import java.util.Date;
 public class Comment {
 
 	private String description;
-	private Date date; 
+	private LocalDateTime date; 
 	
 
 	//Methods associated with Date
-	public Date getDate() {	return date;}
-	public void setDate(Date date) { this.date = date;}
+	public LocalDateTime getDate() {	return date;}
+	public void setDate(LocalDateTime date) { this.date = date;}
 	
 	//Methods associated with Description
 	public String getDescription() { return description;}
