@@ -8,13 +8,12 @@ package modelo;
  *
  */
 public class RestaurantVote extends Vote {
-	private Dish dish;
+	
+	private Restaurant restaurant;
+	
 
-	public Dish getDish() {
-		return dish;
-	}
+	public Restaurant getRestaurant() {	return restaurant;	}
 
-	public void setDish(Dish dish) {
-		this.dish = dish;
-	}
+	public void setRestaurant(Restaurant restaurant) { this.restaurant = restaurant; }
+	
 }
