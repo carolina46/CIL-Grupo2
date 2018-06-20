@@ -18,7 +18,7 @@ public class MenuRecommendation extends Recommendation {
 
 	
 		
-	public MenuRecommendation(String description, List<User> receivers, Menu menu) {
+	public MenuRecommendation(String description, List<Client> receivers, Menu menu) {
 		super(description, receivers);
 		this.menu = menu;
 	}

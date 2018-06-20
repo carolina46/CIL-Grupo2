@@ -10,31 +10,26 @@ import java.util.List;
  *
  */
 
-
 public abstract class Recommendation {
 	
-	
 	private String description;
-	private List<User>	receivers;
+	private List<Client>	receivers;
 	
 	
-	public Recommendation(String description, List<User> receivers) {
+	public Recommendation(String description, List<Client> receivers) {
 		super();
 		this.description = description;
 		this.receivers = receivers;
 	}
 
-	
-	//Methods associated with Description
+		//Methods associated with Description
 	public String getDescription() { return description; }
 	public void setDescription(String description) { this.description = description; }
 	
 	
 	//Methods associated with receivers
-	public List<User> getReceivers() { return receivers;}	
-	public void addReceivers(User receivers) {this.receivers.add(receivers);}
-	public void setReceivers(List<User> receivers) {this.receivers = receivers;}
-	
-	
+	public List<Client> getReceivers() { return receivers;}	
+	public void setReceivers(List<Client> receivers) {this.receivers = receivers;}
+	public void addReceiver(Client receiver) {this.receivers.add(receiver);}
 
 }

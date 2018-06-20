@@ -1,7 +1,6 @@
 package modelo;
 
 import java.time.LocalDateTime;
-import java.util.Date;
 
 /**
  * Represents a comment from a user about a restaurant

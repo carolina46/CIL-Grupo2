@@ -15,7 +15,7 @@ public class DishRecommendation extends Recommendation {
 	private Dish dish;
 	
 
-	public DishRecommendation(String description, List<User> receivers, Dish dish) {
+	public DishRecommendation(String description, List<Client> receivers, Dish dish) {
 		super(description, receivers);
 		this.dish = dish;
 	}

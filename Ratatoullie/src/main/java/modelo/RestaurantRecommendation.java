@@ -14,7 +14,7 @@ public class RestaurantRecommendation extends Recommendation {
 	
 	private Restaurant restaurant;
 
-	public RestaurantRecommendation(String description, List<User> receivers, Restaurant restaurant) {
+	public RestaurantRecommendation(String description, List<Client> receivers, Restaurant restaurant) {
 		super(description, receivers);
 		this.restaurant = restaurant;
 	}
