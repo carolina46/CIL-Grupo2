@@ -20,7 +20,6 @@ public class DishRecommendation extends Recommendation {
 		this.dish = dish;
 	}
 	
-	
 	public Dish getDish() {	return dish;}
 	public void setDish(Dish dish) { this.dish = dish;}
 

@@ -10,19 +10,14 @@ import java.util.List;
  *
  */
 
-
-
 public class MenuRecommendation extends Recommendation {
 	
 	private Menu menu;
-
-	
 		
 	public MenuRecommendation(String description, List<Client> receivers, Menu menu) {
 		super(description, receivers);
 		this.menu = menu;
 	}
-	
 	
 	public Menu getMenu() {return menu;	}
 	public void setMenu(Menu menu) {this.menu = menu;}

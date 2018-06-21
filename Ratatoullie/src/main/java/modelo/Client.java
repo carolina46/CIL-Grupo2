@@ -5,11 +5,11 @@ import java.util.List;
 
 public abstract class Client extends User {
 
-	private List<Comment> comments;
 	private Ranking ranking;
-	private List<Recommendation> recomendations;
 	private List<Client> friends;
 	private List<Vote> votes;
+	private List<Comment> comments;
+	private List<Recommendation> recomendations;
 	
 	public Client(String fullName, String user, String password) {
 		super(fullName, user, password);
