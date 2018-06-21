@@ -1,4 +1,5 @@
 package modelo;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -8,14 +9,21 @@ import java.util.List;
  * 
  */
 
-
 public class Dish {
-	
+		
 	private String name;
 	private String description;
 	private String picture;
 	private List<Tag> tags; //en monguillot use ArrayList (ver diferencias y borrar este comentario)
 	private List<DishVote> dishVotes;
+	
+	public Dish(String name, String description, String picture) {
+		this.name = name;
+		this.description = description;
+		this.picture = picture;
+		this.tags = new ArrayList<Tag>();
+		this.dishVotes = new ArrayList<DishVote>();
+	}
 	
 	public String getName() {
 		return name;

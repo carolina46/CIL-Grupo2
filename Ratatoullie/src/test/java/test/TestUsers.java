@@ -21,9 +21,11 @@ class TestUsers {
 		/*Category category = new Category();
 		category.setName("Bar-Pub");
 		
-		MenuType = mt = new MenuType("Menu infantil");
+		MenuType mt = new MenuType("Menu infantil");
 		
-		Menu menu = new Menu();
+		Dish dish = new Dish();
+		
+		Menu menu = new Menu(mt);
 		menu.addDish(dish);
 		
 		Restaurant r = new Restaurant();
