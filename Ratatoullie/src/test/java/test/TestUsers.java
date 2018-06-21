@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 import modelo.Category;
 import modelo.Client;
 import modelo.Menu;
+import modelo.MenuType;
 import modelo.Responsible;
 import modelo.Restaurant;
 
@@ -16,9 +17,11 @@ class TestUsers {
 	
 	@BeforeEach
 	void initialize(){
-		/*
-		Category category = new Category();
+		
+		/*Category category = new Category();
 		category.setName("Bar-Pub");
+		
+		MenuType = mt = new MenuType("Menu infantil");
 		
 		Menu menu = new Menu();
 		menu.addDish(dish);

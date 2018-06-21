@@ -10,6 +10,10 @@ public class MenuType {
 	
 	private String name;
 
+	public MenuType(String name) {
+		this.name = name;
+	}
+	
 	public String getNombre() { return name;}
 	public void setNombre(String name) { this.name = name;}
 }
