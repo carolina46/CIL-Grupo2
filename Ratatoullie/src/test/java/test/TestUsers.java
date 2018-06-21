@@ -40,8 +40,8 @@ class TestUsers {
 		restaurant.addMenu(menu);
 		
 		Responsible responsible = new Responsible("Juan Mmarcelo", "juan","1234");
-		responsible.
-		*/
+		responsible.*/
+		
 		
 		
 	}
