@@ -1,4 +1,5 @@
 package modelo;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -15,6 +16,11 @@ public class Menu {
 	private List<Tag> tags; // Lista de Tag? puede tener mas de 1??
 	private MenuType menuType;
 	
+	public Menu(MenuType menuType) {
+		this.dishes = new ArrayList<Dish>();
+		this.tags = new ArrayList<Tag>();
+		this.menuType = menuType; 
+	}
 	
 	//Methods associated with menuType
 	public MenuType getMenuType() {return menuType;}

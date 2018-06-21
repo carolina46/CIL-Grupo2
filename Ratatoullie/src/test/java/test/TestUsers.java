@@ -5,13 +5,30 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import modelo.Category;
+import modelo.Client;
+import modelo.Menu;
+import modelo.Responsible;
+import modelo.Restaurant;
+
 
 class TestUsers {
 	
 	@BeforeEach
 	void initialize(){
-	//	Client c =  new Client("Juan Mmarcelo", "juan","1234");
-		//crear un usuario
+		/*
+		Category category = new Category();
+		category.setName("Bar-Pub");
+		
+		Menu menu = new Menu();
+		menu.addDish(dish);
+		
+		Restaurant r = new Restaurant();
+		r.setName("Antares");
+		r.setCategory(category);
+		r.setMenus(menus);
+		Responsible r = new Responsible("Juan Mmarcelo", "juan","1234");
+		*/
 		
 	}
 
@@ -22,6 +39,7 @@ class TestUsers {
 		//for 1e to 50
 			//crear comentario
 			//imprimir ranking en pantalla
+		
 	}
 
 }
