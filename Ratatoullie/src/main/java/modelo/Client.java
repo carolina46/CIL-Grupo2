@@ -1,6 +1,7 @@
 package modelo;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 public abstract class Client extends User {
@@ -13,7 +14,11 @@ public abstract class Client extends User {
 	
 	public Client(String fullName, String user, String password) {
 		super(fullName, user, password);
-		// TODO Auto-generated constructor stub
+		this.ranking = new Visitor(); //This is the Initial Ranking
+		this.friends = new ArrayList<Client>();
+		this.votes = new ArrayList<Vote>();
+		this.comments = new ArrayList<Comment>();
+		this.recomendations = new ArrayList<Recommendation>();
 	}
 	
 	public List<Comment> getComments() {
