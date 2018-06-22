@@ -35,10 +35,10 @@ public class SystemRatatouille {
 	
 	//Methods associated with Users
 	public List<User> getUsers() { return users;}
+	public void addUser(User user) {this.users.add(user);}
+	public int numberOfUsers() {return this.users.size();}
 	
-	public void addUser(User user) {
-		this.users.add(user);
-		}
+	
 	
 	public void setUsers(List<User> users) {this.users = users;}
 		
