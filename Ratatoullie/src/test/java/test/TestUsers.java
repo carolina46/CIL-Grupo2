@@ -2,6 +2,8 @@ package test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.ArrayList;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -12,6 +14,8 @@ import modelo.Menu;
 import modelo.MenuType;
 import modelo.Responsible;
 import modelo.Restaurant;
+import modelo.SystemRatatouille;
+import modelo.User;
 
 
 class TestUsers {
@@ -43,6 +47,8 @@ class TestUsers {
 		responsible.addRestaurant(restaurant);
 		
 		//NOTHING
+		ArrayList<User> usersList = (ArrayList<User>) SystemRatatouille.getSystemInstance().getUsers();
+		
 		
 	}
 
