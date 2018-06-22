@@ -18,9 +18,9 @@ class TestUsers {
 	
 	@BeforeEach
 	void initialize(){
-		/*
+		
 		//Create a Dish
-		Dish dish = new Dish("Milanesas","Milanesas con papas fritas y un muñequito de regalo","/resources/01_01_mila.jpg");
+		Dish dish = new Dish("Milanesas","Milanesas con papas fritas y un muï¿½equito de regalo","/resources/01_01_mila.jpg");
 		
 		//Createa MenuType
 		MenuType mt = new MenuType("Menu infantil");
@@ -40,7 +40,7 @@ class TestUsers {
 		restaurant.addMenu(menu);
 		
 		Responsible responsible = new Responsible("Juan Mmarcelo", "juan","1234");
-		responsible.*/
+		responsible.addRestaurant(restaurant);
 		
 		//NOTHING
 		
