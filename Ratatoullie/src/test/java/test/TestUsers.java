@@ -57,9 +57,10 @@ class TestUsers {
 				
 		ArrayList<User> usersList = (ArrayList<User>) SystemRatatouille.getSystemInstance().getUsers();
 		Iterator<User> it = usersList.iterator();
-		User user = it.next();
+		
 		boolean userFound = false;
-		while(!userFound) {
+		while(!userFound && it.hasNext()) {
+			User user = it.next();
 			if(user.getUser().equals(responsible.getUser())) {
 				userFound = true;
 			}

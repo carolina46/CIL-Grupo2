@@ -1,5 +1,6 @@
 package modelo;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -15,7 +16,10 @@ public class SystemRatatouille {
 	private static SystemRatatouille uniqueSystem;
 		
 	//Private constructor, do not allow to generate default constructor.
-	private SystemRatatouille() {}
+	private SystemRatatouille() {
+		this.users = new ArrayList<User>();
+		this.restaurants = new ArrayList<Restaurant>();
+	}
 	
 	///get a system instance
 	public static SystemRatatouille getSystemInstance() {
