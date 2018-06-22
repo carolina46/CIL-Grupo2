@@ -15,6 +15,14 @@ public class Restaurant {
 	private Category category;
 	private List<Menu> menus;
 	
+		
+	public Restaurant(String name, Category category) {
+		super();
+		this.name = name;
+		this.category = category;
+		this.menus = new ArrayList<Menu>();
+	}
+
 	public Restaurant() {
 		this.menus = new ArrayList<Menu>();
 	}
