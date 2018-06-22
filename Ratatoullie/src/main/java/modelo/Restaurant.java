@@ -1,5 +1,6 @@
 package modelo;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -14,7 +15,10 @@ public class Restaurant {
 	private Category category;
 	private List<Menu> menus;
 	
-	
+	public Restaurant() {
+		this.menus = new ArrayList<Menu>();
+	}
+		
 	//Methods associated with name
 	public String getName() { return name;}
 	public void setName(String name) { this.name = name;}
