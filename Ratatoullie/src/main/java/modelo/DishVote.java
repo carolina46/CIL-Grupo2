@@ -8,7 +8,13 @@ package modelo;
  *
  */
 public class DishVote extends Vote{
+	
 	private Dish dish;
+	
+	public DishVote(Dish dish, Integer value) {
+		super(value);
+		this.dish = dish;
+	}
 
 	public Dish getDish() {
 		return dish;

@@ -22,6 +22,11 @@ public abstract class Vote {
 	 * A value of 0 cannot be assigned, it means there is no vote (0 Stars will not be possible)
 	 * */
 
+	protected Vote(Integer value) {
+		super();
+		this.value = value;
+	}
+	
 	public Integer getValue() {
 		return value;
 	}
