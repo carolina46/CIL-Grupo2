@@ -31,7 +31,7 @@ class SystemRatatoullieTest {
 		
 		//A restaurant
 		category = new Category("fast Food");
-		restaurant_1= new Restaurant("McDonals", category, "neverLand");
+		restaurant_1= new Restaurant("McDonals", category, "Boulevard of Broken Dreams");
 		responsible_1.addRestaurant(restaurant_1);
 		sys.addRestaurant(restaurant_1);
 		
@@ -86,10 +86,10 @@ class SystemRatatoullieTest {
 		@Test
 		void commentNotExistTest() {
 			normal_1.comment("The food is horrible", restaurant_1);
-			assertTrue(normal_1.totalOfComments() == 1);
+			assertTrue(normal_1.numberOfComments() == 1);
 			
 			sys.deleteRestaurant(restaurant_1);
-			assertTrue(normal_1.totalOfComments() == 0);
+			assertTrue(normal_1.numberOfComments() == 0);
 		}
 	
 	
