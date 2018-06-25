@@ -16,7 +16,7 @@ public class Visitor extends Ranking {
 	 */
 	@Override
 	public void updateRanking(Client c) {
-		if(c.totalOfComments()>19) {
+		if(c.numberOfComments()>19) {
 			c.setRanking(new Comensal());
 			
 		}

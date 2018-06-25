@@ -15,8 +15,9 @@ public class Restaurant {
 	private Category category;
 	private List<Menu> menus;
 	private String location;
+	private List<Comment> comments;
 	
-		
+
 	public Restaurant(String name, Category category, String location) {
 		super();
 		this.name = name;
@@ -42,10 +43,15 @@ public class Restaurant {
 	public void setMenus(List<Menu> menus) {this.menus = menus;}
 	public void addMenu(Menu m) { this.menus.add(m);}
 
+	public String getLocation() {	return location;}
+	public void setLocation(String location) {	this.location = location;}
+	
+
+	public List<Comment> getComments() { return comments;}
+	public void setComments(List<Comment> comments) {	this.comments = comments;}
+	
 	public int numberOfComments() {
-		
-		// Returns the number of comments
-		return 0;
+		return comments.size();
 	}
 }
 	

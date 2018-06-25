@@ -28,7 +28,7 @@ public abstract class Client extends User {
 		this.comments = comments;
 	}
 
-	public int totalOfComments() {
+	public int numberOfComments() {
 		return comments.size();
 	}
 

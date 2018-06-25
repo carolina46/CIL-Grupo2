@@ -17,10 +17,10 @@ public class Comensal extends Ranking {
 	 */
 	@Override
 	public void updateRanking(Client c) {
-		if(c.totalOfComments()>39) 
+		if(c.numberOfComments()>39) 
 			c.setRanking(new Gourmet());
 		else
-			if(c.totalOfComments()<20)
+			if(c.numberOfComments()<20)
 				c.setRanking(new Visitor());
 	}
 
