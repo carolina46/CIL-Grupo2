@@ -31,7 +31,7 @@ class SystemRatatoullieTest {
 		
 		//A restaurant
 		category = new Category("fast Food");
-		restaurant_1= new Restaurant("McDonals", category);
+		restaurant_1= new Restaurant("McDonals", category, "neverLand");
 		responsible_1.addRestaurant(restaurant_1);
 		sys.addRestaurant(restaurant_1);
 		
