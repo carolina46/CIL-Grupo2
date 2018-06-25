@@ -26,7 +26,7 @@ class SystemRatatoullieTest {
 		sys.addUser(normal_1);
 		
 		//A responsible user
-		responsible_1= new Responsible("Pepa", "Pepa001", "1234");
+		responsible_1= new Responsible("Colorete", "Colorete01", "passColorete1234");
 		sys.addUser(responsible_1);
 		
 		//A restaurant
@@ -54,17 +54,17 @@ class SystemRatatoullieTest {
 	
 
 	
-	
+	//This test checks that the username is unique in the system
 	@Test
 	void userNameIsUniqueTest() {
-		Normal normal_2=new Normal("Marta", "marta001", "1234");
-		Normal normal_3=new Normal("Pepa", "Pepa001", "1234");
+		Normal normal_2=new Normal("Marta", "marta001", "1234"); //new username 
+		Normal normal_3=new Normal("Petra", "Pepa001", "1234");	//repeated username
 		
-		//queremos agregar un usuario nuevo y uno repetido ¿para verificar trows o mensaje?
-		/*
-		assertTrows(sys.add(normal_2));
-		assertTrows(sys.add(normal_3));
-			*/			
+		sys.addUser(normal_2);
+		assertTrue(sys.numberOfUsers() == 3);
+		
+		sys.addUser(normal_3);
+		assertTrue(sys.numberOfUsers() == 3);
 	}
 	
 
