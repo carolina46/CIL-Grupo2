@@ -39,5 +39,11 @@ public class Restaurant {
 	public List<Menu> getMenus() { return this.menus;}
 	public void setMenus(List<Menu> menus) {this.menus = menus;}
 	public void addMenu(Menu m) { this.menus.add(m);}
+
+	public int numberOfComments() {
+		
+		// Returns the number of comments
+		return 0;
+	}
 }
 	

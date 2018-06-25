@@ -69,10 +69,14 @@ class SystemRatatoullieTest {
 	
 
 
+	//this test verifies that a comment continues to exist even if the user who created it has been eliminated
 	@Test
 	void commentsContinueExistTest() {
-		//agregar comentarios a un restaurante y luego eliminar la persona qe lo hizo
-		//comprobar que el comentario aun existe			
+		normal_1.comment("good restaurant", restaurant_1);
+		assertTrue(restaurant_1.numberOfComments() == 1);
+		
+		sys.deleteUser(normal_1);
+		assertTrue(restaurant_1.numberOfComments() == 1);
 	}
 
 	
