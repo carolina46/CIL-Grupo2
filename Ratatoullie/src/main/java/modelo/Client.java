@@ -68,11 +68,7 @@ public abstract class Client extends User {
 	public void comment(String comment, Restaurant restaurant) {
 		//Creates a comment for a restaurant and adds it to the list of comments
 		
-		Comment c = new Comment();
-		LocalDateTime date = LocalDateTime.now();
-		c.setDate(date);
-		c.setDescription(comment);
-		this.getComments().add(c);
+		Comment c = new Comment(comment,restaurant);
 		
 		//update my position in the ranking
 		this.ranking.updateRanking(this);
