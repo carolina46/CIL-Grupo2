@@ -45,5 +45,20 @@ public class SystemRatatouille {
 	//Methods associated with restaurants
 	public List<Restaurant> getRestaurants() { return this.restaurants;}
 	public void setRestaurants(List<Restaurant> restaurants) {this.restaurants = restaurants;}
-	public void addRestaurant(Restaurant restaurant) {this.restaurants.add(restaurant);}	
+	public void addRestaurant(Restaurant restaurant) {this.restaurants.add(restaurant);}
+	public int numberOfRestaurants() { return this.restaurants.size();}
+	
+	public void deleteRestaurant(Restaurant restaurant_1) {
+		
+		//Must delete the restaurant passed as a parameter 
+		
+	}
+
+	public void deleteUser(User normal_1) {
+		
+		//Must delete the User passed as a parameter
+		
+	}
+
+		
 }
