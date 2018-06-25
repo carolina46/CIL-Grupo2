@@ -11,6 +11,11 @@ public class MenuVote extends Vote {
 	
 	private Menu menu;
 
+	public MenuVote(Menu menu, Integer value) {
+		super(value);
+		this.menu = menu;
+	}
+
 	public Menu getMenu() {
 		return menu;
 	}

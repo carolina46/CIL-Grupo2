@@ -10,7 +10,11 @@ package modelo;
 public class RestaurantVote extends Vote {
 	
 	private Restaurant restaurant;
-	
+		
+	public RestaurantVote(Restaurant restaurant, Integer value) {
+		super(value);
+		this.restaurant = restaurant;
+	}
 
 	public Restaurant getRestaurant() {	return restaurant;	}
 
