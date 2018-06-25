@@ -35,14 +35,8 @@ class UserTest {
 		menu.addDish(dish);
 						
 		//Create a Category
-<<<<<<< HEAD:Ratatoullie/src/test/java/test/TestUsers.java
 		Category category = new Category("Bar-Pub");
-				
-=======
-		Category category = new Category();
-		category.setName("Bar-Pub");
-						
->>>>>>> 17006c73ed5b542147a5feeb0512255354cf3218:Ratatoullie/src/test/java/test/UserTest.java
+
 		//Create a Restaurant of the Category with the previously created Menu
 		Restaurant restaurant = new Restaurant();
 		restaurant.setName("Antares");
