@@ -1,5 +1,7 @@
 package test;
 
+import static org.junit.Assert.assertTrue;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -8,18 +10,24 @@ import org.junit.jupiter.api.Test;
 
 import org.junit.Assert;
 import modelo.Category;
+import modelo.Comensal;
 import modelo.Dish;
+import modelo.Gourmet;
 import modelo.Menu;
 import modelo.MenuType;
+import modelo.Normal;
 import modelo.Responsible;
 import modelo.Restaurant;
 import modelo.SystemRatatouille;
 import modelo.User;
+import modelo.Visitor;
 
 
 class UserTest {
 	
 	Responsible responsible;
+	Normal normal;
+	Restaurant restaurant;
 	
 	@BeforeEach
 	void initialize(){
@@ -38,13 +46,13 @@ class UserTest {
 		Category category = new Category("Bar-Pub");
 
 		//Create a Restaurant of the Category with the previously created Menu
-		Restaurant restaurant = new Restaurant();
-		restaurant.setName("Antares");
-		restaurant.setCategory(category);
+		restaurant = new Restaurant("Antares", category, "9 entre 39 y 38");
 		restaurant.addMenu(menu);
 						
 		responsible = new Responsible("Juan Mmarcelo", "juan","1234");
 		responsible.addRestaurant(restaurant);
+		
+		normal= new Normal("Titi suarez", "ElTiTi", "titiPass");
 	}
 
 	@Test
@@ -66,5 +74,51 @@ class UserTest {
 		}
 		Assert.assertNotNull(responsible);		
 	}
+	
+	
+	//verify correct initial Ranking and ranking changes
+	@Test
+	void checkRankingTest() {	
+		
+		assertTrue(normal.getRanking() instanceof  Visitor);
+		
+		
+		for(int i=1; i<21;i++)
+			normal.comment("MyComment#"+i, restaurant);
+		
+		assertTrue(normal.getRanking() instanceof  Comensal);
+		
+		
+		normal.deleteComment("MyComment#20", restaurant);
+		
+		assertTrue(normal.getRanking() instanceof  Visitor);
+		
+		
+		for(int i=20; i<41;i++)
+			normal.comment("MyComment#"+i, restaurant);
+		
+		assertTrue(normal.getRanking() instanceof  Gourmet);
+		
+		normal.deleteComment("MyComment#40", restaurant);
+		
+		assertTrue(normal.getRanking() instanceof  Comensal);
+		
+				
+	}
+	
+	
+	//Check the comments of a responsible (no comments are allowed to restaurants less than one km away)
+	@Test
+	void responsibleCommentTest(){
+		Restaurant restaurat_2  =new Restaurant("Grido", new Category("ice cream shop"), "51 entre 8 y 9");
+		Responsible responsible_2= new Responsible("Don Grido", "superGrido", "gridoPass");
+		responsible.addRestaurant(restaurat_2);
+		
+		responsible_2.comment("Not bad", restaurant);
+		assertTrue(restaurant.numberOfComments() == 0);
+						
+				
+	}
+	
 
 }

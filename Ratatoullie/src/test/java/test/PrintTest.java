@@ -7,8 +7,6 @@ import java.time.format.DateTimeFormatter;
 public class PrintTest {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		
 		LocalDateTime date = LocalDateTime.now();
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm:ss");
 		String formattedDate = date.format(formatter);

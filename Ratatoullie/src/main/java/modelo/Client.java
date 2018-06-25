@@ -1,6 +1,5 @@
 package modelo;
 
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -69,9 +68,15 @@ public abstract class Client extends User {
 		//Creates a comment for a restaurant and adds it to the list of comments
 		
 		Comment c = new Comment(comment,restaurant);
+		this.comments.add(c);
 		
 		//update my position in the ranking
 		this.ranking.updateRanking(this);
 	}
 
+	public void deleteComment(String comment, Restaurant restaurant) {
+		
+		//1- delete an existing comment
+		//2- update my position in the ranking
+	}
 }
