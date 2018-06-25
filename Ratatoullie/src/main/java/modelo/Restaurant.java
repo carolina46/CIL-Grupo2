@@ -14,13 +14,15 @@ public class Restaurant {
 	private String name;
 	private Category category;
 	private List<Menu> menus;
+	private String location;
 	
 		
-	public Restaurant(String name, Category category) {
+	public Restaurant(String name, Category category, String location) {
 		super();
 		this.name = name;
 		this.category = category;
 		this.menus = new ArrayList<Menu>();
+		this.location=location;
 	}
 
 	public Restaurant() {

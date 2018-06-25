@@ -46,9 +46,7 @@ class UserTest {
 		Category category = new Category("Bar-Pub");
 
 		//Create a Restaurant of the Category with the previously created Menu
-		restaurant = new Restaurant();
-		restaurant.setName("Antares");
-		restaurant.setCategory(category);
+		restaurant = new Restaurant("Antares", category, "9 entre 39 y 38");
 		restaurant.addMenu(menu);
 						
 		responsible = new Responsible("Juan Mmarcelo", "juan","1234");
@@ -105,6 +103,20 @@ class UserTest {
 		
 		assertTrue(normal.getRanking() instanceof  Comensal);
 		
+				
+	}
+	
+	
+	//Check the comments of a responsible (no comments are allowed to restaurants less than one km away)
+	@Test
+	void responsibleCommentTest(){
+		Restaurant restaurat_2  =new Restaurant("Grido", new Category("ice cream shop"), "51 entre 8 y 9");
+		Responsible responsible_2= new Responsible("Don Grido", "superGrido", "gridoPass");
+		responsible.addRestaurant(restaurat_2);
+		
+		responsible_2.comment("Not bad", restaurant);
+		assertTrue(restaurant.numberOfComments() == 0);
+						
 				
 	}
 	
