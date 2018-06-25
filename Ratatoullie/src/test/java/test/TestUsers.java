@@ -43,8 +43,7 @@ class TestUsers {
 		menu.addDish(dish);
 				
 		//Create a Category
-		Category category = new Category();
-		category.setName("Bar-Pub");
+		Category category = new Category("Bar-Pub");
 				
 		//Create a Restaurant of the Category with the previously created Menu
 		Restaurant restaurant = new Restaurant();
