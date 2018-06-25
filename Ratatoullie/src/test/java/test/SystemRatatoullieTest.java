@@ -69,16 +69,29 @@ class SystemRatatoullieTest {
 	
 
 
-	//this test verifies that a comment continues to exist even if the user who created it has been eliminated
+	//this test checks that a comment continues to exist even if the user who created it has been eliminated
+	//DeleteUserTest
 	@Test
-	void commentsContinueExistTest() {
+	void commentContinueExistTest() {
 		normal_1.comment("good restaurant", restaurant_1);
 		assertTrue(restaurant_1.numberOfComments() == 1);
 		
 		sys.deleteUser(normal_1);
 		assertTrue(restaurant_1.numberOfComments() == 1);
 	}
-
+	
+	
+	//this test checks that a comment no longer exists when their restaurant is deleted
+	//DeleteRestaurantTest
+		@Test
+		void commentNotExistTest() {
+			normal_1.comment("The food is horrible", restaurant_1);
+			assertTrue(normal_1.totalOfComments() == 1);
+			
+			sys.deleteRestaurant(restaurant_1);
+			assertTrue(normal_1.totalOfComments() == 0);
+		}
+	
 	
 	
 }
