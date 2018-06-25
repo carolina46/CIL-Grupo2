@@ -2,8 +2,6 @@ package test;
 
 import modelo.*;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -31,7 +29,7 @@ class SystemRatatoullieTest {
 		Normal normal_2=new Normal("Marta", "marta001", "1234");
 		Normal normal_3=new Normal("Pepa", "Pepa001", "1234");
 		
-		//queremos agregar un usuario nuevo y uno repetido ¿para verificar trows o mensaje?
+		//queremos agregar un usuario nuevo y uno repetido ï¿½para verificar trows o mensaje?
 		/*
 		assertTrows(sys.add(normal_2));
 		assertTrows(sys.add(normal_3));
