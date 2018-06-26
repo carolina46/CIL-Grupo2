@@ -13,17 +13,17 @@ import modelo.Normal;
 import modelo.Restaurant;
 
 
-class RakingTest {
+class RakingTest{
 
-	private Normal normal;
-	private Restaurant restaurant;
+	Normal normal;
+	Restaurant restaurant;
 	
-	@Before
-	void setUp(){
+	@Before 
+	public void setUp(){
 		//System.out.println("init()");
 		
-		normal = new Normal("Juan Dominguez", "juan", "juan1234");
-		restaurant = new Restaurant();
+		this.normal = new Normal("Juan Dominguez", "juan", "juan1234");
+		this.restaurant = new Restaurant();
 	}
 	
 	@Test
@@ -34,7 +34,7 @@ class RakingTest {
 			normal.comment("comentario"+ i, restaurant);
 			System.out.println("Execution number"+ i);
 			if(i == 20)
-				assertEquals(Comensal.class,normal.getRanking().getClass());break; //when comments reach 20 Ranking changes to Comensal
+				assertEquals(Comensal.class,normal.getRanking().getClass()); //when comments reach 20 Ranking changes to Comensal
 		}
 	}
 	
@@ -47,7 +47,7 @@ class RakingTest {
 			normal.comment("comentario"+ i, restaurant);
 			System.out.println("Execution number"+ i);
 			if(i==40)
-				assertEquals(Gourmet.class,normal.getRanking().getClass());break; //when comments reach 40 Ranking changes to Gourmet	
+				assertEquals(Gourmet.class,normal.getRanking().getClass()); //when comments reach 40 Ranking changes to Gourmet	
 		}
 	}
 	
