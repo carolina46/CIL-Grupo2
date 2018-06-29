@@ -7,25 +7,31 @@ public abstract class Client extends User {
 
 	private Ranking ranking;
 	private List<Client> friends;
-	private List<Vote> votes;
+	private List<DishVote> dishVotes;
+	private List<MenuVote> menuVotes;
+	private List<RestaurantVote> restaurantVotes;
 	private List<Comment> comments;
-	private List<Recommendation> recomendations;
+	private List<DishRecommendation> dishRecommendations;
+	private List<MenuRecommendation> menuRecommendations;
+	private List<RestaurantRecommendation> restaurantRecommendations;
+	
 	
 	public Client(String fullName, String user, String password) {
 		super(fullName, user, password);
 		this.ranking = new Visitor(); //This is the Initial Ranking
 		this.friends = new ArrayList<Client>();
-		this.votes = new ArrayList<Vote>();
 		this.comments = new ArrayList<Comment>();
-		this.recomendations = new ArrayList<Recommendation>();
+		this.dishVotes = new ArrayList<DishVote>();
+		this.menuVotes = new ArrayList<MenuVote>();
+		this.restaurantVotes = new ArrayList<RestaurantVote>();
+		this.dishRecommendations = new ArrayList<DishRecommendation>();
+		this.menuRecommendations = new ArrayList<MenuRecommendation>();
+		this.restaurantRecommendations = new ArrayList<RestaurantRecommendation>();
 	}
+	
 	
 	public List<Comment> getComments() {
 		return comments;
-	}
-
-	public void setComments(List<Comment> comments) {
-		this.comments = comments;
 	}
 
 	public int numberOfComments() {
@@ -40,14 +46,7 @@ public abstract class Client extends User {
 		this.ranking = ranking;
 	}
 
-	public List<Recommendation> getRecomendations() {
-		return recomendations;
-	}
-
-	public void setRecomendations(List<Recommendation> recomendations) {
-		this.recomendations = recomendations;
-	}
-
+	
 	public List<Client> getFriends() {
 		return friends;
 	}
@@ -56,13 +55,32 @@ public abstract class Client extends User {
 		this.friends = friends;
 	}
 
-	public List<Vote> getVotes() {
-		return votes;
-	}
+	
+	public List<DishVote> getDishVotes() { return dishVotes;}
 
-	public void setVotes(List<Vote> votes) {
-		this.votes = votes;
-	}
+	public void addDishVote(DishVote dishVote) { this.dishVotes.add(dishVote);}
+
+	public List<MenuVote> getMenuVotes() { return menuVotes;}
+
+	public void addMenuVotes(MenuVote menuVote) {this.menuVotes.add(menuVote);}
+
+	public List<RestaurantVote> getRestaurantVotes() { return restaurantVotes;}
+
+	public void addRestaurantVotes(RestaurantVote restaurantVote) {	this.restaurantVotes.add(restaurantVote);}
+
+	public List<DishRecommendation> getDishRecommendations() { return dishRecommendations;}
+
+	public void addDishRecommendations(DishRecommendation dishRecommendation) { this.dishRecommendations.add(dishRecommendation);}
+
+	public List<MenuRecommendation> getMenuRecommendations() { return menuRecommendations;}
+
+	public void addMenuRecommendations(MenuRecommendation menuRecommendation) { this.menuRecommendations.add(menuRecommendation);}
+
+	public List<RestaurantRecommendation> getRestaurantRecommendations() {return restaurantRecommendations;	}
+
+	public void addRestaurantRecommendations(RestaurantRecommendation restaurantRecommendation) { this.restaurantRecommendations.add(restaurantRecommendation);	}
+
+			
 	
 	public void comment(String comment, Restaurant restaurant) {
 		//Creates a comment for a restaurant and adds it to the list of comments
