@@ -13,6 +13,7 @@ import modelo.Category;
 import modelo.Comensal;
 import modelo.Dish;
 import modelo.Gourmet;
+import modelo.Location;
 import modelo.Menu;
 import modelo.MenuType;
 import modelo.Normal;
@@ -46,13 +47,16 @@ class UserTest {
 		Category category = new Category("Bar-Pub");
 
 		//Create a Restaurant of the Category with the previously created Menu
-		restaurant = new Restaurant("Antares", category, "9 entre 39 y 38");
+		Location restaurantLocation = new Location(0d, 0d);
+		restaurant = new Restaurant("Antares", category, restaurantLocation);
 		restaurant.addMenu(menu);
-						
-		responsible = new Responsible("Juan Mmarcelo", "juan","1234");
+					
+		Location responsibleLocation = new Location(0d, 0d);
+		responsible = new Responsible("Juan Mmarcelo", "juan","1234", responsibleLocation);
 		responsible.addRestaurant(restaurant);
 		
-		normal= new Normal("Titi suarez", "ElTiTi", "titiPass");
+		Location normalLocation = new Location(0d, 0d);
+		normal= new Normal("Titi suarez", "ElTiTi", "titiPass", normalLocation);
 	}
 
 	@Test
@@ -110,8 +114,10 @@ class UserTest {
 	//Check the comments of a responsible (no comments are allowed to restaurants less than one km away)
 	@Test
 	void responsibleCommentTest(){
-		Restaurant restaurat_2  =new Restaurant("Grido", new Category("ice cream shop"), "51 entre 8 y 9");
-		Responsible responsible_2= new Responsible("Don Grido", "superGrido", "gridoPass");
+		Location resutantLocation2 = new Location(0d,0d);
+		Restaurant restaurat_2  =new Restaurant("Grido", new Category("ice cream shop"), resutantLocation2);
+		Location responsibleLocation2 = new Location(0d,0d);
+		Responsible responsible_2= new Responsible("Don Grido", "superGrido", "gridoPass", responsibleLocation2);
 		responsible.addRestaurant(restaurat_2);
 		
 		responsible_2.comment("Not bad", restaurant);
