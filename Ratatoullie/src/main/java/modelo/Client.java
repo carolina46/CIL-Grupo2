@@ -5,6 +5,7 @@ import java.util.List;
 
 public abstract class Client extends User {
 
+	private Location location;
 	private Ranking ranking;
 	private List<Client> friends;
 	private List<DishVote> dishVotes;
@@ -29,6 +30,13 @@ public abstract class Client extends User {
 		this.restaurantRecommendations = new ArrayList<RestaurantRecommendation>();
 	}
 	
+	public Location getLocation() {
+		return location;
+	}
+
+	public void setLocation(Location location) {
+		this.location = location;
+	}
 	
 	public List<Comment> getComments() {
 		return comments;

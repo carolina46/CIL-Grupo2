@@ -14,16 +14,15 @@ public class Restaurant {
 	private String name;
 	private Category category;
 	private List<Menu> menus;
-	private String location;
+	private Location location;
 	private List<Comment> comments;
-	
 
-	public Restaurant(String name, Category category, String location) {
+	public Restaurant(String name, Category category, Location location) {
 		super();
 		this.name = name;
 		this.category = category;
 		this.menus = new ArrayList<Menu>();
-		this.location=location;
+		this.location = location;
 	}
 
 	public Restaurant() {
@@ -43,8 +42,8 @@ public class Restaurant {
 	public void setMenus(List<Menu> menus) {this.menus = menus;}
 	public void addMenu(Menu m) { this.menus.add(m);}
 
-	public String getLocation() {	return location;}
-	public void setLocation(String location) {	this.location = location;}
+	public Location getLocation() {	return location;}
+	public void setLocation(Location location) {	this.location = location;}
 	
 
 	public List<Comment> getComments() { return comments;}
