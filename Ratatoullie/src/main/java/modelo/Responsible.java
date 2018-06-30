@@ -13,6 +13,7 @@ import java.util.List;
 public class Responsible extends Client{
 	
 	private List<Restaurant> restaurants;
+	private CommentFilter filter;
 
 	public Responsible(String fullName, String user, String password, Location location) {
 		super(fullName, user, password, location);
@@ -28,5 +29,13 @@ public class Responsible extends Client{
 	}
 
 	public void addRestaurant(Restaurant restaurant) { this.restaurants.add(restaurant); }
+
+	public CommentFilter getFilter() {
+		return filter;
+	}
+
+	public void setFilter(CommentFilter filter) {
+		this.filter = filter;
+	}
 
 }
