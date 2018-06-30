@@ -21,17 +21,21 @@ class SystemRatatoullieTest {
 	void setUp() throws Exception {
 		sys= SystemRatatouille.getSystemInstance();
 		
+		Location locationNormal = new Location(0d,0d);
+		Location locationResponsible = new Location(100d,100d);
+		Location locationRestaurant = new Location(500d,500d);
+		
 		//A normal user
-		normal_1= new Normal("Pepa", "Pepa001", "1234");
+		normal_1= new Normal("Pepa", "Pepa001", "1234", locationNormal);
 		sys.addUser(normal_1);
 		
 		//A responsible user
-		responsible_1= new Responsible("Colorete", "Colorete01", "passColorete1234");
+		responsible_1= new Responsible("Colorete", "Colorete01", "passColorete1234", locationResponsible);
 		sys.addUser(responsible_1);
 		
 		//A restaurant
 		category = new Category("fast Food");
-		restaurant_1= new Restaurant("McDonals", category, "Boulevard of Broken Dreams");
+		restaurant_1= new Restaurant("McDonals", category, locationRestaurant);
 		responsible_1.addRestaurant(restaurant_1);
 		sys.addRestaurant(restaurant_1);
 		
@@ -42,7 +46,9 @@ class SystemRatatoullieTest {
 	@Test
 	void systemIsUniqueTest() {
 		SystemRatatouille sys2=	SystemRatatouille.getSystemInstance();
-		Normal normal_2= new Normal("Marta", "Marta57", "MartaPass");
+		
+		Location locationNormal2 = new Location(0d,0d);
+		Normal normal_2= new Normal("Marta", "Marta57", "MartaPass", locationNormal2);
 		
 		sys2.addUser(normal_2);
 		assertTrue(sys.numberOfUsers() == 3);
@@ -57,8 +63,10 @@ class SystemRatatoullieTest {
 	//This test checks that the username is unique in the system
 	@Test
 	void userNameIsUniqueTest() {
-		Normal normal_2=new Normal("Marta", "marta001", "1234"); //new username 
-		Normal normal_3=new Normal("Petra", "Pepa001", "1234");	//repeated username
+		Location locationNormal2 = new Location(0d,0d);
+		Normal normal_2=new Normal("Marta", "marta001", "1234", locationNormal2); //new username
+		Location locationNormal3 = new Location(0d,0d);
+		Normal normal_3=new Normal("Petra", "Pepa001", "1234", locationNormal3);	//repeated username
 		
 		sys.addUser(normal_2);
 		assertTrue(sys.numberOfUsers() == 3);
