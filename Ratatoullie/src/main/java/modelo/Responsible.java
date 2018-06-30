@@ -14,8 +14,8 @@ public class Responsible extends Client{
 	
 	private List<Restaurant> restaurants;
 
-	public Responsible(String fullName, String user, String password) {
-		super(fullName, user, password);
+	public Responsible(String fullName, String user, String password, Location location) {
+		super(fullName, user, password, location);
 		this.restaurants = new ArrayList<Restaurant>();
 	}
 	

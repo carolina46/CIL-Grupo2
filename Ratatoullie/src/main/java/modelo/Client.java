@@ -17,8 +17,9 @@ public abstract class Client extends User {
 	private List<RestaurantRecommendation> restaurantRecommendations;
 	
 	
-	public Client(String fullName, String user, String password) {
+	public Client(String fullName, String user, String password, Location location) {
 		super(fullName, user, password);
+		this.location = location;
 		this.ranking = new Visitor(); //This is the Initial Ranking
 		this.friends = new ArrayList<Client>();
 		this.comments = new ArrayList<Comment>();
