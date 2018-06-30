@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import modelo.Comensal;
 import modelo.Gourmet;
+import modelo.Location;
 import modelo.Normal;
 
 import modelo.Restaurant;
@@ -19,7 +20,9 @@ class RakingTest{
 	public static void setUp(){
 		System.out.println("init()");
 		
-		normal = new Normal("Juan Dominguez", "juan", "juan1234");
+		Location location = new Location(0d,0d);
+		
+		normal = new Normal("Juan Dominguez", "juan", "juan1234", location);
 		restaurant = new Restaurant();
 	}
 	
