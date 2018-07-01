@@ -1,9 +1,9 @@
 package modelo;
 
-public class VisitorFilter extends CommentFilter {
+public class VisitorFilter extends ConfigurationFilter {
 
 	@Override
-	public void agregar(CommentFilter c) {
+	public void agregar(ConfigurationFilter c) {
 		// TODO Auto-generated method stub
 		
 	}

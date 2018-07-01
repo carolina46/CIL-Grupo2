@@ -1,9 +1,9 @@
 package modelo;
 
-public class GourmetFilter extends CommentFilter {
+public class GourmetFilter extends ConfigurationFilter {
 
 	@Override
-	public void agregar(CommentFilter c) {
+	public void agregar(ConfigurationFilter c) {
 		// TODO Auto-generated method stub
 		
 	}

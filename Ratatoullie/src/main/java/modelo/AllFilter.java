@@ -2,21 +2,21 @@ package modelo;
 
 import java.util.ArrayList;
 
-public class AllFilter extends CommentFilter {
+public class AllFilter extends ConfigurationFilter {
 	
-	private ArrayList<CommentFilter> commentFilters = new ArrayList<CommentFilter>();
+	private ArrayList<ConfigurationFilter> commentFilters = new ArrayList<ConfigurationFilter>();
 	
 	@Override
-	public void agregar(CommentFilter commentFilter)
+	public void agregar(ConfigurationFilter commentFilter)
 	{
 		commentFilters.add(commentFilter);
 	}
 
-	public ArrayList<CommentFilter> getCommentFilters() {
+	public ArrayList<ConfigurationFilter> getCommentFilters() {
 		return commentFilters;
 	}
 
-	public void setCommentFilters(ArrayList<CommentFilter> commentFilters) {
+	public void setCommentFilters(ArrayList<ConfigurationFilter> commentFilters) {
 		this.commentFilters = commentFilters;
 	}
 

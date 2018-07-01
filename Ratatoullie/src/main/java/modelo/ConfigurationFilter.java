@@ -1,6 +1,6 @@
 package modelo;
 
-public abstract class CommentFilter {
+public abstract class ConfigurationFilter {
 	
 	public Restaurant restaurant;
 
@@ -12,5 +12,5 @@ public abstract class CommentFilter {
 		this.restaurant = restaurant;
 	}
 	
-	abstract public void agregar(CommentFilter c);
+	abstract public void agregar(ConfigurationFilter c);
 }
