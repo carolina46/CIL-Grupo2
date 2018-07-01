@@ -11,6 +11,4 @@ public abstract class ConfigurationFilter {
 	public void setRestaurant(Restaurant restaurant) {
 		this.restaurant = restaurant;
 	}
-	
-	abstract public void agregar(ConfigurationFilter c);
 }

@@ -16,6 +16,7 @@ public class Restaurant {
 	private List<Menu> menus;
 	private Location location;
 	private List<Comment> comments;
+	private ConfigurationFilter filter;
 
 	public Restaurant(String name, Category category, Location location) {
 		super();
@@ -23,6 +24,7 @@ public class Restaurant {
 		this.category = category;
 		this.menus = new ArrayList<Menu>();
 		this.location = location;
+		this.filter = new EmptyCF();//The First time it will have an EmptyCF which might be changed later
 	}
 
 	public Restaurant() {
@@ -48,6 +50,9 @@ public class Restaurant {
 
 	public List<Comment> getComments() { return comments;}
 	public void setComments(List<Comment> comments) {	this.comments = comments;}
+	
+	public ConfigurationFilter getFilter() {	return filter;	}
+	public void setFilter(ConfigurationFilter filter) {	this.filter = filter;	}
 	
 	public int numberOfComments() {
 		return comments.size();
