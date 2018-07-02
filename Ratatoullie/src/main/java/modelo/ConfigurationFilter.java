@@ -11,4 +11,6 @@ public abstract class ConfigurationFilter {
 	public void setRestaurant(Restaurant restaurant) {
 		this.restaurant = restaurant;
 	}
+
+	public abstract boolean confirm(Client client);
 }

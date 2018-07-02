@@ -14,11 +14,14 @@ public class Comment {
 	private String description;
 	private LocalDateTime date;
 	private Restaurant restaurant;
+	private boolean notified = false;
 	
-	public Comment(String description, Restaurant restaurant) {
+	public Comment(String description, Restaurant restaurant, Client client) {
 		this.description = description;
 		this.restaurant = restaurant;
-		date = LocalDateTime.now();
+		this.date = LocalDateTime.now();
+		restaurant.addComent(this,client);
+		this.notified = true;
 	}
 	
 	//Methods associated with Date
@@ -32,4 +35,12 @@ public class Comment {
 	//Methods associated with Restaurant
 	public Restaurant getRestaurant() {		return restaurant;	}
 	public void setRestaurant(Restaurant restaurant) {	this.restaurant = restaurant;	}
+
+	public boolean isNotified() {
+		return notified;
+	}
+
+	public void setNotified(boolean notified) {
+		this.notified = notified;
+	}
 }

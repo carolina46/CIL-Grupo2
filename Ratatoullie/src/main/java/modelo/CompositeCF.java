@@ -19,4 +19,10 @@ public class CompositeCF extends ConfigurationFilter {
 		this.configurationFilters = configurationFilter;
 	}
 
+	@Override
+	public boolean confirm(Client client) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }

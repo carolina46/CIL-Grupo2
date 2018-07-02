@@ -10,7 +10,7 @@ import java.util.List;
  */
 
 public class Restaurant {
-	
+
 	private String name;
 	private Category category;
 	private List<Menu> menus;
@@ -30,11 +30,11 @@ public class Restaurant {
 	public Restaurant() {
 		this.menus = new ArrayList<Menu>();
 	}
-		
+
 	//Methods associated with name
 	public String getName() { return name;}
 	public void setName(String name) { this.name = name;}
-	
+
 	//Methods associated with category
 	public Category getCategory() { return category;}
 	public void setCategory(Category category) {this.category = category;}
@@ -46,16 +46,29 @@ public class Restaurant {
 
 	public Location getLocation() {	return location;}
 	public void setLocation(Location location) {	this.location = location;}
-	
+
 
 	public List<Comment> getComments() { return comments;}
 	public void setComments(List<Comment> comments) {	this.comments = comments;}
-	
+
 	public ConfigurationFilter getFilter() {	return filter;	}
 	public void setFilter(ConfigurationFilter filter) {	this.filter = filter;	}
-	
+
 	public int numberOfComments() {
 		return comments.size();
+	}
+
+	public void addComent(Comment comment, Client client) {
+
+		if (this.filter.confirm(client)) {
+
+			this.comments.add(comment);
+
+		}else
+			System.out.println("No puede crear comentario");
+
+
+
 	}
 }
 	

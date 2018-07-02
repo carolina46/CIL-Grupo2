@@ -24,4 +24,22 @@ public class Comensal extends Ranking {
 				c.setRanking(new Visitor());
 	}
 
+	@Override
+	public boolean confirmVisitor() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean confirmGourmet() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean confirmCommensal() {
+		// TODO Auto-generated method stub
+		return true;
+	}
+
 }

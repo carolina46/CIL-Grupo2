@@ -14,5 +14,8 @@ public abstract class Ranking {
 	 * @param Receives the user to whom it belongs.
 	 */
 	public abstract void updateRanking(Client c);
+	public abstract boolean confirmVisitor();
+	public abstract boolean confirmGourmet();
+	public abstract boolean confirmCommensal();
 
 }

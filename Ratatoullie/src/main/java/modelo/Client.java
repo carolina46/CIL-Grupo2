@@ -94,7 +94,7 @@ public abstract class Client extends User {
 	public void comment(String comment, Restaurant restaurant) {
 		//Creates a comment for a restaurant and adds it to the list of comments
 		
-		Comment c = new Comment(comment,restaurant);
+		Comment c = new Comment(comment,restaurant,this);
 		this.comments.add(c);
 		
 		//update my position in the ranking
