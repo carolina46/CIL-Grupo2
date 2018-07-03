@@ -7,7 +7,16 @@ package modelo;
 
 public class Category {
 	
+	private Long oid;
 	private String name;
+	
+	public Long getOid() {
+		return oid;
+	}
+
+	public void setOid(Long oid) {
+		this.oid = oid;
+	}
 
 	public Category(String name) {
 		super();

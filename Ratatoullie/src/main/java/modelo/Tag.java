@@ -8,6 +8,7 @@ package modelo;
 
 public class Tag {
 	
+	private Long oid;
 	private String nombre;
 	
 	
@@ -15,6 +16,9 @@ public class Tag {
 		super();
 		this.nombre = nombre;
 	}
+	
+	public Long getOid() {	return oid;	}
+	public void setOid(Long oid) {	this.oid = oid;	}
 	
 	public String getNombre() { return nombre;}
 	public void setNombre(String nombre) {this.nombre = nombre;}

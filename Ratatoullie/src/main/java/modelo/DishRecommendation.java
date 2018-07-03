@@ -12,6 +12,7 @@ import java.util.List;
 
 public class DishRecommendation {
 	
+	private Long oid;
 	private Dish dish;
 	private String description;
 	private List<Client>	receivers;
@@ -23,6 +24,9 @@ public class DishRecommendation {
 		this.description = description;
 		this.receivers = receivers;
 	}
+	
+	public Long getOid() {	return oid;}
+	public void setOid(Long oid) {	this.oid = oid;}
 	
 	public Dish getDish() {	return dish;}
 	public void setDish(Dish dish) { this.dish = dish;}

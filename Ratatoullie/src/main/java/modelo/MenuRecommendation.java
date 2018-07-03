@@ -12,6 +12,7 @@ import java.util.List;
 
 public class MenuRecommendation {
 	
+	private Long oid;
 	private Menu menu;
 	private String description;
 	private List<Client>	receivers;
@@ -22,6 +23,9 @@ public class MenuRecommendation {
 		this.description = description;
 		this.receivers = receivers;
 	}
+	
+	public Long getOid() {return oid;}
+	public void setOid(Long oid) {	this.oid = oid;	}
 	
 	public Menu getMenu() {return menu;	}
 	public void setMenu(Menu menu) {this.menu = menu;}

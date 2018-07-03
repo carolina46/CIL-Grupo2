@@ -2,15 +2,14 @@ package modelo;
 
 
 /**
- * Represents a user of the system who can comment on a restaurant and vote or recommend a restaurant, menu or dish.
+ * Represents a user of the system. This is an abstract class. Actual class will be Administrator, Responsible or Normal.
  * 
  * @author CIL-Grupo2
  */
 
-
-public class User {
+public abstract class User {
 	
-	//Quitamos el fullName?, sería conveniente
+	private Long oid;
 	private String fullName;
 	private String user;
 	private String password;
@@ -19,6 +18,14 @@ public class User {
 		this.fullName = fullName;
 		this.user = user;
 		this.password = password;
+	}
+	
+	public Long getOid() {
+		return oid;
+	}
+
+	public void setOid(Long oid) {
+		this.oid = oid;
 	}
 	
 	public String getFullName() {

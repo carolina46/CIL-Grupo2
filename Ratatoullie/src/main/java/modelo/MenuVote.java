@@ -9,6 +9,7 @@ package modelo;
  */
 public class MenuVote {
 	
+	private Long oid;
 	private Menu menu;
 	private Integer value; 
 	/* 
@@ -27,6 +28,14 @@ public class MenuVote {
 		super();
 		this.menu = menu;
 		this.value=value;
+	}
+	
+	public Long getOid() {
+		return oid;
+	}
+
+	public void setOid(Long oid) {
+		this.oid = oid;
 	}
 
 	public Menu getMenu() {

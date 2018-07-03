@@ -12,8 +12,9 @@ import java.util.List;
 
 public class Menu {
 	
+	private Long oid;
 	private List<Dish> dishes;
-	private List<Tag> tags; // Lista de Tag? puede tener mas de 1??
+	private List<Tag> tags;
 	private MenuType menuType;
 	
 	public Menu(MenuType menuType) {
@@ -21,6 +22,9 @@ public class Menu {
 		this.tags = new ArrayList<Tag>();
 		this.menuType = menuType; 
 	}
+	
+	public Long getOid() {return oid;}
+	public void setOid(Long oid) {	this.oid = oid;}
 	
 	//Methods associated with menuType
 	public MenuType getMenuType() {return menuType;}

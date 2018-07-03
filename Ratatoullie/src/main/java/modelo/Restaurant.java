@@ -11,6 +11,7 @@ import java.util.List;
 
 public class Restaurant {
 
+	private Long oid;
 	private String name;
 	private Category category;
 	private List<Menu> menus;
@@ -30,6 +31,9 @@ public class Restaurant {
 	public Restaurant() {
 		this.menus = new ArrayList<Menu>();
 	}
+	
+	public Long getOid() {	return oid;	}
+	public void setOid(Long oid) {	this.oid = oid;	}
 
 	//Methods associated with name
 	public String getName() { return name;}

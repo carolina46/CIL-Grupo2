@@ -9,6 +9,7 @@ package modelo;
  */
 public class RestaurantVote {
 	
+	private Long oid;
 	private Restaurant restaurant;
 	private Integer value; 
 	/* 
@@ -23,13 +24,18 @@ public class RestaurantVote {
 	 * A value of 0 cannot be assigned, it means there is no vote (0 Stars will not be possible)
 	 * */
 
-	
-	
-	
 	public RestaurantVote(Restaurant restaurant, Integer value) {
 		super();
 		this.restaurant = restaurant;
 		this.value=value;
+	}
+	
+	public Long getOid() {
+		return oid;
+	}
+
+	public void setOid(Long oid) {
+		this.oid = oid;
 	}
 
 	public Restaurant getRestaurant() {	return restaurant;	}

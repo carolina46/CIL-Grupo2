@@ -9,6 +9,7 @@ package modelo;
  */
 public class DishVote {
 	
+	private Long oid;
 	private Dish dish;
 	private Integer value; 
 	/* 
@@ -27,6 +28,14 @@ public class DishVote {
 		super();
 		this.dish = dish;
 		this.value=value;
+	}
+	
+	public Long getOid() {
+		return oid;
+	}
+
+	public void setOid(Long oid) {
+		this.oid = oid;
 	}
 
 	public Dish getDish() {

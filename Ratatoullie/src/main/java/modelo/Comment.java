@@ -11,6 +11,7 @@ import java.time.LocalDateTime;
 
 public class Comment {
 
+	private Long oid;
 	private String description;
 	private LocalDateTime date;
 	private Restaurant restaurant;
@@ -23,6 +24,9 @@ public class Comment {
 		restaurant.addComent(this,client);
 		this.notified = true;
 	}
+	
+	public Long getOid() {	return oid;}
+	public void setOid(Long oid) {	this.oid = oid;}
 	
 	//Methods associated with Date
 	public LocalDateTime getDate() {	return date;}

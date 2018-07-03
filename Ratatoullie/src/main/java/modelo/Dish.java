@@ -11,6 +11,7 @@ import java.util.List;
 
 public class Dish {
 		
+	private Long oid;
 	private String name;
 	private String description;
 	private String picture;
@@ -23,6 +24,14 @@ public class Dish {
 		this.picture = picture;
 		this.tags = new ArrayList<Tag>();
 		this.dishVotes = new ArrayList<DishVote>();
+	}
+	
+	public Long getOid() {
+		return oid;
+	}
+
+	public void setOid(Long oid) {
+		this.oid = oid;
 	}
 	
 	public String getName() {

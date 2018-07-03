@@ -11,6 +11,7 @@ import java.util.List;
 
 public class SystemRatatouille {
 	
+	private Long oid;
 	private List<User> users;
 	private	List<Restaurant> restaurants;
 	private static SystemRatatouille uniqueSystem;
@@ -32,7 +33,13 @@ public class SystemRatatouille {
 		return uniqueSystem;
 	}
 	
-	
+	public Long getOid() {
+		return oid;
+	}
+
+	public void setOid(Long oid) {
+		this.oid = oid;
+	}
 	//Methods associated with Users
 	public List<User> getUsers() { return users;}
 	public void addUser(User user) {this.users.add(user);}
