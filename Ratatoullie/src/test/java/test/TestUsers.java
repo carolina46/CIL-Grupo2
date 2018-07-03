@@ -12,6 +12,7 @@ import org.junit.Assert;
 import modelo.Category;
 import modelo.Client;
 import modelo.Dish;
+import modelo.Location;
 import modelo.Menu;
 import modelo.MenuType;
 import modelo.Responsible;
@@ -43,8 +44,7 @@ class TestUsers {
 		menu.addDish(dish);
 				
 		//Create a Category
-		Category category = new Category();
-		category.setName("Bar-Pub");
+		Category category = new Category("Bar-Pub");
 				
 		//Create a Restaurant of the Category with the previously created Menu
 		Restaurant restaurant = new Restaurant();
@@ -52,7 +52,8 @@ class TestUsers {
 		restaurant.setCategory(category);
 		restaurant.addMenu(menu);
 				
-		Responsible responsible = new Responsible("Juan Mmarcelo", "juan","1234");
+		Location location = new Location(0d,0d);
+		Responsible responsible = new Responsible("Juan Mmarcelo", "juan","1234", location);
 		responsible.addRestaurant(restaurant);
 				
 		ArrayList<User> usersList = (ArrayList<User>) SystemRatatouille.getSystemInstance().getUsers();
