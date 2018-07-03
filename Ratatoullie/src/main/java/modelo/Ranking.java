@@ -25,8 +25,9 @@ public abstract class Ranking {
 	}
 	
 	public abstract void updateRanking(Client c);
-	public abstract boolean confirmVisitor();
-	public abstract boolean confirmGourmet();
-	public abstract boolean confirmCommensal();
+
+	public abstract void notifyComment(Restaurant restaurant);
+
+	public abstract boolean confirmIfCanComment(Restaurant restaurant);
 
 }

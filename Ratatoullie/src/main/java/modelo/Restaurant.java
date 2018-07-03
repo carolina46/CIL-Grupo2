@@ -52,27 +52,17 @@ public class Restaurant {
 	public void setLocation(Location location) {	this.location = location;}
 
 
+	//Methods associated with comments
 	public List<Comment> getComments() { return comments;}
 	public void setComments(List<Comment> comments) {	this.comments = comments;}
-
+	public void addComment(Comment comment) { this.comments.add(comment);}
+	public int numberOfComments() { return comments.size();}
+	
 	public ConfigurationFilter getFilter() {	return filter;	}
 	public void setFilter(ConfigurationFilter filter) {	this.filter = filter;	}
 
-	public int numberOfComments() {
-		return comments.size();
-	}
+	
 
-	public void addComent(Comment comment, Client client) {
-
-		if (this.filter.confirm(client)) {
-
-			this.comments.add(comment);
-
-		}else
-			System.out.println("No puede crear comentario");
-
-
-
-	}
+	
 }
 	

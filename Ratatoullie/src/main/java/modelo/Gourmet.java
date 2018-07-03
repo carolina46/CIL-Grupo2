@@ -23,21 +23,16 @@ public class Gourmet extends Ranking {
 	}
 
 	@Override
-	public boolean confirmVisitor() {
-		// TODO Auto-generated method stub
-		return false;
+	public void notifyComment(Restaurant restaurant) {
+		restaurant.getFilter().commentOfGourmet();
+		
+	}
+	
+	@Override
+	public boolean confirmIfCanComment(Restaurant restaurant) {
+		return restaurant.getFilter().confirmGourmet();
 	}
 
-	@Override
-	public boolean confirmGourmet() {
-		// TODO Auto-generated method stub
-		return true;
-	}
-
-	@Override
-	public boolean confirmCommensal() {
-		// TODO Auto-generated method stub
-		return false;
-	}
+	
 
 }

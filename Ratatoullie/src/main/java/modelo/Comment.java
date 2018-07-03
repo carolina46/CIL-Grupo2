@@ -15,14 +15,13 @@ public class Comment {
 	private String description;
 	private LocalDateTime date;
 	private Restaurant restaurant;
-	private boolean notified = false;
+	private boolean notified;
 	
 	public Comment(String description, Restaurant restaurant, Client client) {
 		this.description = description;
 		this.restaurant = restaurant;
 		this.date = LocalDateTime.now();
-		restaurant.addComent(this,client);
-		this.notified = true;
+		this.notified = false;
 	}
 	
 	public Long getOid() {	return oid;}
@@ -40,11 +39,6 @@ public class Comment {
 	public Restaurant getRestaurant() {		return restaurant;	}
 	public void setRestaurant(Restaurant restaurant) {	this.restaurant = restaurant;	}
 
-	public boolean isNotified() {
-		return notified;
-	}
-
-	public void setNotified(boolean notified) {
-		this.notified = notified;
-	}
+	public boolean isNotified() {return notified;}
+	public void setNotified(boolean notified) {this.notified = notified;}
 }

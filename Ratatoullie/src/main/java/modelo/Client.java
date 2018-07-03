@@ -31,6 +31,7 @@ public abstract class Client extends User {
 		this.restaurantRecommendations = new ArrayList<RestaurantRecommendation>();
 	}
 	
+	
 	public Location getLocation() {
 		return location;
 	}
@@ -69,14 +70,17 @@ public abstract class Client extends User {
 
 	public void addDishVote(DishVote dishVote) { this.dishVotes.add(dishVote);}
 
+	
 	public List<MenuVote> getMenuVotes() { return menuVotes;}
 
 	public void addMenuVotes(MenuVote menuVote) {this.menuVotes.add(menuVote);}
 
+	
 	public List<RestaurantVote> getRestaurantVotes() { return restaurantVotes;}
 
 	public void addRestaurantVotes(RestaurantVote restaurantVote) {	this.restaurantVotes.add(restaurantVote);}
 
+	
 	public List<DishRecommendation> getDishRecommendations() { return dishRecommendations;}
 
 	public void addDishRecommendations(DishRecommendation dishRecommendation) { this.dishRecommendations.add(dishRecommendation);}
@@ -92,15 +96,19 @@ public abstract class Client extends User {
 			
 	
 	public void comment(String comment, Restaurant restaurant) {
-		//Creates a comment for a restaurant and adds it to the list of comments
-		
 		Comment c = new Comment(comment,restaurant,this);
 		this.comments.add(c);
-		
-		//update my position in the ranking
 		this.ranking.updateRanking(this);
+		
+		restaurant.addComment(c);
+		this.ranking.notifyComment(restaurant);
 	}
 
+	
+	public boolean canComment(Restaurant restaurant){
+		return this.ranking.confirmIfCanComment(restaurant);
+	}
+	
 	public void deleteComment(String comment, Restaurant restaurant) {
 		
 		//1- delete an existing comment

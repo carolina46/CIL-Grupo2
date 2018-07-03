@@ -23,21 +23,16 @@ public class Visitor extends Ranking {
 	}
 
 	@Override
-	public boolean confirmVisitor() {
-		// TODO Auto-generated method stub
-		return true;
+	public void notifyComment(Restaurant restaurant) {
+		restaurant.getFilter().commentOfVisitor();
+		
 	}
 
 	@Override
-	public boolean confirmGourmet() {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean confirmIfCanComment(Restaurant restaurant) {
+		return restaurant.getFilter().confirmVisitor();
 	}
 
-	@Override
-	public boolean confirmCommensal() {
-		// TODO Auto-generated method stub
-		return false;
-	}
+	
 
 }

@@ -25,21 +25,15 @@ public class Comensal extends Ranking {
 	}
 
 	@Override
-	public boolean confirmVisitor() {
-		// TODO Auto-generated method stub
-		return false;
+	public void notifyComment(Restaurant restaurant) {
+		restaurant.getFilter().commentOfComensal();
+		
 	}
 
+	
 	@Override
-	public boolean confirmGourmet() {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean confirmIfCanComment(Restaurant restaurant) {
+		return restaurant.getFilter().confirmComensal();
 	}
-
-	@Override
-	public boolean confirmCommensal() {
-		// TODO Auto-generated method stub
-		return true;
-	}
-
+	
 }
