@@ -8,6 +8,8 @@
   <name>Ratatoullie Maven Webapp</name>
   <url>http://maven.apache.org</url>
   <dependencies>
+  
+  	<!--  jUnit -->
     <dependency>
        <groupId>org.junit.jupiter</groupId>
     <artifactId>junit-jupiter-api</artifactId>
@@ -15,7 +17,7 @@
     <scope>test</scope>
     </dependency>
    
-   
+   	<!--  Mockito -->
     <dependency>
     <groupId>org.mockito</groupId>
     <artifactId>mockito-core</artifactId>
@@ -23,14 +25,23 @@
     <scope>test</scope>
     </dependency>
     
-    
+    <!--  Servlet -->
     <dependency>
     <groupId>javax.servlet</groupId>
     <artifactId>servlet-api</artifactId>
     <version>3.0-alpha-1</version>
     <scope>provided</scope>
     </dependency>
-  </dependencies>
+    
+    <!-- Hibernate -->
+	<dependency>
+	    <groupId>org.hibernate</groupId>
+	    <artifactId>hibernate-core</artifactId>
+	    <version>5.3.1.Final</version>
+	</dependency>
+	
+  </dependencies> 
+  
   <build>
     <finalName>Ratatoullie</finalName>
   </build>
