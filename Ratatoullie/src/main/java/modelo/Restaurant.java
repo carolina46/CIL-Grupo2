@@ -25,6 +25,7 @@ public class Restaurant {
 		this.category = category;
 		this.menus = new ArrayList<Menu>();
 		this.location = location;
+		this.comments = new ArrayList<Comment>();
 		this.filter = new FullDenyFilter(null);//The First time it will have an FullDenyFilter which might be changed later
 	}
 

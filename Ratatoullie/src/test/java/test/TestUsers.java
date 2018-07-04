@@ -1,16 +1,12 @@
 package test;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 import java.util.ArrayList;
 import java.util.Iterator;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import org.junit.Assert;
 import modelo.Category;
-import modelo.Client;
 import modelo.Dish;
 import modelo.Location;
 import modelo.Menu;
@@ -23,12 +19,6 @@ import modelo.User;
 
 class TestUsers {
 	
-	@BeforeEach
-	void initialize(){
-		
-		
-		
-	}
 
 	@Test
 	void test() {
