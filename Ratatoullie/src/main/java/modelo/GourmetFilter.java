@@ -7,7 +7,6 @@ package modelo;
  * @author CIL-Grupo2
  */
 
-
 public class GourmetFilter extends ConfigurationFilter {
 
 	public GourmetFilter(Responsible responsible) {
@@ -15,25 +14,32 @@ public class GourmetFilter extends ConfigurationFilter {
 		this.responsible = responsible;
 	}
 	
-	
 	@Override
-	public boolean confirmVisitor() { return false;}
+	public boolean confirmVisitor() { 
+		//This is being called from a Gourmet Ranking so it will Deny the permission to comment 
+		return false;
+	}
 
 	@Override
-	public boolean confirmGourmet() { return true; }
+	public boolean confirmGourmet() { 
+		//This is being called from a Gourmet Ranking so it will Confirm the permission to comment
+		return true; 
+	}
 
 	@Override
-	public boolean confirmComensal() { return false; }
+	public boolean confirmComensal() { 
+		//This is being called from a Gourmet Ranking so it will Deny the permission to comment
+		return false; 
+	}
 
-	
 	@Override
-	public void commentOfVisitor() {}
+	public void commentOfVisitor() { /*This is being called from a Gourmet Ranking so it will NOT Notify */ }
 
 	@Override
 	public void commentOfGourmet() { this.responsible.notifyNewComments();}
 
 	@Override
-	public void commentOfComensal() {}
+	public void commentOfComensal() { /*This is being called from a Gourmet Ranking so it will NOT Notify */ }
 
 	
 

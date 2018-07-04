@@ -19,7 +19,7 @@ public class EmptyCF extends ConfigurationFilter {
 	public boolean confirmComensal() { return false;}
 
 	@Override
-	public void commentOfVisitor() {}
+	public void commentOfVisitor() { }
 
 	@Override
 	public void commentOfGourmet() {}

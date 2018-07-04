@@ -7,34 +7,39 @@ package modelo;
  * @author CIL-Grupo2
  */
 
-
 public class VisitorFilter extends ConfigurationFilter {
-	
 	
 	public VisitorFilter(Responsible responsible) {
 		super();
 		this.responsible = responsible;
 	}
-
 	
 	@Override
-	public boolean confirmVisitor() { return true;}
+	public boolean confirmVisitor() { 
+		//This is being called from a Visitor Ranking so it will Confirm the permission to comment 
+		return true;
+	}
 
 	@Override
-	public boolean confirmGourmet() { return false;	}
+	public boolean confirmGourmet() { 
+		//This is being called from a Visitor Ranking so it will Deny the permission to comment 
+		return false;	
+	}
 
 	@Override
-	public boolean confirmComensal() { return false;}
-
+	public boolean confirmComensal() { 
+		//This is being called from a Visitor Ranking so it will Deny the permission to comment
+		return false;
+	}
 	
 	@Override
 	public void commentOfVisitor() { this.responsible.notifyNewComments();}
 
 	@Override
-	public void commentOfGourmet() {}
+	public void commentOfGourmet() { /*This is being called from a Visitor Ranking so it will NOT Notify */ }
 
 	@Override
-	public void commentOfComensal() {}
+	public void commentOfComensal() { /*This is being called from a Visitor Ranking so it will NOT Notify */ }
 
 	
 	

@@ -9,14 +9,9 @@ import java.util.ArrayList;
  * @author CIL-Grupo2
  */
 
-
-
-
 public class CompositeCF extends ConfigurationFilter {
 	
-	
 	private ArrayList<ConfigurationFilter> configurationFilters = new ArrayList<ConfigurationFilter>();
-	
 	
 	public CompositeCF(ArrayList<ConfigurationFilter> configurationFilters, Responsible responsible) {
 		super();
@@ -36,7 +31,6 @@ public class CompositeCF extends ConfigurationFilter {
 		this.configurationFilters = configurationFilter;
 	}
 
-	
 	@Override
 	public void commentOfVisitor() {
 		for (ConfigurationFilter filter : this.configurationFilters)
@@ -54,8 +48,6 @@ public class CompositeCF extends ConfigurationFilter {
 		for (ConfigurationFilter filter : this.configurationFilters)
 			filter.commentOfComensal();
 	}
-
-	
 	
 	@Override
 	public boolean confirmVisitor() {
