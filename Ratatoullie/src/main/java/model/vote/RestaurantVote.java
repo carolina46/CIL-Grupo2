@@ -1,4 +1,6 @@
-package model;
+package model.vote;
+
+import model.Restaurant;
 
 /**
  * 

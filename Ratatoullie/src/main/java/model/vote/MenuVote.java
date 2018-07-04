@@ -1,16 +1,18 @@
-package model;
+package model.vote;
+
+import model.Menu;
 
 /**
  * 
- * This Class represents the vote made to a Dish
+ * This Class represents the vote made to a Menu
  * 
  * @author CIL-Grupo2
  *
  */
-public class DishVote {
+public class MenuVote {
 	
 	private Long oid;
-	private Dish dish;
+	private Menu menu;
 	private Integer value; 
 	/* 
 	 * possible values = [1..10]
@@ -23,10 +25,10 @@ public class DishVote {
 	 *  
 	 * A value of 0 cannot be assigned, it means there is no vote (0 Stars will not be possible)
 	 * */
-	
-	public DishVote(Dish dish, Integer value) {
+
+	public MenuVote(Menu menu, Integer value) {
 		super();
-		this.dish = dish;
+		this.menu = menu;
 		this.value=value;
 	}
 	
@@ -38,12 +40,12 @@ public class DishVote {
 		this.oid = oid;
 	}
 
-	public Dish getDish() {
-		return dish;
+	public Menu getMenu() {
+		return menu;
 	}
 
-	public void setDish(Dish dish) {
-		this.dish = dish;
+	public void setMenu(Menu menu) {
+		this.menu = menu;
 	}
 	
 	public Integer getValue() {	return value;}
@@ -52,5 +54,5 @@ public class DishVote {
 		//The Client will not be able to input values outside the range of 1..10. This will be handled in the interface in order this method receive a valid value.
 		this.value = value;
 	}
-	
+
 }

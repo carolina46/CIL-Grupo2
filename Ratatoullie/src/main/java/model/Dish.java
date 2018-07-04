@@ -2,6 +2,8 @@ package model;
 import java.util.ArrayList;
 import java.util.List;
 
+import model.vote.DishVote;
+
 /**
  * Represents a dish within one or more menus of a restaurant.
  * 

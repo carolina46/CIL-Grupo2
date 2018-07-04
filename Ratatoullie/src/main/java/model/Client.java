@@ -6,6 +6,9 @@ import java.util.List;
 import model.recommendation.DishRecommendation;
 import model.recommendation.MenuRecommendation;
 import model.recommendation.RestaurantRecommendation;
+import model.vote.DishVote;
+import model.vote.MenuVote;
+import model.vote.RestaurantVote;
 
 public abstract class Client extends User {
 
