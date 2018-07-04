@@ -3,11 +3,11 @@ package test;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import model.Comensal;
-import model.Gourmet;
 import model.NormalClient;
-import model.Ranking;
-import model.Visitor;
+import model.ranking.Comensal;
+import model.ranking.Gourmet;
+import model.ranking.Ranking;
+import model.ranking.Visitor;
 
 import static org.mockito.Mockito.*; 
 

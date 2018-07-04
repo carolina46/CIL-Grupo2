@@ -4,11 +4,11 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import model.Comensal;
-import model.Gourmet;
 import model.Location;
 import model.NormalClient;
 import model.Restaurant;
+import model.ranking.Comensal;
+import model.ranking.Gourmet;
 
 class RakingTest{
 

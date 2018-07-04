@@ -3,6 +3,8 @@ package model;
 import java.util.ArrayList;
 import java.util.List;
 
+import model.ranking.Ranking;
+import model.ranking.Visitor;
 import model.recommendation.DishRecommendation;
 import model.recommendation.MenuRecommendation;
 import model.recommendation.RestaurantRecommendation;

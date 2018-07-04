@@ -1,4 +1,7 @@
-package model;
+package model.ranking;
+
+import model.Client;
+import model.Restaurant;
 
 /**
  * Represents the THIRD state of the classification of the users according to the total number of comments made.
