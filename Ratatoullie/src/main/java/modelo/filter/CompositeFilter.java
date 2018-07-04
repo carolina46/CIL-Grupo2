@@ -1,6 +1,8 @@
-package modelo;
+package modelo.filter;
 
 import java.util.ArrayList;
+
+import modelo.Responsible;
 
 /**
  * Represents the variant configuration for sending notifications to the restaurant manager when there are new comments.
@@ -9,11 +11,11 @@ import java.util.ArrayList;
  * @author CIL-Grupo2
  */
 
-public class CompositeCF extends ConfigurationFilter {
+public class CompositeFilter extends ConfigurationFilter {
 	
 	private ArrayList<ConfigurationFilter> configurationFilters;
 	
-	public CompositeCF(Responsible responsible) {
+	public CompositeFilter(Responsible responsible) {
 		super(responsible);
 		configurationFilters = new ArrayList<ConfigurationFilter>();
 	}

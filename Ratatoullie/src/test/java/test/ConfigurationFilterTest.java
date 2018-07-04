@@ -6,16 +6,16 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import modelo.Category;
-import modelo.CompositeCF;
 import modelo.Dish;
-import modelo.GourmetFilter;
 import modelo.Location;
 import modelo.Menu;
 import modelo.MenuType;
 import modelo.NormalClient;
 import modelo.Responsible;
 import modelo.Restaurant;
-import modelo.VisitorFilter;
+import modelo.filter.CompositeFilter;
+import modelo.filter.GourmetFilter;
+import modelo.filter.VisitorFilter;
 
 class ConfigurationFilterTest {
 
@@ -61,7 +61,7 @@ class ConfigurationFilterTest {
 		//Restaurant Configuration
 		/**************** ME PARECE MUY RARO ESTE CODIGO
 		/ COMPOSITE OBVIAMENTE ASIGNA EL RESPONSABLE.. O SEA PORQUE NO PUEDO INSTANCIAR UN ConfigurationFilter */
-		CompositeCF compositeFilter = new CompositeCF(responsible);
+		CompositeFilter compositeFilter = new CompositeFilter(responsible);
 		
 		/********** PERO LUEGO TENGO QUE VOLVER A ASIGNARLE EL MISMO RESPONSABLE A OTROS FILTROS QUEA SU VEZ ESTAN EN EL COMPOSITE::. QUE RARO:... ES FEO */
 		VisitorFilter visitorFilter = new VisitorFilter(responsible);

@@ -3,6 +3,9 @@ package modelo;
 import java.util.ArrayList;
 import java.util.List;
 
+import modelo.filter.ConfigurationFilter;
+import modelo.filter.FullDenyFilter;
+
 /**
  * Represents an establishment that offers dishes, which are grouped in different menus.
  * @author CIL-Grupo2

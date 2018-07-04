@@ -1,4 +1,6 @@
-package modelo;
+package modelo.filter;
+
+import modelo.Responsible;
 
 /**
  * Represents the configuration for sending notifications to the restaurant manager when there are new comments 
