@@ -113,12 +113,12 @@ public abstract class Client extends User {
 		this.ranking.updateRanking(this);
 		
 		restaurant.addComment(c);
-		this.ranking.notifyComment(restaurant);
+		this.ranking.notifyNewCommentAbout(restaurant);
 	}
 
 	
 	public boolean canComment(Restaurant restaurant){
-		return this.ranking.confirmIfCanComment(restaurant);
+		return this.ranking.canCommentAbout(restaurant);
 	}
 	
 	public void deleteComment(String comment, Restaurant restaurant) {
