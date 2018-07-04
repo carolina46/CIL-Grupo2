@@ -1,6 +1,6 @@
 package model.ranking;
 
-import model.Restaurant;
+import model.business.Restaurant;
 import model.users.Client;
 
 /**

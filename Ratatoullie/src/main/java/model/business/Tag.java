@@ -1,4 +1,4 @@
-package model;
+package model.business;
 
 /**
  * Represents a label that describes the contents of the dish or menu.

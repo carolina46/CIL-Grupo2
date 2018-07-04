@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import model.Comment;
-import model.Location;
-import model.Restaurant;
+import model.business.Location;
+import model.business.Restaurant;
 import model.ranking.Ranking;
 import model.ranking.Visitor;
 import model.recommendation.DishRecommendation;

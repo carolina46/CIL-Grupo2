@@ -5,12 +5,12 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import model.Category;
-import model.Dish;
-import model.Location;
-import model.Menu;
-import model.MenuType;
-import model.Restaurant;
+import model.business.Category;
+import model.business.Dish;
+import model.business.Location;
+import model.business.Menu;
+import model.business.MenuType;
+import model.business.Restaurant;
 import model.filter.CompositeFilter;
 import model.filter.GourmetFilter;
 import model.filter.VisitorFilter;

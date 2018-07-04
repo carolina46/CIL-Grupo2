@@ -1,6 +1,6 @@
 package model.vote;
 
-import model.Dish;
+import model.business.Dish;
 
 /**
  * 

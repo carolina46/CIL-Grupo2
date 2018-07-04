@@ -1,4 +1,4 @@
-package model;
+package model.business;
 
 /**
  * Represent a label associated with a menu. Describe the grouping of his dishes.

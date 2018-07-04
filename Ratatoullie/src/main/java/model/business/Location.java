@@ -1,4 +1,4 @@
-package model;
+package model.business;
 
 /**
  * Represents a Location given the Latitude and Longitude

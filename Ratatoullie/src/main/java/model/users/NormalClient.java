@@ -1,6 +1,6 @@
 package model.users;
 
-import model.Location;
+import model.business.Location;
 
 public class NormalClient extends Client {
 

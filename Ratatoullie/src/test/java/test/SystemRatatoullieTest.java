@@ -6,6 +6,9 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import model.*;
+import model.business.Category;
+import model.business.Location;
+import model.business.Restaurant;
 import model.users.NormalClient;
 import model.users.Responsible;
 

@@ -3,6 +3,7 @@ package model;
 import java.util.ArrayList;
 import java.util.List;
 
+import model.business.Restaurant;
 import model.users.User;
 
 /**

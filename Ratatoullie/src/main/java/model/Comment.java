@@ -2,6 +2,7 @@ package model;
 
 import java.time.LocalDateTime;
 
+import model.business.Restaurant;
 import model.users.Client;
 
 /**

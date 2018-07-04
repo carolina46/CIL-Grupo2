@@ -1,4 +1,4 @@
-package model;
+package model.business;
 
 /**
  * Represents a label that describes the type of food offered by one or more restaurants.

@@ -2,7 +2,7 @@ package model.recommendation;
 
 import java.util.List;
 
-import model.Dish;
+import model.business.Dish;
 import model.users.Client;
 
 /**

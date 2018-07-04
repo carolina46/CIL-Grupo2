@@ -1,6 +1,6 @@
 package model.vote;
 
-import model.Restaurant;
+import model.business.Restaurant;
 
 /**
  * 

@@ -4,8 +4,8 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import model.Location;
-import model.Restaurant;
+import model.business.Location;
+import model.business.Restaurant;
 import model.ranking.Comensal;
 import model.ranking.Gourmet;
 import model.users.NormalClient;

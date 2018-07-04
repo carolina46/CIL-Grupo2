@@ -1,8 +1,9 @@
-package model;
+package model.business;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import model.Comment;
 import model.filter.ConfigurationFilter;
 import model.filter.FullDenyFilter;
 
