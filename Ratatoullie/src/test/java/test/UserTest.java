@@ -16,7 +16,7 @@ import modelo.Gourmet;
 import modelo.Location;
 import modelo.Menu;
 import modelo.MenuType;
-import modelo.Normal;
+import modelo.NormalClient;
 import modelo.Responsible;
 import modelo.Restaurant;
 import modelo.SystemRatatouille;
@@ -27,7 +27,7 @@ import modelo.Visitor;
 class UserTest {
 	
 	Responsible responsible;
-	Normal normal;
+	NormalClient normal;
 	Restaurant restaurant;
 	
 	@BeforeEach
@@ -56,7 +56,7 @@ class UserTest {
 		responsible.addRestaurant(restaurant);
 		
 		Location normalLocation = new Location(0d, 0d);
-		normal= new Normal("Titi suarez", "ElTiTi", "titiPass", normalLocation);
+		normal= new NormalClient("Titi suarez", "ElTiTi", "titiPass", normalLocation);
 	}
 
 	@Test

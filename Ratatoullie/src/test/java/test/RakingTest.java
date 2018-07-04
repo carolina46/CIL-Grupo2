@@ -7,22 +7,21 @@ import org.junit.jupiter.api.Test;
 import modelo.Comensal;
 import modelo.Gourmet;
 import modelo.Location;
-import modelo.Normal;
+import modelo.NormalClient;
 
 import modelo.Restaurant;
 
 class RakingTest{
 
-	static Normal normal;
+	static NormalClient normal;
 	static Restaurant restaurant;
 	
 	@BeforeAll 
 	public static void setUp(){
-		System.out.println("init()");
 		
 		Location location = new Location(0d,0d);
 		
-		normal = new Normal("Juan Dominguez", "juan", "juan1234", location);
+		normal = new NormalClient("Juan Dominguez", "juan", "juan1234", location);
 		restaurant = new Restaurant();
 	}
 	

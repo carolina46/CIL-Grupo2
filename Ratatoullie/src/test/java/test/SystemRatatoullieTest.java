@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
 class SystemRatatoullieTest {
 	
 	private SystemRatatouille sys;
-	private Normal normal_1;
+	private NormalClient normal_1;
 	private Responsible responsible_1;
 	private Restaurant restaurant_1;
 	private Category category;
@@ -26,7 +26,7 @@ class SystemRatatoullieTest {
 		Location locationRestaurant = new Location(500d,500d);
 		
 		//A normal user
-		normal_1= new Normal("Pepa", "Pepa001", "1234", locationNormal);
+		normal_1= new NormalClient("Pepa", "Pepa001", "1234", locationNormal);
 		sys.addUser(normal_1);
 		
 		//A responsible user
@@ -48,7 +48,7 @@ class SystemRatatoullieTest {
 		SystemRatatouille sys2=	SystemRatatouille.getSystemInstance();
 		
 		Location locationNormal2 = new Location(0d,0d);
-		Normal normal_2= new Normal("Marta", "Marta57", "MartaPass", locationNormal2);
+		NormalClient normal_2= new NormalClient("Marta", "Marta57", "MartaPass", locationNormal2);
 		
 		sys2.addUser(normal_2);
 		assertTrue(sys.numberOfUsers() == 3);
@@ -64,9 +64,9 @@ class SystemRatatoullieTest {
 	@Test
 	void userNameIsUniqueTest() {
 		Location locationNormal2 = new Location(0d,0d);
-		Normal normal_2=new Normal("Marta", "marta001", "1234", locationNormal2); //new username
+		NormalClient normal_2=new NormalClient("Marta", "marta001", "1234", locationNormal2); //new username
 		Location locationNormal3 = new Location(0d,0d);
-		Normal normal_3=new Normal("Petra", "Pepa001", "1234", locationNormal3);	//repeated username
+		NormalClient normal_3=new NormalClient("Petra", "Pepa001", "1234", locationNormal3);	//repeated username
 		
 		sys.addUser(normal_2);
 		assertTrue(sys.numberOfUsers() == 3);

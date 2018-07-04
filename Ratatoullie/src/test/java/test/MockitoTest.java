@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import modelo.Comensal;
 import modelo.Gourmet;
-import modelo.Normal;
+import modelo.NormalClient;
 import modelo.Ranking;
 import modelo.Visitor;
 
@@ -13,12 +13,12 @@ import static org.mockito.Mockito.*;
 
 class MockitoTest {
 
-	private Normal normal;
+	private NormalClient normal;
 	private Ranking ranking;
 	
 	@BeforeEach
 	void setUp() throws Exception {
-		normal= mock(Normal.class);
+		normal= mock(NormalClient.class);
 	}
 
 	

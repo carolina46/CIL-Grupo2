@@ -12,7 +12,7 @@ import modelo.GourmetFilter;
 import modelo.Location;
 import modelo.Menu;
 import modelo.MenuType;
-import modelo.Normal;
+import modelo.NormalClient;
 import modelo.Responsible;
 import modelo.Restaurant;
 import modelo.VisitorFilter;
@@ -56,7 +56,7 @@ class ConfigurationFilterTest {
 	void test() {
 		//Creation of a Normal User
 		Location location = new Location(1d,1d);
-		Normal normal = new Normal("Juan Ramirez", "juan","1010", location); //This is a Visitor
+		NormalClient normal = new NormalClient("Juan Ramirez", "juan","1010", location); //This is a Visitor
 		
 		//Restaurant Configuration
 		/**************** ME PARECE MUY RARO ESTE CODIGO
