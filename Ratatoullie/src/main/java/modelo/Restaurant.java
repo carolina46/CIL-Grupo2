@@ -25,7 +25,7 @@ public class Restaurant {
 		this.category = category;
 		this.menus = new ArrayList<Menu>();
 		this.location = location;
-		this.filter = new EmptyCF();//The First time it will have an EmptyCF which might be changed later
+		this.filter = new FullDenyFilter(null);//The First time it will have an FullDenyFilter which might be changed later
 	}
 
 	public Restaurant() {

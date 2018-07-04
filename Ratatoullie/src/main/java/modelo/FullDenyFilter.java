@@ -7,8 +7,12 @@ package modelo;
  * @author CIL-Grupo2
  */
 
-public class EmptyCF extends ConfigurationFilter {
+public class FullDenyFilter extends ConfigurationFilter {
 
+	public FullDenyFilter(Responsible responsible) {
+		super(responsible);
+	}
+	
 	@Override
 	public boolean confirmVisitor() { return false; }
 
@@ -26,9 +30,5 @@ public class EmptyCF extends ConfigurationFilter {
 
 	@Override
 	public void commentOfComensal() {}
-
-	
-	
-
 
 }

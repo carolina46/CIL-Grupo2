@@ -11,12 +11,11 @@ import java.util.ArrayList;
 
 public class CompositeCF extends ConfigurationFilter {
 	
-	private ArrayList<ConfigurationFilter> configurationFilters = new ArrayList<ConfigurationFilter>();
+	private ArrayList<ConfigurationFilter> configurationFilters;
 	
-	public CompositeCF(ArrayList<ConfigurationFilter> configurationFilters, Responsible responsible) {
-		super();
-		this.responsible = responsible;
-		this.configurationFilters = configurationFilters;
+	public CompositeCF(Responsible responsible) {
+		super(responsible);
+		configurationFilters = new ArrayList<ConfigurationFilter>();
 	}
 
 	public void addFilter(ConfigurationFilter configurationFilter){
@@ -33,18 +32,21 @@ public class CompositeCF extends ConfigurationFilter {
 
 	@Override
 	public void commentOfVisitor() {
+		//It's being called from a Visitor Ranking, it will go through all Configurations but notify only if VisitorConfiguration is present
 		for (ConfigurationFilter filter : this.configurationFilters)
 			filter.commentOfVisitor();
 	}
 
 	@Override
 	public void commentOfGourmet() {
+		//It's being called from a Gourmet Ranking, it will go through all Configurations but notify only if GourmetConfiguration is present
 		for (ConfigurationFilter filter : this.configurationFilters)
 			filter.commentOfGourmet();
 	}
 
 	@Override
 	public void commentOfComensal() {
+		//It's being called from a Comensal Ranking, it will go through all Configurations but notify only if ComensalConfiguration is present
 		for (ConfigurationFilter filter : this.configurationFilters)
 			filter.commentOfComensal();
 	}

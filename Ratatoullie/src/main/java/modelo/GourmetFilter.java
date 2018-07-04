@@ -10,8 +10,7 @@ package modelo;
 public class GourmetFilter extends ConfigurationFilter {
 
 	public GourmetFilter(Responsible responsible) {
-		super();
-		this.responsible = responsible;
+		super(responsible);
 	}
 	
 	@Override

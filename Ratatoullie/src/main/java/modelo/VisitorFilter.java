@@ -10,8 +10,7 @@ package modelo;
 public class VisitorFilter extends ConfigurationFilter {
 	
 	public VisitorFilter(Responsible responsible) {
-		super();
-		this.responsible = responsible;
+		super(responsible);
 	}
 	
 	@Override

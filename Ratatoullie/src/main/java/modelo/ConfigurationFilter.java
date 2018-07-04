@@ -12,10 +12,13 @@ public abstract class ConfigurationFilter {
 	private Long oid;
 	public Responsible responsible;
 	
+	public ConfigurationFilter(Responsible responsible) {
+		this.responsible = responsible;
+	}
+	
 	public Long getOid() {	return oid;	}
 	public void setOid(Long oid) { this.oid = oid;	}
 	
-
 	public Responsible getResponsible() { return responsible;}
 	public void setResponsible(Responsible responsible) { this.responsible = responsible;}
 
