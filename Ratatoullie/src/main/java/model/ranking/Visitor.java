@@ -26,14 +26,14 @@ public class Visitor extends Ranking {
 	}
 
 	@Override
-	public void notifyComment(Restaurant restaurant) {
-		restaurant.getFilter().commentOfVisitor();
+	public void notifyNewCommentAbout(Restaurant restaurant) {
+		restaurant.getFilter().applyNotificationForVisitor();
 		
 	}
 
 	@Override
-	public boolean confirmIfCanComment(Restaurant restaurant) {
-		return restaurant.getFilter().confirmVisitor();
+	public boolean canCommentAbout(Restaurant restaurant) {
+		return restaurant.getFilter().confirmVisitorComment();
 	}
 
 	
