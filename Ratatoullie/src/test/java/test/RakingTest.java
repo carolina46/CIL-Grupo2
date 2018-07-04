@@ -5,10 +5,10 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import model.Location;
-import model.NormalClient;
 import model.Restaurant;
 import model.ranking.Comensal;
 import model.ranking.Gourmet;
+import model.users.NormalClient;
 
 class RakingTest{
 

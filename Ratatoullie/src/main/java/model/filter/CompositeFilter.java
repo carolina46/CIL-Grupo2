@@ -2,7 +2,7 @@ package model.filter;
 
 import java.util.ArrayList;
 
-import model.Responsible;
+import model.users.Responsible;
 
 /**
  * Represents the variant configuration for sending notifications to the restaurant manager when there are new comments.

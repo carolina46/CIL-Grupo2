@@ -1,6 +1,6 @@
 package model.filter;
 
-import model.Responsible;
+import model.users.Responsible;
 
 /**
  * Represents the Comensal configuration for sending notifications to the restaurant manager when there are new comments.

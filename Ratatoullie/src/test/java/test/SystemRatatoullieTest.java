@@ -6,6 +6,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import model.*;
+import model.users.NormalClient;
+import model.users.Responsible;
 
 class SystemRatatoullieTest {
 	

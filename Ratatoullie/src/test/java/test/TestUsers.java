@@ -10,10 +10,10 @@ import model.Dish;
 import model.Location;
 import model.Menu;
 import model.MenuType;
-import model.Responsible;
 import model.Restaurant;
 import model.SystemRatatouille;
-import model.User;
+import model.users.Responsible;
+import model.users.User;
 
 import org.junit.Assert;
 

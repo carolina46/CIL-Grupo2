@@ -1,4 +1,6 @@
-package model;
+package model.users;
+
+import model.Location;
 
 public class NormalClient extends Client {
 

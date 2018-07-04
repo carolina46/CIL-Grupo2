@@ -1,8 +1,11 @@
-package model;
+package model.users;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import model.Comment;
+import model.Location;
+import model.Restaurant;
 import model.ranking.Ranking;
 import model.ranking.Visitor;
 import model.recommendation.DishRecommendation;

@@ -2,6 +2,8 @@ package model;
 
 import java.time.LocalDateTime;
 
+import model.users.Client;
+
 /**
  * Represents a comment from a user about a restaurant
  * 

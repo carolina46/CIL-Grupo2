@@ -1,7 +1,10 @@
-package model;
+package model.users;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import model.Location;
+import model.Restaurant;
 
 /**
  * Represents a user of the system can comment on a restaurant and vote or recommend a restaurant, menu or dish.

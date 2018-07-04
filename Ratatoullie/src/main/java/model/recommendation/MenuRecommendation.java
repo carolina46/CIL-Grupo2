@@ -2,8 +2,8 @@ package model.recommendation;
 
 import java.util.List;
 
-import model.Client;
 import model.Menu;
+import model.users.Client;
 
 /**
  * 

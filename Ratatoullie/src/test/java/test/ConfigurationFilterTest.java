@@ -10,12 +10,12 @@ import model.Dish;
 import model.Location;
 import model.Menu;
 import model.MenuType;
-import model.NormalClient;
-import model.Responsible;
 import model.Restaurant;
 import model.filter.CompositeFilter;
 import model.filter.GourmetFilter;
 import model.filter.VisitorFilter;
+import model.users.NormalClient;
+import model.users.Responsible;
 
 class ConfigurationFilterTest {
 

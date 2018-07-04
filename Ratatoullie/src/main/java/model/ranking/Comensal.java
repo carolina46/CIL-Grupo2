@@ -1,7 +1,7 @@
 package model.ranking;
 
-import model.Client;
 import model.Restaurant;
+import model.users.Client;
 
 /**
  * Represents the SECOND state of the classification of the users according to the total number of comments made.

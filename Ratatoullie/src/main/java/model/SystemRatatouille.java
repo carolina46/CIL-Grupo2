@@ -3,6 +3,8 @@ package model;
 import java.util.ArrayList;
 import java.util.List;
 
+import model.users.User;
+
 /**
  * Represents the web system Ratatoullie to which you have access to users and restaurants.
  * @author CIL-Grupo2
