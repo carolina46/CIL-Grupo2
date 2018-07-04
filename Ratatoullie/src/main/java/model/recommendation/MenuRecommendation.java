@@ -1,36 +1,38 @@
-package model;
+package model.recommendation;
 
 import java.util.List;
 
+import model.Client;
+import model.Menu;
+
 /**
  * 
- * This class represents a recommendation about a dish
+ * This class represents a recommendation about a Menu
  * 
  * @author CIL-Grupo2
  *
  */
 
-public class DishRecommendation {
+public class MenuRecommendation {
 	
 	private Long oid;
-	private Dish dish;
+	private Menu menu;
 	private String description;
 	private List<Client>	receivers;
-	
-
-	public DishRecommendation(String description, List<Client> receivers, Dish dish) {
+		
+	public MenuRecommendation(String description, List<Client> receivers, Menu menu) {
 		super();
-		this.dish = dish;
+		this.menu = menu;
 		this.description = description;
 		this.receivers = receivers;
 	}
 	
-	public Long getOid() {	return oid;}
-	public void setOid(Long oid) {	this.oid = oid;}
+	public Long getOid() {return oid;}
+	public void setOid(Long oid) {	this.oid = oid;	}
 	
-	public Dish getDish() {	return dish;}
-	public void setDish(Dish dish) { this.dish = dish;}
-	
+	public Menu getMenu() {return menu;	}
+	public void setMenu(Menu menu) {this.menu = menu;}
+
 	//Methods associated with Description
 	public String getDescription() { return description; }
 	public void setDescription(String description) { this.description = description; }
@@ -40,5 +42,7 @@ public class DishRecommendation {
 	public List<Client> getReceivers() { return receivers;}	
 	public void setReceivers(List<Client> receivers) {this.receivers = receivers;}
 	public void addReceiver(Client receiver) {this.receivers.add(receiver);}
+	
+	
 
 }

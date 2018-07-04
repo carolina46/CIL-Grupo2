@@ -1,34 +1,38 @@
-package model;
+package model.recommendation;
 
 import java.util.List;
 
+import model.Client;
+import model.Dish;
+
 /**
  * 
- * This class represents a recommendation about a restaurant
+ * This class represents a recommendation about a dish
  * 
  * @author CIL-Grupo2
  *
  */
 
-public class RestaurantRecommendation {
+public class DishRecommendation {
 	
 	private Long oid;
-	private Restaurant restaurant;
+	private Dish dish;
 	private String description;
 	private List<Client>	receivers;
+	
 
-	public RestaurantRecommendation(String description, List<Client> receivers, Restaurant restaurant) {
+	public DishRecommendation(String description, List<Client> receivers, Dish dish) {
 		super();
-		this.restaurant = restaurant;
+		this.dish = dish;
 		this.description = description;
 		this.receivers = receivers;
 	}
-
-	public Long getOid() {	return oid;}
-	public void setOid(Long oid) {	this.oid = oid;	}
 	
-	public Restaurant getRestaurant() {	return restaurant;}
-	public void setRestaurant(Restaurant restaurant) { this.restaurant = restaurant; }
+	public Long getOid() {	return oid;}
+	public void setOid(Long oid) {	this.oid = oid;}
+	
+	public Dish getDish() {	return dish;}
+	public void setDish(Dish dish) { this.dish = dish;}
 	
 	//Methods associated with Description
 	public String getDescription() { return description; }

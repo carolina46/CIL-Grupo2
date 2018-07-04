@@ -3,6 +3,10 @@ package model;
 import java.util.ArrayList;
 import java.util.List;
 
+import model.recommendation.DishRecommendation;
+import model.recommendation.MenuRecommendation;
+import model.recommendation.RestaurantRecommendation;
+
 public abstract class Client extends User {
 
 	private Location location;
