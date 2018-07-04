@@ -5,16 +5,17 @@ import java.util.Iterator;
 
 import org.junit.jupiter.api.Test;
 
+import model.Category;
+import model.Dish;
+import model.Location;
+import model.Menu;
+import model.MenuType;
+import model.Responsible;
+import model.Restaurant;
+import model.SystemRatatouille;
+import model.User;
+
 import org.junit.Assert;
-import modelo.Category;
-import modelo.Dish;
-import modelo.Location;
-import modelo.Menu;
-import modelo.MenuType;
-import modelo.Responsible;
-import modelo.Restaurant;
-import modelo.SystemRatatouille;
-import modelo.User;
 
 
 class TestUsers {

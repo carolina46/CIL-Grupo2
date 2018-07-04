@@ -5,17 +5,17 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import modelo.Category;
-import modelo.Dish;
-import modelo.Location;
-import modelo.Menu;
-import modelo.MenuType;
-import modelo.NormalClient;
-import modelo.Responsible;
-import modelo.Restaurant;
-import modelo.filter.CompositeFilter;
-import modelo.filter.GourmetFilter;
-import modelo.filter.VisitorFilter;
+import model.Category;
+import model.Dish;
+import model.Location;
+import model.Menu;
+import model.MenuType;
+import model.NormalClient;
+import model.Responsible;
+import model.Restaurant;
+import model.filter.CompositeFilter;
+import model.filter.GourmetFilter;
+import model.filter.VisitorFilter;
 
 class ConfigurationFilterTest {
 

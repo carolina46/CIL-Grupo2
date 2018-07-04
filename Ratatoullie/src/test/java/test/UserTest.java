@@ -8,20 +8,21 @@ import java.util.Iterator;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import model.Category;
+import model.Comensal;
+import model.Dish;
+import model.Gourmet;
+import model.Location;
+import model.Menu;
+import model.MenuType;
+import model.NormalClient;
+import model.Responsible;
+import model.Restaurant;
+import model.SystemRatatouille;
+import model.User;
+import model.Visitor;
+
 import org.junit.Assert;
-import modelo.Category;
-import modelo.Comensal;
-import modelo.Dish;
-import modelo.Gourmet;
-import modelo.Location;
-import modelo.Menu;
-import modelo.MenuType;
-import modelo.NormalClient;
-import modelo.Responsible;
-import modelo.Restaurant;
-import modelo.SystemRatatouille;
-import modelo.User;
-import modelo.Visitor;
 
 
 class UserTest {
