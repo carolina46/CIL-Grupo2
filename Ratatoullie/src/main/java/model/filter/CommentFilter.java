@@ -9,12 +9,12 @@ import model.users.Responsible;
 
 
 
-public abstract class ConfigurationFilter {
+public abstract class CommentFilter {
 	
 	private Long oid;
 	public Responsible responsible;
 	
-	public ConfigurationFilter(Responsible responsible) {
+	public CommentFilter(Responsible responsible) {
 		this.responsible = responsible;
 	}
 	
@@ -24,20 +24,19 @@ public abstract class ConfigurationFilter {
 	public Responsible getResponsible() { return responsible;}
 	public void setResponsible(Responsible responsible) { this.responsible = responsible;}
 
-	
 	/*
 	 * They are used to inform if a comment about the restaurant can be made.
 	 */
-	public abstract boolean confirmVisitor();
-	public abstract boolean confirmGourmet();
-	public abstract boolean confirmComensal();
+	public abstract boolean confirmVisitorComment();
+	public abstract boolean confirmGourmetComment();
+	public abstract boolean confirmComensalComment();
 	
 	/*
 	 * They are used to determine if the restaurant responsible should be notified of a new comment
 	 */
-	public abstract void commentOfVisitor();
-	public abstract void commentOfGourmet();
-	public abstract void commentOfComensal();
+	public abstract void applyNotificationForVisitor();
+	public abstract void applyNotificationForGourmet();
+	public abstract void applyNotificationForComensal();
 	
 	
 }

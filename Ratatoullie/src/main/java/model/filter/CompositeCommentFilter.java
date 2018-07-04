@@ -11,66 +11,66 @@ import model.users.Responsible;
  * @author CIL-Grupo2
  */
 
-public class CompositeFilter extends ConfigurationFilter {
+public class CompositeCommentFilter extends CommentFilter {
 	
-	private ArrayList<ConfigurationFilter> configurationFilters;
+	private ArrayList<CommentFilter> configurationFilters;
 	
-	public CompositeFilter(Responsible responsible) {
+	public CompositeCommentFilter(Responsible responsible) {
 		super(responsible);
-		configurationFilters = new ArrayList<ConfigurationFilter>();
+		configurationFilters = new ArrayList<CommentFilter>();
 	}
 
-	public void addFilter(ConfigurationFilter configurationFilter){
+	public void addFilter(CommentFilter configurationFilter){
 		configurationFilters.add(configurationFilter);
 	}
 
-	public ArrayList<ConfigurationFilter> getConfigurationFilters() {
+	public ArrayList<CommentFilter> getConfigurationFilters() {
 		return configurationFilters;
 	}
 
-	public void setConfigurationFilters(ArrayList<ConfigurationFilter> configurationFilter) {
+	public void setConfigurationFilters(ArrayList<CommentFilter> configurationFilter) {
 		this.configurationFilters = configurationFilter;
 	}
 
 	@Override
-	public void commentOfVisitor() {
+	public void applyNotificationForVisitor() {
 		//It's being called from a Visitor Ranking, it will go through all Configurations but notify only if VisitorConfiguration is present
-		for (ConfigurationFilter filter : this.configurationFilters)
-			filter.commentOfVisitor();
+		for (CommentFilter filter : this.configurationFilters)
+			filter.applyNotificationForVisitor();
 	}
 
 	@Override
-	public void commentOfGourmet() {
+	public void applyNotificationForGourmet() {
 		//It's being called from a Gourmet Ranking, it will go through all Configurations but notify only if GourmetConfiguration is present
-		for (ConfigurationFilter filter : this.configurationFilters)
-			filter.commentOfGourmet();
+		for (CommentFilter filter : this.configurationFilters)
+			filter.applyNotificationForGourmet();
 	}
 
 	@Override
-	public void commentOfComensal() {
+	public void applyNotificationForComensal() {
 		//It's being called from a Comensal Ranking, it will go through all Configurations but notify only if ComensalConfiguration is present
-		for (ConfigurationFilter filter : this.configurationFilters)
-			filter.commentOfComensal();
+		for (CommentFilter filter : this.configurationFilters)
+			filter.applyNotificationForComensal();
 	}
 	
 	@Override
-	public boolean confirmVisitor() {
-		for (ConfigurationFilter filter : this.configurationFilters)
-			if(filter.confirmVisitor()) return true;
+	public boolean confirmVisitorComment() {
+		for (CommentFilter filter : this.configurationFilters)
+			if(filter.confirmVisitorComment()) return true;
 		return false;
 	}
 
 	@Override
-	public boolean confirmGourmet() {
-		for (ConfigurationFilter filter : this.configurationFilters)
-			if(filter.confirmGourmet()) return true;
+	public boolean confirmGourmetComment() {
+		for (CommentFilter filter : this.configurationFilters)
+			if(filter.confirmGourmetComment()) return true;
 		return false;
 	}
 
 	@Override
-	public boolean confirmComensal() {
-		for (ConfigurationFilter filter : this.configurationFilters)
-			if(filter.confirmComensal()) return true;
+	public boolean confirmComensalComment() {
+		for (CommentFilter filter : this.configurationFilters)
+			if(filter.confirmComensalComment()) return true;
 		return false;
 	}
 

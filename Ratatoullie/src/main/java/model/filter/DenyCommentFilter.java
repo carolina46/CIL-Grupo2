@@ -9,28 +9,28 @@ import model.users.Responsible;
  * @author CIL-Grupo2
  */
 
-public class FullDenyFilter extends ConfigurationFilter {
+public class DenyCommentFilter extends CommentFilter {
 
-	public FullDenyFilter(Responsible responsible) {
+	public DenyCommentFilter(Responsible responsible) {
 		super(responsible);
 	}
 	
 	@Override
-	public boolean confirmVisitor() { return false; }
+	public boolean confirmVisitorComment() { return false; }
 
 	@Override
-	public boolean confirmGourmet() { return false;	}
+	public boolean confirmGourmetComment() { return false;	}
 
 	@Override
-	public boolean confirmComensal() { return false;}
+	public boolean confirmComensalComment() { return false;}
 
 	@Override
-	public void commentOfVisitor() { }
+	public void applyNotificationForVisitor() { }
 
 	@Override
-	public void commentOfGourmet() {}
+	public void applyNotificationForGourmet() {}
 
 	@Override
-	public void commentOfComensal() {}
+	public void applyNotificationForComensal() {}
 
 }

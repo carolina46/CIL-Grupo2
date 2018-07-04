@@ -9,38 +9,38 @@ import model.users.Responsible;
  * @author CIL-Grupo2
  */
 
-public class VisitorFilter extends ConfigurationFilter {
+public class VisitorCommentFilter extends CommentFilter {
 	
-	public VisitorFilter(Responsible responsible) {
+	public VisitorCommentFilter(Responsible responsible) {
 		super(responsible);
 	}
 	
 	@Override
-	public boolean confirmVisitor() { 
+	public boolean confirmVisitorComment() { 
 		//This is being called from a Visitor Ranking so it will Confirm the permission to comment 
 		return true;
 	}
 
 	@Override
-	public boolean confirmGourmet() { 
+	public boolean confirmGourmetComment() { 
 		//This is being called from a Visitor Ranking so it will Deny the permission to comment 
 		return false;	
 	}
 
 	@Override
-	public boolean confirmComensal() { 
+	public boolean confirmComensalComment() { 
 		//This is being called from a Visitor Ranking so it will Deny the permission to comment
 		return false;
 	}
 	
 	@Override
-	public void commentOfVisitor() { this.responsible.notifyNewComments();}
+	public void applyNotificationForVisitor() { this.responsible.notifyNewComments();}
 
 	@Override
-	public void commentOfGourmet() { /*This is being called from a Visitor Ranking so it will NOT Notify */ }
+	public void applyNotificationForGourmet() { /*This is being called from a Visitor Ranking so it will NOT Notify */ }
 
 	@Override
-	public void commentOfComensal() { /*This is being called from a Visitor Ranking so it will NOT Notify */ }
+	public void applyNotificationForComensal() { /*This is being called from a Visitor Ranking so it will NOT Notify */ }
 
 	
 	

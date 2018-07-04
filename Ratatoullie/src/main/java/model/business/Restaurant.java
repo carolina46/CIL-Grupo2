@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import model.Comment;
-import model.filter.ConfigurationFilter;
-import model.filter.FullDenyFilter;
+import model.filter.CommentFilter;
+import model.filter.DenyCommentFilter;
 
 /**
  * Represents an establishment that offers dishes, which are grouped in different menus.
@@ -21,7 +21,7 @@ public class Restaurant {
 	private List<Menu> menus;
 	private Location location;
 	private List<Comment> comments;
-	private ConfigurationFilter filter;
+	private CommentFilter filter;
 
 	public Restaurant(String name, Category category, Location location) {
 		super();
@@ -30,7 +30,7 @@ public class Restaurant {
 		this.menus = new ArrayList<Menu>();
 		this.location = location;
 		this.comments = new ArrayList<Comment>();
-		this.filter = new FullDenyFilter(null);//The First time it will have an FullDenyFilter which might be changed later
+		this.filter = new DenyCommentFilter(null);//The First time it will have an FullDenyFilter which might be changed later
 	}
 
 	public Restaurant() {
@@ -63,8 +63,8 @@ public class Restaurant {
 	public void addComment(Comment comment) { this.comments.add(comment);}
 	public int numberOfComments() { return comments.size();}
 	
-	public ConfigurationFilter getFilter() {	return filter;	}
-	public void setFilter(ConfigurationFilter filter) {	this.filter = filter;	}
+	public CommentFilter getFilter() {	return filter;	}
+	public void setFilter(CommentFilter filter) {	this.filter = filter;	}
 
 	
 

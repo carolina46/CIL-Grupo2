@@ -11,9 +11,9 @@ import model.business.Location;
 import model.business.Menu;
 import model.business.MenuType;
 import model.business.Restaurant;
-import model.filter.CompositeFilter;
-import model.filter.GourmetFilter;
-import model.filter.VisitorFilter;
+import model.filter.CompositeCommentFilter;
+import model.filter.GourmetCommentFilter;
+import model.filter.VisitorCommentFilter;
 import model.users.NormalClient;
 import model.users.Responsible;
 
@@ -61,11 +61,11 @@ class ConfigurationFilterTest {
 		//Restaurant Configuration
 		/**************** ME PARECE MUY RARO ESTE CODIGO
 		/ COMPOSITE OBVIAMENTE ASIGNA EL RESPONSABLE.. O SEA PORQUE NO PUEDO INSTANCIAR UN ConfigurationFilter */
-		CompositeFilter compositeFilter = new CompositeFilter(responsible);
+		CompositeCommentFilter compositeFilter = new CompositeCommentFilter(responsible);
 		
 		/********** PERO LUEGO TENGO QUE VOLVER A ASIGNARLE EL MISMO RESPONSABLE A OTROS FILTROS QUEA SU VEZ ESTAN EN EL COMPOSITE::. QUE RARO:... ES FEO */
-		VisitorFilter visitorFilter = new VisitorFilter(responsible);
-		GourmetFilter gourmetFilter = new GourmetFilter(responsible);
+		VisitorCommentFilter visitorFilter = new VisitorCommentFilter(responsible);
+		GourmetCommentFilter gourmetFilter = new GourmetCommentFilter(responsible);
 
 		compositeFilter.addFilter(visitorFilter);
 		compositeFilter.addFilter(gourmetFilter);
