@@ -15,11 +15,14 @@ import model.users.Client;
 
 public class MenuRecommendation {
 	
-	private Long oid;
+	private Long oid; //For Hibernate
 	private Menu menu;
 	private String description;
 	private List<Client>	receivers;
 		
+	
+	public MenuRecommendation() {}//For Hibernate
+	
 	public MenuRecommendation(String description, List<Client> receivers, Menu menu) {
 		super();
 		this.menu = menu;
@@ -27,22 +30,28 @@ public class MenuRecommendation {
 		this.receivers = receivers;
 	}
 	
+	
 	public Long getOid() {return oid;}
+	
 	public void setOid(Long oid) {	this.oid = oid;	}
 	
+	
 	public Menu getMenu() {return menu;	}
+	
 	public void setMenu(Menu menu) {this.menu = menu;}
 
-	//Methods associated with Description
+	
 	public String getDescription() { return description; }
+	
 	public void setDescription(String description) { this.description = description; }
 		
 		
-	//Methods associated with receivers
+	//Methods associated with list of receivers
+	
 	public List<Client> getReceivers() { return receivers;}	
+	
 	public void setReceivers(List<Client> receivers) {this.receivers = receivers;}
+	
 	public void addReceiver(Client receiver) {this.receivers.add(receiver);}
 	
-	
-
 }

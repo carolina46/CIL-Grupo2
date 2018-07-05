@@ -15,7 +15,7 @@ import model.users.Client;
 
 public class Comensal extends Ranking {
 	
-	public Comensal() {}
+	public Comensal() {} //For Hibernat
 
 	/**
 	 * Change the Client state to visitor o gourmet depending on the total of comments made.

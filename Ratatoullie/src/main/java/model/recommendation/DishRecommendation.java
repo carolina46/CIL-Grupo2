@@ -15,12 +15,14 @@ import model.users.Client;
 
 public class DishRecommendation {
 	
-	private Long oid;
+	private Long oid;//For Hibernate
 	private Dish dish;
 	private String description;
 	private List<Client>	receivers;
 	
 
+	public DishRecommendation() {}//For Hibernate
+	
 	public DishRecommendation(String description, List<Client> receivers, Dish dish) {
 		super();
 		this.dish = dish;
@@ -28,20 +30,27 @@ public class DishRecommendation {
 		this.receivers = receivers;
 	}
 	
+	
 	public Long getOid() {	return oid;}
+	
 	public void setOid(Long oid) {	this.oid = oid;}
 	
+	
 	public Dish getDish() {	return dish;}
+	
 	public void setDish(Dish dish) { this.dish = dish;}
 	
-	//Methods associated with Description
+	
 	public String getDescription() { return description; }
+	
 	public void setDescription(String description) { this.description = description; }
 		
 		
-	//Methods associated with receivers
+	//Methods associated with list of receivers
+	
 	public List<Client> getReceivers() { return receivers;}	
+	
 	public void setReceivers(List<Client> receivers) {this.receivers = receivers;}
+	
 	public void addReceiver(Client receiver) {this.receivers.add(receiver);}
-
 }
