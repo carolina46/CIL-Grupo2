@@ -1,5 +1,7 @@
 package model.filter;
 
+import model.Comment;
+import model.Notification;
 import model.users.Responsible;
 
 public class VisitorNotificationFilter extends NotificationFilter {
@@ -10,12 +12,17 @@ public class VisitorNotificationFilter extends NotificationFilter {
 	}
 
 	@Override
-	public void applyNotificationForVisitor() { this.responsible.notifyNewComments();}
+	public void applyNotificationForVisitor(Comment comment) {
+		//Creates notfication and adds into Responsible's notification list
+		Notification notification = new Notification();
+		notification.setComment(comment);
+		super.responsible.addNotification(notification);
+	}
 
 	@Override
-	public void applyNotificationForGourmet() { /*This is being called from a Visitor Ranking so it will NOT Notify */ }
+	public void applyNotificationForGourmet(Comment comment) { /*This is being called from a Visitor Ranking so it will NOT Notify */ }
 
 	@Override
-	public void applyNotificationForComensal() { /*This is being called from a Visitor Ranking so it will NOT Notify */ }
+	public void applyNotificationForComensal(Comment comment) { /*This is being called from a Visitor Ranking so it will NOT Notify */ }
 
 }

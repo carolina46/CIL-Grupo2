@@ -1,5 +1,6 @@
 package model.filter;
 
+import model.Comment;
 import model.users.Responsible;
 
 /**
@@ -25,7 +26,7 @@ public abstract class NotificationFilter {
 	/*
 	 * They are used to determine if the restaurant responsible should be notified of a new comment
 	 */
-	public abstract void applyNotificationForVisitor();
-	public abstract void applyNotificationForGourmet();
-	public abstract void applyNotificationForComensal();	
+	public abstract void applyNotificationForVisitor(Comment coment);
+	public abstract void applyNotificationForGourmet(Comment coment);
+	public abstract void applyNotificationForComensal(Comment coment);	
 }

@@ -2,7 +2,6 @@ package model.users;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import model.Notification;
 import model.business.Location;
 import model.business.Restaurant;
@@ -31,17 +30,16 @@ public class Responsible extends Client{
 
 	public void addRestaurant(Restaurant restaurant) { this.restaurants.add(restaurant); }
 
-	public void notifyNewComments() {
-		
-		//Determine what the notifications will be
-	}
-
 	public List<Notification> getNotfications() {
 		return notfications;
 	}
 
 	public void setNotfications(List<Notification> notfications) {
 		this.notfications = notfications;
+	}
+	
+	public void addNotification(Notification notification) {
+		this.notfications.add(notification);
 	}
 	
 }

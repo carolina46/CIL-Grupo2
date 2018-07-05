@@ -1,5 +1,6 @@
 package model.ranking;
 
+import model.Comment;
 import model.business.Restaurant;
 import model.users.Client;
 
@@ -29,7 +30,7 @@ public abstract class Ranking {
 	
 	public abstract void updateRanking(Client c);
 
-	public abstract void notifyNewCommentAbout(Restaurant restaurant);
+	public abstract void notifyNewCommentAbout(Restaurant restaurant, Comment coment);
 
 	public abstract boolean canCommentAbout(Restaurant restaurant);
 

@@ -92,7 +92,6 @@ public abstract class Client extends User {
 
 	public void addRestaurantVotes(RestaurantVote restaurantVote) {	this.restaurantVotes.add(restaurantVote);}
 
-	
 	public List<DishRecommendation> getDishRecommendations() { return dishRecommendations;}
 
 	public void addDishRecommendations(DishRecommendation dishRecommendation) { this.dishRecommendations.add(dishRecommendation);}
@@ -105,18 +104,21 @@ public abstract class Client extends User {
 
 	public void addRestaurantRecommendations(RestaurantRecommendation restaurantRecommendation) { this.restaurantRecommendations.add(restaurantRecommendation);	}
 
-			
-	
-	public void comment(String comment, Restaurant restaurant) {
-		Comment c = new Comment(comment,restaurant,this);
-		this.comments.add(c);
-		this.ranking.updateRanking(this);
+	public void comment(String text, Restaurant restaurant) {
+		//Comment creation
+		Comment comment = new Comment(text,restaurant,this);
+		comments.add(comment);
 		
-		restaurant.addComment(c);
-		this.ranking.notifyNewCommentAbout(restaurant);
+		//Ranking Update
+		ranking.updateRanking(this);
+		
+		//Adding Coment to Restaurant
+		restaurant.addComment(comment);
+		
+		//Adding of notfications of the recently created comment
+		ranking.notifyNewCommentAbout(restaurant, comment);
 	}
 
-	
 	public boolean canComment(Restaurant restaurant){
 		return this.ranking.canCommentAbout(restaurant);
 	}

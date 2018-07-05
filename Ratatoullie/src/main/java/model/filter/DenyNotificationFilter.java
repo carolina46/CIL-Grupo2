@@ -1,5 +1,6 @@
 package model.filter;
 
+import model.Comment;
 import model.users.Responsible;
 
 public class DenyNotificationFilter extends NotificationFilter {
@@ -10,12 +11,12 @@ public class DenyNotificationFilter extends NotificationFilter {
 	}
 
 	@Override
-	public void applyNotificationForVisitor() { }
+	public void applyNotificationForVisitor(Comment comment) { }
 
 	@Override
-	public void applyNotificationForGourmet() {}
+	public void applyNotificationForGourmet(Comment comment) {}
 
 	@Override
-	public void applyNotificationForComensal() {}
+	public void applyNotificationForComensal(Comment comment) {}
 
 }

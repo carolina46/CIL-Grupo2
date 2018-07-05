@@ -1,6 +1,8 @@
 package model.filter;
 
 import java.util.ArrayList;
+
+import model.Comment;
 import model.users.Responsible;
 
 /** Represents the variant configuration for sending notifications to the restaurant manager when there are new comments.
@@ -29,24 +31,24 @@ public class CompositeNotificationFilter extends NotificationFilter {
 
 	
 	@Override
-	public void applyNotificationForVisitor() {
+	public void applyNotificationForVisitor(Comment comment) {
 		//It's being called from a Visitor Ranking, it will go through all Configurations but notify only if VisitorConfiguration is present
 		for (NotificationFilter filter : this.configurationFilters)
-			filter.applyNotificationForVisitor();
+			filter.applyNotificationForVisitor(comment);
 	}
 
 	@Override
-	public void applyNotificationForGourmet() {
+	public void applyNotificationForGourmet(Comment comment) {
 		//It's being called from a Gourmet Ranking, it will go through all Configurations but notify only if GourmetConfiguration is present
 		for (NotificationFilter filter : this.configurationFilters)
-			filter.applyNotificationForGourmet();
+			filter.applyNotificationForGourmet(comment);
 	}
 
 	@Override
-	public void applyNotificationForComensal() {
+	public void applyNotificationForComensal(Comment comment) {
 		//It's being called from a Comensal Ranking, it will go through all Configurations but notify only if ComensalConfiguration is present
 		for (NotificationFilter filter : this.configurationFilters)
-			filter.applyNotificationForComensal();
+			filter.applyNotificationForComensal(comment);
 	}
 
 }

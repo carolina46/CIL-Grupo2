@@ -1,5 +1,6 @@
 package model.ranking;
 
+import model.Comment;
 import model.business.Restaurant;
 import model.users.Client;
 
@@ -28,8 +29,8 @@ public class Comensal extends Ranking {
 	}
 
 	@Override
-	public void notifyNewCommentAbout(Restaurant restaurant) {
-		restaurant.getNotificationFilter().applyNotificationForComensal();
+	public void notifyNewCommentAbout(Restaurant restaurant, Comment comment) {
+		restaurant.getNotificationFilter().applyNotificationForComensal(comment);
 		
 	}
 
