@@ -11,9 +11,13 @@ import model.business.Dish;
  */
 public class DishVote {
 	
-	private Long oid;
+	private Long oid; //For Hibernate
 	private Dish dish;
 	private Integer value; 
+	
+	
+	public DishVote() {} //For Hibernate
+	
 	/* 
 	 * possible values = [1..10]
 	 * 
@@ -32,21 +36,15 @@ public class DishVote {
 		this.value=value;
 	}
 	
-	public Long getOid() {
-		return oid;
-	}
+	public Long getOid() { return oid;}
 
-	public void setOid(Long oid) {
-		this.oid = oid;
-	}
+	public void setOid(Long oid) { this.oid = oid;}
 
-	public Dish getDish() {
-		return dish;
-	}
+	
+	public Dish getDish() { return dish;}
 
-	public void setDish(Dish dish) {
-		this.dish = dish;
-	}
+	public void setDish(Dish dish) { this.dish = dish;}
+	
 	
 	public Integer getValue() {	return value;}
 

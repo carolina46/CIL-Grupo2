@@ -11,9 +11,13 @@ import model.business.Menu;
  */
 public class MenuVote {
 	
-	private Long oid;
+	private Long oid; //For Hibernate
 	private Menu menu;
 	private Integer value; 
+	
+	
+	public MenuVote() {} //For Hibernate
+	
 	/* 
 	 * possible values = [1..10]
 	 * 
@@ -32,21 +36,15 @@ public class MenuVote {
 		this.value=value;
 	}
 	
-	public Long getOid() {
-		return oid;
-	}
+	public Long getOid() { return oid;}
 
-	public void setOid(Long oid) {
-		this.oid = oid;
-	}
+	public void setOid(Long oid) { this.oid = oid;}
 
-	public Menu getMenu() {
-		return menu;
-	}
 
-	public void setMenu(Menu menu) {
-		this.menu = menu;
-	}
+	public Menu getMenu() { return menu;}
+
+	public void setMenu(Menu menu) { this.menu = menu;}
+	
 	
 	public Integer getValue() {	return value;}
 

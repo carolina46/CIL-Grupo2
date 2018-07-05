@@ -11,9 +11,12 @@ import model.business.Restaurant;
  */
 public class RestaurantVote {
 	
-	private Long oid;
+	private Long oid; //For Hibernate
 	private Restaurant restaurant;
 	private Integer value; 
+	
+	public RestaurantVote() {} //For Hibernate
+	
 	/* 
 	 * possible values = [1..10]
 	 * 
@@ -32,14 +35,12 @@ public class RestaurantVote {
 		this.value=value;
 	}
 	
-	public Long getOid() {
-		return oid;
-	}
+	
+	public Long getOid() { return oid;}
 
-	public void setOid(Long oid) {
-		this.oid = oid;
-	}
+	public void setOid(Long oid) { this.oid = oid;}
 
+	
 	public Restaurant getRestaurant() {	return restaurant;	}
 
 	public void setRestaurant(Restaurant restaurant) { this.restaurant = restaurant; }
