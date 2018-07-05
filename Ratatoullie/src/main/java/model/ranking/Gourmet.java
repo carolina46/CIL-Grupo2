@@ -14,6 +14,8 @@ import model.users.Client;
 
 public class Gourmet extends Ranking {
 
+	public Gourmet() {} //For Hibernate
+	
 	/**
 	 * Change the user's state to comensal depending on the total of comments made.
 	 * @param Receives the user whom it belongs.
@@ -23,20 +25,23 @@ public class Gourmet extends Ranking {
 		if(c.numberOfComments()<40) {
 			c.setRanking(new Comensal());
 		}
-
 	}
 
+	/**
+	 * Inform to the NotificationFilter of a restaurant about a new comment from a Gourmet client.
+	 */
 	@Override
 	public void notifyNewCommentAbout(Restaurant restaurant, Comment comment) {
 		restaurant.getNotificationFilter().applyNotificationForGourmet(comment);
-		
 	}
 	
+	/**
+	 * Check whit the CommentFilter of a restaurant if a client Gourmet can comment.
+	 */	
 	@Override
 	public boolean canCommentAbout(Restaurant restaurant) {
 		return restaurant.getCommentFilter().confirmGourmetComment();
 	}
 
 	
-
 }
