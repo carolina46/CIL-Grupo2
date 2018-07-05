@@ -1,9 +1,8 @@
 package model.filter;
 
 /**
- * Represents the Comensal configuration for sending notifications to the restaurant manager when there are new comments.
+ * Represents the COMENSAL configuration for filtering the ability to comment.
  * Only clients of the Comensal type can comment.
- * Only notifications of clients of type Comensal are sent.
  * @author CIL-Grupo2
  */
 
@@ -15,13 +14,13 @@ public class ComensalCommentFilter extends CommentFilter {
 
 	@Override
 	public boolean confirmVisitorComment() { 
-		//This is being called from a Comensal Ranking so it will Deny the permission to comment 
+		//This is being called from a Visitor Ranking so it will Deny the permission to comment 
 		return false; 
 	}
 
 	@Override
 	public boolean confirmGourmetComment() { 
-		//This is being called from a Comensal Ranking so it will Deny the permission to comment 
+		//This is being called from a Gourmet Ranking so it will Deny the permission to comment 
 		return false; 
 	}
 
