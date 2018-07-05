@@ -17,6 +17,8 @@ public class Responsible extends Client{
 	
 	private List<Restaurant> restaurants;
 	private List<Notification> notfications;
+	
+	public Responsible() { super();} //For Hibernate 
 
 	public Responsible(String fullName, String user, String password, Location location) {
 		super(fullName, user, password, location);
@@ -24,22 +26,35 @@ public class Responsible extends Client{
 		notfications = new ArrayList<Notification>();
 	}
 	
+	
+	/*IMPLEMENT*/
+	@Override
+	public void comment(String text, Restaurant restaurant) {
+		if(true) { //Control the distance between restaurants
+			super.comment(text, restaurant);	
+		}
+		
+	}
+	
+	
+	//Methods associated with list of Restaurants
+	
 	public List<Restaurant> getRestaurants() { return restaurants; }
 
 	public void setRestaurants(List<Restaurant> restaurants) { this.restaurants = restaurants; }
 
-	public void addRestaurant(Restaurant restaurant) { this.restaurants.add(restaurant); }
+	/*IMPLEMENT check restaurant repetition*/ public void addRestaurant(Restaurant restaurant) { this.restaurants.add(restaurant); }
 
-	public List<Notification> getNotfications() {
-		return notfications;
-	}
+	/*IMPLEMENT if can*/ public void deleteRestaurant(Restaurant restaurant) { }
+	
+	
+	//Methods associated with list of notifications
+	
+	public List<Notification> getNotfications() { return notfications;}
 
-	public void setNotfications(List<Notification> notfications) {
-		this.notfications = notfications;
-	}
+	public void setNotfications(List<Notification> notfications) { this.notfications = notfications; }
 	
-	public void addNotification(Notification notification) {
-		this.notfications.add(notification);
-	}
+	public void addNotification(Notification notification) { this.notfications.add(notification);}
 	
+	/*IMPLEMENT if can*/ public void deleteNotification(Notification notification) { }
 }
