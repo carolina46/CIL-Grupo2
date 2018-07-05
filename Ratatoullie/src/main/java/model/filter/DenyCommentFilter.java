@@ -1,9 +1,7 @@
 package model.filter;
 
 /**
- * Represents the NULL configuration for sending notifications to the restaurant manager when there are new comments.
- * Nobody can comment.
- * No notification is sent 
+ * Represents the DENY configuration. Nobody will be able to comment.
  * @author CIL-Grupo2
  */
 
@@ -17,7 +15,7 @@ public class DenyCommentFilter extends CommentFilter {
 	public boolean confirmVisitorComment() { return false; }
 
 	@Override
-	public boolean confirmGourmetComment() { return false;	}
+	public boolean confirmGourmetComment() { return false; }
 
 	@Override
 	public boolean confirmComensalComment() { return false;}
