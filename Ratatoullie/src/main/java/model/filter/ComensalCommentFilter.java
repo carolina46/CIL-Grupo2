@@ -1,7 +1,5 @@
 package model.filter;
 
-import model.users.Responsible;
-
 /**
  * Represents the Comensal configuration for sending notifications to the restaurant manager when there are new comments.
  * Only clients of the Comensal type can comment.
@@ -11,8 +9,8 @@ import model.users.Responsible;
 
 public class ComensalCommentFilter extends CommentFilter {
 	
-	public ComensalCommentFilter(Responsible responsible) {
-		super(responsible);
+	public ComensalCommentFilter() {
+		super();
 	}
 
 	@Override
@@ -32,14 +30,5 @@ public class ComensalCommentFilter extends CommentFilter {
 		//This is being called from a Comensal Ranking so it will Confirm the permission to comment 
 		return true;
 	}
-
-	@Override
-	public void applyNotificationForVisitor() { /*This is being called from a Comensal Ranking so it will NOT Notify */ }
-
-	@Override
-	public void applyNotificationForGourmet() { /*This is being called from a Comensal Ranking so it will NOT Notify */ }
-
-	@Override
-	public void applyNotificationForComensal() {this.responsible.notifyNewComments();}
 
 }

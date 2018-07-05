@@ -1,7 +1,5 @@
 package model.filter;
 
-import model.users.Responsible;
-
 /**
  * Represents the NULL configuration for sending notifications to the restaurant manager when there are new comments.
  * Nobody can comment.
@@ -11,8 +9,8 @@ import model.users.Responsible;
 
 public class DenyCommentFilter extends CommentFilter {
 
-	public DenyCommentFilter(Responsible responsible) {
-		super(responsible);
+	public DenyCommentFilter() {
+		super();
 	}
 	
 	@Override
@@ -23,14 +21,5 @@ public class DenyCommentFilter extends CommentFilter {
 
 	@Override
 	public boolean confirmComensalComment() { return false;}
-
-	@Override
-	public void applyNotificationForVisitor() { }
-
-	@Override
-	public void applyNotificationForGourmet() {}
-
-	@Override
-	public void applyNotificationForComensal() {}
 
 }

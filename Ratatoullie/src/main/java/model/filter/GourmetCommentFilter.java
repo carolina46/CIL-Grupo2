@@ -1,7 +1,5 @@
 package model.filter;
 
-import model.users.Responsible;
-
 /**
  * Represents the Gourmet configuration for sending notifications to the restaurant manager when there are new comments.
  * Only clients of the Gourmet type can comment.
@@ -11,8 +9,8 @@ import model.users.Responsible;
 
 public class GourmetCommentFilter extends CommentFilter {
 
-	public GourmetCommentFilter(Responsible responsible) {
-		super(responsible);
+	public GourmetCommentFilter() {
+		super();
 	}
 	
 	@Override
@@ -31,17 +29,6 @@ public class GourmetCommentFilter extends CommentFilter {
 	public boolean confirmComensalComment() { 
 		//This is being called from a Gourmet Ranking so it will Deny the permission to comment
 		return false; 
-	}
-
-	@Override
-	public void applyNotificationForVisitor() { /*This is being called from a Gourmet Ranking so it will NOT Notify */ }
-
-	@Override
-	public void applyNotificationForGourmet() { this.responsible.notifyNewComments();}
-
-	@Override
-	public void applyNotificationForComensal() { /*This is being called from a Gourmet Ranking so it will NOT Notify */ }
-
-	
+	}	
 
 }
