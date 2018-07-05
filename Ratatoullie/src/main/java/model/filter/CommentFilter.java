@@ -9,23 +9,23 @@ package model.filter;
 
 public abstract class CommentFilter {
 	
-	private Long oid;
+	private Long oid;//For Hibernate
 	
-	public CommentFilter() {
-		
-	}
+	
+	public CommentFilter() {} //For Hibernate
+	
 	
 	public Long getOid() {	return oid;	}
-	public void setOid(Long oid) { this.oid = oid;	}
+	
+	public void setOid(Long oid) { this.oid = oid;}
 
-	/*
-	 * They are used to inform if a comment about the restaurant can be made.
-	 */
+	
+	// They are used to inform if a comment about the restaurant can be made.
+	
 	public abstract boolean confirmVisitorComment();
+	
 	public abstract boolean confirmGourmetComment();
+	
 	public abstract boolean confirmComensalComment();
-	
-	
-	
-	
+			
 }
