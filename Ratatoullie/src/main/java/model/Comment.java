@@ -17,8 +17,7 @@ public class Comment {
 	private String description;
 	private LocalDateTime date;
 	private Restaurant restaurant;
-	private boolean notified;
-
+	
 	public Comment() {} //For Hibernate
 	
 	public Comment(String description, Restaurant restaurant, Client client) {
@@ -26,7 +25,6 @@ public class Comment {
 		this.description = description;
 		this.restaurant = restaurant;
 		this.date = LocalDateTime.now();
-		this.notified = false;
 	}
 	
 	public Long getOid() {	return oid;}
@@ -48,8 +46,4 @@ public class Comment {
 	
 	public void setRestaurant(Restaurant restaurant) {	this.restaurant = restaurant;	}
 
-	
-	public boolean isNotified() {return notified;}
-	
-	public void setNotified(boolean notified) {this.notified = notified;}
 }
