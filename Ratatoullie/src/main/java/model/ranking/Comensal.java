@@ -14,6 +14,8 @@ import model.users.Client;
 
 
 public class Comensal extends Ranking {
+	
+	public Comensal() {}
 
 	/**
 	 * Change the Client state to visitor o gourmet depending on the total of comments made.
@@ -28,13 +30,17 @@ public class Comensal extends Ranking {
 				c.setRanking(new Visitor());
 	}
 
+	/**
+	 * Inform to the NotificationFilter of a restaurant about a new comment from a Comensal client.
+	 */
 	@Override
 	public void notifyNewCommentAbout(Restaurant restaurant, Comment comment) {
 		restaurant.getNotificationFilter().applyNotificationForComensal(comment);
-		
 	}
 
-	
+	/**
+	 * Check whit the CommentFilter of a restaurant if a client Comensal can comment.
+	 */
 	@Override
 	public boolean canCommentAbout(Restaurant restaurant) {
 		return restaurant.getCommentFilter().confirmComensalComment();
