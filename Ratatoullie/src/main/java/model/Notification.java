@@ -9,26 +9,30 @@ package model;
  */
 
 public class Notification {
-
+	
+	private Long oid; //For Hibernate
 	private boolean readed;
 	private Comment comment;
 
-	public Notification() {
-		readed = false;
+	public Notification() {} //For Hibernate
+	
+	public Notification(Comment comment) {	
+		super();
+		this.comment=comment;
+		readed = false;	
 	}
 
-	public boolean isReaded() {
-		return readed;
-	}
+	public Long getOid() { return oid; }
 
-	public void setReaded(boolean readed) {
-		this.readed = readed;
-	}
-	public Comment getComment() {
-		return comment;
-	}
+	public void setOid(Long oid) { this.oid = oid; }
 
-	public void setComment(Comment comment) {
-		this.comment = comment;
-	}
+	
+	public boolean isReaded() {	return readed;}
+ 	
+	public void setReaded(boolean readed) {	this.readed = readed;}
+	
+	
+	public Comment getComment() {return comment;}
+
+	public void setComment(Comment comment) { this.comment = comment;}
 }
