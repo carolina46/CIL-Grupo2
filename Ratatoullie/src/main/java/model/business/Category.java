@@ -7,29 +7,24 @@ package model.business;
 
 public class Category {
 	
-	private Long oid;
+	private Long oid; //For Hibernate
 	private String name;
 	
-	public Long getOid() {
-		return oid;
-	}
-
-	public void setOid(Long oid) {
-		this.oid = oid;
-	}
+	
+	public Category() {} //For Hibernate
 
 	public Category(String name) {
 		super();
 		this.name = name;
 	}
+	
+	public Long getOid() { return oid;} 
 
-	public String getName() {
-		return name;
-	}
+	public void setOid(Long oid) { this.oid = oid;}
 
-	public void setName(String name) {
-		this.name = name;
-	}
+	public String getName() { return name;}
+
+	public void setName(String name) { this.name = name;}
 }
 
 
