@@ -24,7 +24,7 @@ public class Restaurant {
 	private Location location;
 	private List<Comment> comments;
 	private CommentFilter commentFilter;
-	private NotificationFilter notificationFiler;
+	private NotificationFilter notificationFilter;
 
 	public Restaurant(String name, Category category, Location location) {
 		super();
@@ -34,7 +34,7 @@ public class Restaurant {
 		this.location = location;
 		this.comments = new ArrayList<Comment>();
 		this.commentFilter = new DenyCommentFilter();//The First time it will have an DenyCommentFilter which might be changed later
-		this.notificationFiler = new DenyNotificationFilter(null);//The First time it will have an DenyNotificationFilter which might be changed later
+		this.notificationFilter = new DenyNotificationFilter(null);//The First time it will have an DenyNotificationFilter which might be changed later
 	}
 
 	public Restaurant() {
@@ -75,12 +75,12 @@ public class Restaurant {
 		this.commentFilter = commentFilter;
 	}
 
-	public NotificationFilter getNotificationFiler() {
-		return notificationFiler;
+	public NotificationFilter getNotificationFilter() {
+		return notificationFilter;
 	}
 
-	public void setNotificationFiler(NotificationFilter notificationFiler) {
-		this.notificationFiler = notificationFiler;
+	public void setNotificationFilter(NotificationFilter notificationFilter) {
+		this.notificationFilter = notificationFilter;
 	}
 	
 }

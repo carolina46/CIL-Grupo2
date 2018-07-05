@@ -29,14 +29,14 @@ public class Comensal extends Ranking {
 
 	@Override
 	public void notifyNewCommentAbout(Restaurant restaurant) {
-		restaurant.getFilter().applyNotificationForComensal();
+		restaurant.getNotificationFilter().applyNotificationForComensal();
 		
 	}
 
 	
 	@Override
 	public boolean canCommentAbout(Restaurant restaurant) {
-		return restaurant.getFilter().confirmComensalComment();
+		return restaurant.getCommentFilter().confirmComensalComment();
 	}
 	
 }

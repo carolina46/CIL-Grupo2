@@ -61,16 +61,17 @@ class ConfigurationFilterTest {
 		//Restaurant Configuration
 		/**************** ME PARECE MUY RARO ESTE CODIGO
 		/ COMPOSITE OBVIAMENTE ASIGNA EL RESPONSABLE.. O SEA PORQUE NO PUEDO INSTANCIAR UN ConfigurationFilter */
-		CompositeCommentFilter compositeFilter = new CompositeCommentFilter(responsible);
+		
+		//CompositeCommentFilter compositeFilter = new CompositeCommentFilter(responsible);
 		
 		/********** PERO LUEGO TENGO QUE VOLVER A ASIGNARLE EL MISMO RESPONSABLE A OTROS FILTROS QUEA SU VEZ ESTAN EN EL COMPOSITE::. QUE RARO:... ES FEO */
-		VisitorCommentFilter visitorFilter = new VisitorCommentFilter(responsible);
+		/*VisitorCommentFilter visitorFilter = new VisitorCommentFilter(responsible);
 		GourmetCommentFilter gourmetFilter = new GourmetCommentFilter(responsible);
 
 		compositeFilter.addFilter(visitorFilter);
 		compositeFilter.addFilter(gourmetFilter);
 		
-		restaurant.setFilter(compositeFilter);
+		restaurant.setFilter(compositeFilter);*/
 		
 		//Comment of the user
 		//normal.comment("lindo el que lee", restaurant);//this Restaurant allows Visitor and Gourmet to comment.

@@ -27,13 +27,13 @@ public class Gourmet extends Ranking {
 
 	@Override
 	public void notifyNewCommentAbout(Restaurant restaurant) {
-		restaurant.getFilter().applyNotificationForGourmet();
+		restaurant.getNotificationFilter().applyNotificationForGourmet();
 		
 	}
 	
 	@Override
 	public boolean canCommentAbout(Restaurant restaurant) {
-		return restaurant.getFilter().confirmGourmetComment();
+		return restaurant.getCommentFilter().confirmGourmetComment();
 	}
 
 	
