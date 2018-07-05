@@ -13,11 +13,6 @@ import model.users.Client;
 
 public abstract class Ranking {
 	
-	/**
-	 * Update the Client's state according to the total number of comments made.
-	 * @param Receives the user to whom it belongs.
-	 */
-	
 	private Long oid; //For Hibernate
 	
 	public Ranking() {} //For Hibernate
@@ -27,13 +22,20 @@ public abstract class Ranking {
 
 	public void setOid(Long oid) { this.oid = oid;}
 	
-	
+	/**
+	 * Update the Client's state according to the total number of comments made.
+	 * @param Receives the user to whom it belongs.
+	 */
 	public abstract void updateRanking(Client c);
 
-	
+	/**
+	 * Inform to the NotificationFilter of a restaurant about a new comment.
+	 */
 	public abstract void notifyNewCommentAbout(Restaurant restaurant, Comment coment);
 
-	
+	/**
+	 * Check whit the CommentFilter of a restaurant if it is possible to comment.
+	 */
 	public abstract boolean canCommentAbout(Restaurant restaurant);
 
 }
