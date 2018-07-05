@@ -12,10 +12,12 @@ import java.util.List;
 
 public class Menu {
 	
-	private Long oid;
+	private Long oid; //For Hibernate
 	private List<Dish> dishes;
 	private List<Tag> tags;
 	private MenuType menuType;
+	
+	public Menu() {} //For Hibernate
 	
 	public Menu(MenuType menuType) {
 		this.dishes = new ArrayList<Dish>();
@@ -24,19 +26,26 @@ public class Menu {
 	}
 	
 	public Long getOid() {return oid;}
+	
 	public void setOid(Long oid) {	this.oid = oid;}
 	
-	//Methods associated with menuType
 	public MenuType getMenuType() {return menuType;}
+	
 	public void setMenuType(MenuType menuType) {this.menuType = menuType;}
 	
-	//Methods associated with dishes
+	//Methods associated with list of dishes
+	
 	public void addDish(Dish dish) {this.dishes.add(dish);}
+	
 	public List<Dish> getDishes() { return dishes;}
+	
 	public void setDishes(List<Dish> dishes) {this.dishes = dishes;}
 	
-	//Methods associated with Tags
+	//Methods associated with list of Tags
+	
 	public void addTag(Tag tag) {this.tags.add(tag);}
+	
 	public List<Tag> getTags() { return tags;}
+	
 	public void setTags(List<Tag> tags) {this.tags = tags;}
 }
