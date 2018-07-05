@@ -6,6 +6,8 @@ import java.util.List;
 import model.Comment;
 import model.filter.CommentFilter;
 import model.filter.DenyCommentFilter;
+import model.filter.DenyNotificationFilter;
+import model.filter.NotificationFilter;
 
 /**
  * Represents an establishment that offers dishes, which are grouped in different menus.
@@ -21,7 +23,8 @@ public class Restaurant {
 	private List<Menu> menus;
 	private Location location;
 	private List<Comment> comments;
-	private CommentFilter filter;
+	private CommentFilter commentFilter;
+	private NotificationFilter notificationFiler;
 
 	public Restaurant(String name, Category category, Location location) {
 		super();
@@ -30,7 +33,8 @@ public class Restaurant {
 		this.menus = new ArrayList<Menu>();
 		this.location = location;
 		this.comments = new ArrayList<Comment>();
-		this.filter = new DenyCommentFilter(null);//The First time it will have an FullDenyFilter which might be changed later
+		this.commentFilter = new DenyCommentFilter();//The First time it will have an DenyCommentFilter which might be changed later
+		this.notificationFiler = new DenyNotificationFilter(null);//The First time it will have an DenyNotificationFilter which might be changed later
 	}
 
 	public Restaurant() {
@@ -63,11 +67,21 @@ public class Restaurant {
 	public void addComment(Comment comment) { this.comments.add(comment);}
 	public int numberOfComments() { return comments.size();}
 	
-	public CommentFilter getFilter() {	return filter;	}
-	public void setFilter(CommentFilter filter) {	this.filter = filter;	}
+	public CommentFilter getCommentFilter() {
+		return commentFilter;
+	}
 
-	
+	public void setCommentFilter(CommentFilter commentFilter) {
+		this.commentFilter = commentFilter;
+	}
 
+	public NotificationFilter getNotificationFiler() {
+		return notificationFiler;
+	}
+
+	public void setNotificationFiler(NotificationFilter notificationFiler) {
+		this.notificationFiler = notificationFiler;
+	}
 	
 }
 	
