@@ -18,20 +18,22 @@ public abstract class Ranking {
 	 * @param Receives the user to whom it belongs.
 	 */
 	
-	private Long oid;
+	private Long oid; //For Hibernate
 	
-	public Long getOid() {
-		return oid;
-	}
+	public Ranking() {} //For Hibernate
+	
+	
+	public Long getOid() { return oid;}
 
-	public void setOid(Long oid) {
-		this.oid = oid;
-	}
+	public void setOid(Long oid) { this.oid = oid;}
+	
 	
 	public abstract void updateRanking(Client c);
 
+	
 	public abstract void notifyNewCommentAbout(Restaurant restaurant, Comment coment);
 
+	
 	public abstract boolean canCommentAbout(Restaurant restaurant);
 
 }
