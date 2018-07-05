@@ -14,6 +14,7 @@ public class MenuType {
 	public MenuType() {} //For Hibernate
 	
 	public MenuType(String name) {
+		super();
 		this.name = name;
 	}
 	
