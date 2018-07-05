@@ -8,21 +8,20 @@ package model.business;
 
 public class MenuType {
 	
-	private Long oid;
+	private Long oid; //For Hibernate
 	private String name;
 
+	public MenuType() {} //For Hibernate
+	
 	public MenuType(String name) {
 		this.name = name;
 	}
 	
-	public Long getOid() {
-		return oid;
-	}
+	public Long getOid() { return oid;}
 
-	public void setOid(Long oid) {
-		this.oid = oid;
-	}
+	public void setOid(Long oid) { this.oid = oid;}
 	
 	public String getNombre() { return name;}
+	
 	public void setNombre(String name) { this.name = name;}
 }
