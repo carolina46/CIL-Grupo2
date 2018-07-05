@@ -8,9 +8,10 @@ package model.business;
 
 public class Tag {
 	
-	private Long oid;
+	private Long oid; //For Hibernate
 	private String nombre;
 	
+	public Tag() {} //For Hibernate
 	
 	public Tag(String nombre) {
 		super();
@@ -18,8 +19,10 @@ public class Tag {
 	}
 	
 	public Long getOid() {	return oid;	}
+	
 	public void setOid(Long oid) {	this.oid = oid;	}
 	
 	public String getNombre() { return nombre;}
+	
 	public void setNombre(String nombre) {this.nombre = nombre;}
 }
