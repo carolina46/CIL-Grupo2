@@ -1,9 +1,8 @@
 package model.filter;
 
 /**
- * Represents the Gourmet configuration for sending notifications to the restaurant manager when there are new comments.
+ * Represents the GOURMET configuration for filtering the ability to comment.
  * Only clients of the Gourmet type can comment.
- * Only notifications of clients of type Gourmet are sent.
  * @author CIL-Grupo2
  */
 
@@ -15,7 +14,7 @@ public class GourmetCommentFilter extends CommentFilter {
 	
 	@Override
 	public boolean confirmVisitorComment() { 
-		//This is being called from a Gourmet Ranking so it will Deny the permission to comment 
+		//This is being called from a Visitor Ranking so it will Deny the permission to comment 
 		return false;
 	}
 
@@ -27,7 +26,7 @@ public class GourmetCommentFilter extends CommentFilter {
 
 	@Override
 	public boolean confirmComensalComment() { 
-		//This is being called from a Gourmet Ranking so it will Deny the permission to comment
+		//This is being called from a Comensal Ranking so it will Deny the permission to comment
 		return false; 
 	}	
 
