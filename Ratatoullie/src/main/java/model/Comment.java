@@ -11,16 +11,18 @@ import model.users.Client;
  * @author CIL-Grupo2
  */
 
-
 public class Comment {
 
-	private Long oid;
+	private Long oid; //For Hibernate
 	private String description;
 	private LocalDateTime date;
 	private Restaurant restaurant;
 	private boolean notified;
+
+	public Comment() {} //For Hibernate
 	
 	public Comment(String description, Restaurant restaurant, Client client) {
+		super();
 		this.description = description;
 		this.restaurant = restaurant;
 		this.date = LocalDateTime.now();
@@ -28,20 +30,26 @@ public class Comment {
 	}
 	
 	public Long getOid() {	return oid;}
+
 	public void setOid(Long oid) {	this.oid = oid;}
 	
-	//Methods associated with Date
-	public LocalDateTime getDate() {	return date;}
+	
+	public LocalDateTime getDate() { return date;}
+	
 	public void setDate(LocalDateTime date) { this.date = date;}
 	
-	//Methods associated with Description
+	
 	public String getDescription() { return description;}
+	
 	public void setDescription(String description) { this.description = description;}
 	
-	//Methods associated with Restaurant
-	public Restaurant getRestaurant() {		return restaurant;	}
+	
+	public Restaurant getRestaurant() {	return restaurant;	}
+	
 	public void setRestaurant(Restaurant restaurant) {	this.restaurant = restaurant;	}
 
+	
 	public boolean isNotified() {return notified;}
+	
 	public void setNotified(boolean notified) {this.notified = notified;}
 }
