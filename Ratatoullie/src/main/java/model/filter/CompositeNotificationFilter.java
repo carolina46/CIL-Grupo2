@@ -16,18 +16,16 @@ public class CompositeNotificationFilter extends NotificationFilter {
 
 	private ArrayList<NotificationFilter> configurationFilters;
 	
+	public CompositeNotificationFilter() {} //For Hibernate
+	
 	public CompositeNotificationFilter(Responsible responsible) {
 		super(responsible);
 		configurationFilters = new ArrayList<NotificationFilter>();
 	}
 	
-	public ArrayList<NotificationFilter> getConfigurationFilters() {
-		return configurationFilters;
-	}
+	public ArrayList<NotificationFilter> getConfigurationFilters() { return configurationFilters;}
 
-	public void setConfigurationFilters(ArrayList<NotificationFilter> configurationFilters) {
-		this.configurationFilters = configurationFilters;
-	}
+	public void setConfigurationFilters(ArrayList<NotificationFilter> configurationFilters) { this.configurationFilters = configurationFilters;	}
 
 	
 	@Override
