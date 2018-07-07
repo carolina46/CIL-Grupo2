@@ -23,7 +23,7 @@ public class Comensal extends Ranking {
 	 */
 	@Override
 	public void updateRanking(Client c) {
-		if(c.numberOfComments()>39) 
+		if(c.numberOfComments()>40) 
 			c.setRanking(new Gourmet());
 		else
 			if(c.numberOfComments()<20)

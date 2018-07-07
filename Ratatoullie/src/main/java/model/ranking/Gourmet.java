@@ -22,7 +22,7 @@ public class Gourmet extends Ranking {
 	 */
 	@Override
 	public void updateRanking(Client c) {
-		if(c.numberOfComments()<40) {
+		if(c.numberOfComments()<41) {
 			c.setRanking(new Comensal());
 		}
 	}
