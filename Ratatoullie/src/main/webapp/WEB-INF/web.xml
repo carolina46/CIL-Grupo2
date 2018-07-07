@@ -7,12 +7,12 @@
 <web-app>
 	<display-name>Grupo2</display-name>
 	<servlet>
-		<servlet-name>RatatoullieDispatcher</servlet-name>  
-		<servlet-class> org.springframework.web.servlet.DispatcherServlet </servlet-class>
+		<servlet-name>ratatoullie-dispatcher</servlet-name>  
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 	<servlet-mapping>
- 		<servlet-name>RatatoullieDispatcher</servlet-name>
+ 		<servlet-name>ratatoullie-dispatcher</servlet-name>
  		<url-pattern>/</url-pattern>
  	</servlet-mapping>
 </web-app>
