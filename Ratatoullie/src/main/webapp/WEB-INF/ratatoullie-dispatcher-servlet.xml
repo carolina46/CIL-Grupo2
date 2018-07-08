@@ -22,7 +22,7 @@ http://www.springframework.org/schema/context/spring-context.xsd ">
 	<mvc:annotation-driven />
 	
 	<!--  Specifying the resource location to load JS, CSS, Images,etc -->
-	<mvc:resources mapping="/resources/**" location="/resources/"/>
+	<mvc:resources mapping="src/main/resources/**" location="src/main/resources/"/>
 	
 	<!--  View resolver -->
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver" >
