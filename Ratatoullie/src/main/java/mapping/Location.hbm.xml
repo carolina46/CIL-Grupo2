@@ -2,12 +2,13 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping package="model.business">
 
-	<class name="Category" table="category" >
+	<class name="Location" table="lategory" >
 	
-		<id name="oid" type="java.lang.Long" column="id_category" unsaved-value="0">
+		<id name="oid" type="java.lang.Long" column="id_location" unsaved-value="0">
 				<generator class="native" />
 		</id>
-		<property name="name" type="java.lang.String" column="name"/>
+		<property name="name" type="java.lang.Double" column="latitude"/>
+		<property name="name" type="java.lang.Double" column="longitude"/>
 	
     </class>
 </hibernate-mapping>
