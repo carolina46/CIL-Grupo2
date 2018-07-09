@@ -65,6 +65,7 @@ http://www.springframework.org/schema/context/spring-context.xsd ">
             <value>model.recommendation</value>
             <value>model.users</value>
             <value>model.vote</value>
+            <value>resources.daos</value>
          </array>
         </property>
 	 </bean>
