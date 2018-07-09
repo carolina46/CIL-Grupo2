@@ -4,7 +4,7 @@ import org.hibernate.Session;
 
 public class RestaurantDAOImpl implements RestaurantDAO{
 
-	private SessionFactory sessionFactory;
+	private SessionFactoy sessionFactory;
 	
 	public void setSessionFactory(SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;

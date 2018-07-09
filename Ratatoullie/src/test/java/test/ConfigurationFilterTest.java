@@ -11,9 +11,6 @@ import model.business.Location;
 import model.business.Menu;
 import model.business.MenuType;
 import model.business.Restaurant;
-import model.filter.CompositeCommentFilter;
-import model.filter.GourmetCommentFilter;
-import model.filter.VisitorCommentFilter;
 import model.users.NormalClient;
 import model.users.Responsible;
 
