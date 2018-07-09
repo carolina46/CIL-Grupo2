@@ -10,6 +10,4 @@ public interface GenericDAO<T> {
 		public void delete(T t);
 		public void modify(T t);
 		public String getByID(Long id);
-	
-
 }
