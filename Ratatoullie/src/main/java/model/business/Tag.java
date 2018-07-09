@@ -9,20 +9,20 @@ package model.business;
 public class Tag {
 	
 	private Long oid; //For Hibernate
-	private String nombre;
+	private String name;
 	
 	public Tag() {} //For Hibernate
 	
-	public Tag(String nombre) {
+	public Tag(String name) {
 		super();
-		this.nombre = nombre;
+		this.name = name;
 	}
 	
 	public Long getOid() {	return oid;	}
 	
 	public void setOid(Long oid) {	this.oid = oid;	}
 	
-	public String getNombre() { return nombre;}
+	public String getNombre() { return name;}
 	
-	public void setNombre(String nombre) {this.nombre = nombre;}
+	public void setNombre(String name) {this.name = name;}
 }
