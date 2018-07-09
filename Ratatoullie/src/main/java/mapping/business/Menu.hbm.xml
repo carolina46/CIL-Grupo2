@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="model.business">
+
+	<class name="Menu" table="menu" >
+	
+		<id name="oid" type="java.lang.Long" column="id_menu" unsaved-value="0">
+				<generator class="native" />
+		</id>
+		<property name="name" type="java.lang.String" column="name"/>
+		
+        <many-to-one 
+			name="menuType"
+			class="MenuType"
+			column="id_menu_type"
+			lazy="false">
+		</many-to-one>
+		
+		<list name="tags" lazy="false" cascade="save-update" table="menu-tags">
+		<!--save-update -  if the Menu is saved, the tags too. If the Menu is deleted the tags won't be deleted -->
+			<key column="id_menu" not-null="true"/>
+			<index column="id_t"/>
+			<many-to-many column="id_tag" class="Tag"/>
+		</list>
+		
+		<list name="dishes" lazy="false" cascade="save-update" table="menu-tags">
+		<!--save-update -  if the Menu is saved, the dishes too. If the Menu is deleted the dishes won't be deleted -->
+			<key column="id_menu" not-null="true"/>
+			<index column="id_d"/>
+			<many-to-many column="id_dish" class="Dish"/>
+		</list>
+		
+	</class>
+</hibernate-mapping>
