@@ -13,21 +13,27 @@ import java.util.List;
 public class Menu {
 	
 	private Long oid; //For Hibernate
+	private String name;
 	private List<Dish> dishes;
 	private List<Tag> tags;
 	private MenuType menuType;
 	
 	public Menu() {} //For Hibernate
 	
-	public Menu(MenuType menuType) {
+	public Menu(MenuType menuType, String name) {
 		this.dishes = new ArrayList<Dish>();
 		this.tags = new ArrayList<Tag>();
 		this.menuType = menuType; 
+		this.name = name;
 	}
 	
 	public Long getOid() {return oid;}
 	
 	public void setOid(Long oid) {	this.oid = oid;}
+	
+	public String getName() { return name;}
+
+	public void setName(String name) { this.name = name;}
 	
 	public MenuType getMenuType() {return menuType;}
 	
