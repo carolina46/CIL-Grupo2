@@ -2,7 +2,7 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping package="model.business">
 
-	<class name="Location" table="lategory" >
+	<class name="Location" table="location" >
 	
 		<id name="oid" type="java.lang.Long" column="id_location" unsaved-value="0">
 				<generator class="native" />
