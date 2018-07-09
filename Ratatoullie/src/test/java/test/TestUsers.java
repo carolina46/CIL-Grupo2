@@ -31,7 +31,7 @@ class TestUsers {
 		MenuType mt = new MenuType("Menu infantil");
 				
 		//Create a Menu of MenuType with the previously created Dish 
-		Menu menu = new Menu(mt);
+		Menu menu = new Menu(mt, "aName");
 		menu.addDish(dish);
 				
 		//Create a Category
