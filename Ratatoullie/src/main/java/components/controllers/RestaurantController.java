@@ -14,7 +14,7 @@ public class RestaurantController {
 	
 	@GetMapping(value = "/restaurant/{restaurantId}")
 	public ModelAndView getRestaurantProfile(@PathVariable Long restaurantId) {
-		ModelAndView modelAndView=new ModelAndView("restaurantProfile"); 
+		ModelAndView modelAndView=new ModelAndView("restaurantProfile.jps"); 
 		return modelAndView;
 	}
 	
