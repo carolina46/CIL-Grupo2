@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="model.vote">
+	<class name="DishVote" table="dishVote" >
+
+		<id name="oid" type="java.lang.Long" column="id_dishVote" unsaved-value="0">
+				<generator class="native" />
+		</id>
+
+		<property name="value" type="java.lang.Integer" column="value"/>
+		
+		<one-to-one name="dish" 
+			class="Dish" 
+			cascade="save-update" 
+			constrained="true"			
+			lazy="false">
+        </one-to-one>
+       	
+    </class>
+</hibernate-mapping>
