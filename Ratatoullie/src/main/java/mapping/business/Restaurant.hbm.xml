@@ -16,12 +16,12 @@
 			lazy="false">
         </one-to-one>
         
-        <one-to-one name="category"
-        	class="Category"
-        	cascade="all"
-        	constrained="true"
-        	lazy="false">
-        </one-to-one>
+        <many-to-one 
+			name="category"
+			class="Category"
+			column="id_category"
+			lazy="false">
+		</many-to-one>   
         
         <one-to-one name="commentFilter"
         	class="model.filter.CommentFilter"
