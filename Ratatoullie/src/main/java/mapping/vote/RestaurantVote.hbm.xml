@@ -9,12 +9,12 @@
 
 		<property name="value" type="java.lang.Integer" column="value"/>
 		
-		<one-to-one name="restaurant" 
-			class="Restaurant" 
-			cascade="save-update" 
-			constrained="true"			
+		<many-to-one 
+			name="restaurant"
+			class="Restaurant"
+			column="id_restaurant"
 			lazy="false">
-        </one-to-one>
+		</many-to-one>   
        	
     </class>
 </hibernate-mapping>
