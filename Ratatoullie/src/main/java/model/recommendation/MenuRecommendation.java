@@ -20,7 +20,6 @@ public class MenuRecommendation {
 	private String description;
 	private List<Client>	receivers;
 		
-	
 	public MenuRecommendation() {}//For Hibernate
 	
 	public MenuRecommendation(String description, List<Client> receivers, Menu menu) {
@@ -30,21 +29,17 @@ public class MenuRecommendation {
 		this.receivers = receivers;
 	}
 	
-	
 	public Long getOid() {return oid;}
 	
 	public void setOid(Long oid) {	this.oid = oid;	}
-	
 	
 	public Menu getMenu() {return menu;	}
 	
 	public void setMenu(Menu menu) {this.menu = menu;}
 
-	
 	public String getDescription() { return description; }
 	
-	public void setDescription(String description) { this.description = description; }
-		
+	public void setDescription(String description) { this.description = description; }	
 		
 	//Methods associated with list of receivers
 	
@@ -53,5 +48,10 @@ public class MenuRecommendation {
 	public void setReceivers(List<Client> receivers) {this.receivers = receivers;}
 	
 	public void addReceiver(Client receiver) {this.receivers.add(receiver);}
+	
+	@Override
+	public String toString() { // For logging purposes, instead of printing the hash of the object, toString() will return useful values
+		return ("MenuRecommendation with oid = "+oid);
+	}
 	
 }
