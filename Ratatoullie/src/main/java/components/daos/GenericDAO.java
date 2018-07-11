@@ -4,10 +4,11 @@ import java.util.List;
 
 public interface GenericDAO<T> {
 	
-		public List<T> getList();
-		public T getByText(String text);
-		public void save(T t);
-		public void delete(T t);
-		public void modify(T t);
-		public String getByID(Long id);
+	public boolean save(T t);
+	public boolean delete(T t);
+	public boolean modify(T t);
+	public String getByID(Long id);
+	public List<T> getList();
+	public T getByText(String text);
+	
 }
