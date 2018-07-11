@@ -37,5 +37,10 @@ public abstract class Ranking {
 	 * Check whit the CommentFilter of a restaurant if it is possible to comment.
 	 */
 	public abstract boolean canCommentAbout(Restaurant restaurant);
+	
+	@Override
+	public String toString() { // For logging purposes, instead of printing the hash of the object, toString() will return useful values
+		return ("Ranking with oid = "+oid);
+	}
 
 }
