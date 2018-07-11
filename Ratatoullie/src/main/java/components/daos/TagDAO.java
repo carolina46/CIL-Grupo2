@@ -15,10 +15,26 @@ public class TagDAO implements GenericDAO<Tag>{
 	@Autowired
 	private HibernateUtil util;
 	
+	@Override
+	public boolean save(Tag tag) {
+		return util.save(tag);
+	}
+
+	@Override
+	public boolean delete(Tag t) {
+		return util.delete(t);
+		
+	}
+	
+	@Override
+	public boolean modify(Tag t) {
+		return util.modify(t);
+		
+	}
 	
 	@Override
 	public List<Tag> getList() {
-		// TODO Auto-generated method stub
+		//IMPLEMENT
 		return null;
 	}
 
@@ -27,26 +43,7 @@ public class TagDAO implements GenericDAO<Tag>{
 		// TODO Auto-generated method stub
 		return null;
 	}
-
 	
-	
-	@Override
-	public void save(Tag tag) {
-		util.save(tag);
-	}
-
-	@Override
-	public void delete(Tag t) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void modify(Tag t) {
-		// TODO Auto-generated method stub
-		
-	}
-
 	@Override
 	public String getByID(Long id) {
 		// TODO Auto-generated method stub
