@@ -10,47 +10,37 @@ import model.business.Tag;
 
 @Repository
 @Transactional
-public class TagDAO implements GenericDAO<Tag>{
-
-	@Autowired
-	private HibernateUtil util;
-	
-	
-	@Override
-	public List<Tag> getList() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+public class TagDAO implements GenericDAO<Tag, Long>{
 
 	@Override
-	public Tag getByText(String text) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	
-	
-	@Override
-	public void save(Tag tag) {
-		util.save(tag);
-	}
-
-	@Override
-	public void delete(Tag t) {
+	public void save(Tag entity) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void modify(Tag t) {
+	public void update(Tag entity) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public String getByID(Long id) {
+	public void remove(Tag entity) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Tag getByID(Long key) {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public List<Tag> getAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 
 }

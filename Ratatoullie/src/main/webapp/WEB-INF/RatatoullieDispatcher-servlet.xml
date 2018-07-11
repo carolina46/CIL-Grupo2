@@ -18,7 +18,7 @@ http://www.springframework.org/schema/context/spring-context.xsd ">
 	
 	<!-- Getting DB properties -->
 	<context:property-placeholder location="classpath:hibernate.properties"/>
-	<mvc:annotation-driven />
+	<mvc:annotation-driven/>
 	
 	<!--  Specifying the resource location to load JS, CSS, Images,etc -->
 	<mvc:resources mapping="src/main/resources/**" location="src/main/resources/"/>
@@ -40,6 +40,8 @@ http://www.springframework.org/schema/context/spring-context.xsd ">
 		 <property name="maxPoolSize" value="${connection.maxPoolSize}" />
 		 <property name="maxIdleTime" value="${connection.maxIdleTime}" />
 	</bean>
+	 
+	 
 	 
 	 <!-- Hibernate SessionFactory -->
 	<bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
