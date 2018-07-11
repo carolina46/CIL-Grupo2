@@ -30,4 +30,9 @@ public class Location {
 	public Double getLongitude() { return longitude; }
 	
 	public void setLongitude(Double longitude) { this.longitude = longitude;}
+	
+	@Override
+	public String toString() { // For logging purposes, instead of printing the hash of the object, toString() will return useful values
+		return ("Location with oid = "+oid);
+	}
 }
