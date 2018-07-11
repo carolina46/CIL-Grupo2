@@ -30,5 +30,4 @@ public class GourmetNotificationFilter extends NotificationFilter {
 
 	@Override
 	public void applyNotificationForComensal(Comment comment) { /*This is being called from a Comensal Ranking so it will NOT Notify */ }
-
 }
