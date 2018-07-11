@@ -53,4 +53,8 @@ public class DishVote {
 		this.value = value;
 	}
 	
+	@Override
+	public String toString() { // For logging purposes, instead of printing the hash of the object, toString() will return useful values
+		return ("DishVote with oid = "+oid);
+	}
 }
