@@ -35,4 +35,9 @@ public class Notification {
 	public Comment getComment() {return comment;}
 
 	public void setComment(Comment comment) { this.comment = comment;}
+	
+	@Override
+	public String toString() { // For logging purposes, instead of printing the hash of the object, toString() will return useful values
+		return ("Notification with oid = "+oid);
+	}
 }
