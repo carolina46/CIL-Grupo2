@@ -41,6 +41,4 @@ public class TagDAO implements GenericDAO<Tag, Long>{
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-
 }

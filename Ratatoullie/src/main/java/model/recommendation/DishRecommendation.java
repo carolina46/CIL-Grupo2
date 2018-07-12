@@ -19,7 +19,6 @@ public class DishRecommendation {
 	private Dish dish;
 	private String description;
 	private List<Client>	receivers;
-	
 
 	public DishRecommendation() {}//For Hibernate
 	
@@ -30,22 +29,18 @@ public class DishRecommendation {
 		this.receivers = receivers;
 	}
 	
-	
 	public Long getOid() {	return oid;}
 	
 	public void setOid(Long oid) {	this.oid = oid;}
-	
 	
 	public Dish getDish() {	return dish;}
 	
 	public void setDish(Dish dish) { this.dish = dish;}
 	
-	
 	public String getDescription() { return description; }
 	
 	public void setDescription(String description) { this.description = description; }
-		
-		
+			
 	//Methods associated with list of receivers
 	
 	public List<Client> getReceivers() { return receivers;}	
@@ -53,4 +48,9 @@ public class DishRecommendation {
 	public void setReceivers(List<Client> receivers) {this.receivers = receivers;}
 	
 	public void addReceiver(Client receiver) {this.receivers.add(receiver);}
+	
+	@Override
+	public String toString() { // For logging purposes, instead of printing the hash of the object, toString() will return useful values
+		return ("DishRecommendation with oid = "+oid);
+	}
 }

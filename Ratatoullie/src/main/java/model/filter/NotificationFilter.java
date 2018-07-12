@@ -24,11 +24,9 @@ public abstract class NotificationFilter {
 	
 	public void setOid(Long oid) { this.oid = oid;	}
 	
-	
 	public Responsible getResponsible() { return responsible;}
 	
 	public void setResponsible(Responsible responsible) { this.responsible = responsible;}
-
 	
 	//They are used to determine if the restaurant responsible should be notified of a new comment
 	 	
@@ -37,4 +35,9 @@ public abstract class NotificationFilter {
 	public abstract void applyNotificationForGourmet(Comment coment);
 	
 	public abstract void applyNotificationForComensal(Comment coment);	
+	
+	@Override
+	public String toString() { // For logging purposes, instead of printing the hash of the object, toString() will return useful values
+		return ("NotificationFilter with oid = "+oid);
+	}
 }

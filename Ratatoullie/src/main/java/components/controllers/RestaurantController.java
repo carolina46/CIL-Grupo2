@@ -13,8 +13,15 @@ public class RestaurantController {
 	
 	@GetMapping(value = "/restaurant/{restaurantId}")
 	public ModelAndView getRestaurantProfile(@PathVariable Long restaurantId) {
-		ModelAndView modelAndView=new ModelAndView("restaurantProfile.jps"); 
+		ModelAndView modelAndView=new ModelAndView("restaurantProfile.jsp"); 
 		return modelAndView;
 	}
+	
+	@GetMapping(value = "/")
+	public ModelAndView getIndex(@PathVariable Long restaurantId) {
+		ModelAndView modelAndView=new ModelAndView("index.jsp"); 
+		return modelAndView;
+	}
+
 	
 }

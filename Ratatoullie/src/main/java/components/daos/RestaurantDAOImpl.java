@@ -4,11 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.Transaction;
+import org.springframework.transaction.annotation.Transactional;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
 import model.business.Restaurant;
 
+@Transactional
+//CONSULTAR
 public class RestaurantDAOImpl implements RestaurantDAO{
 
 	private SessionFactory sessionFactory;

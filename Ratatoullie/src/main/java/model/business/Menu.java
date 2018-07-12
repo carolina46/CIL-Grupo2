@@ -54,4 +54,9 @@ public class Menu {
 	public List<Tag> getTags() { return tags;}
 	
 	public void setTags(List<Tag> tags) {this.tags = tags;}
+	
+	@Override
+	public String toString() { // For logging purposes, instead of printing the hash of the object, toString() will return useful values
+		return ("Menu with oid = "+oid);
+	}
 }

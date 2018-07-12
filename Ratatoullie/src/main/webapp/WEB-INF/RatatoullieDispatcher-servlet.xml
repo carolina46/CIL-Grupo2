@@ -1,23 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<beans xmlns="http://www.springframework.org/schema/beans "
-xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance "
-xmlns:tx="http://www.springframework.org/schema/tx "
-xmlns:mvc="http://www.springframework.org/schema/mvc "
-xmlns:context="http://www.springframework.org/schema/context "
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns:tx="http://www.springframework.org/schema/tx"
+xmlns:mvc="http://www.springframework.org/schema/mvc"
+xmlns:context="http://www.springframework.org/schema/context"
 xsi:schemaLocation="http://www.springframework.org/schema/beans
 http://www.springframework.org/schema/beans/spring-beans.xsd
 http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
 http://www.springframework.org/schema/mvc
 http://www.springframework.org/schema/mvc/spring-mvc.xsd
 http://www.springframework.org/schema/context
-http://www.springframework.org/schema/context/spring-context.xsd ">
+http://www.springframework.org/schema/context/spring-context.xsd">
 
 	<!--  specifying base package of the components like controller, service, DAO -->
-	<context:component-scan base-package="src/components" />
+	<context:component-scan base-package="src/main/java/components" />
 	
 	<!-- Getting DB properties -->
 	<context:property-placeholder location="classpath:hibernate.properties"/>
+	
 	<mvc:annotation-driven/>
 	
 	<!--  Specifying the resource location to load JS, CSS, Images,etc -->
@@ -26,11 +27,11 @@ http://www.springframework.org/schema/context/spring-context.xsd ">
 	<!--  View resolver -->
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver" >
 		<property name="prefix" value="/WEB-INF/pages/" />
-		<property name="surfix" value=".jsp" />
+		<property name="suffix" value=".jsp" />
 	</bean>
 	
 	<!-- datasource -->
-	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPoolDataSource" destroy-method="close">
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
 		 <property name="driverClass" value="${database.driverClass}" />
 		 <property name="jdbcUrl" value="${database.url}" />
 		 <property name="user" value="${database.username}" />
@@ -40,40 +41,48 @@ http://www.springframework.org/schema/context/spring-context.xsd ">
 		 <property name="maxPoolSize" value="${connection.maxPoolSize}" />
 		 <property name="maxIdleTime" value="${connection.maxIdleTime}" />
 	</bean>
+	
 	 
-	 
+	  
+	
 	 
 	 <!-- Hibernate SessionFactory -->
-	<bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
-		 <property name="dataSource" ref="dataSource"/>
-		 <property name="hibernateProperties">
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+	<property name="dataSource" ref="dataSource"/>
+	<!-- 
+	 <property name="hibernateProperties">
 			 <props>
-			 	<prop key="connection.url"> jdbc:mysql://localhost:3306/grupo</prop>
+			 	<prop key="connection.url">jdbc:mysql://localhost:3306/grupo2</prop>
 			 	<prop key="hibernate.connection.useUnicode">true</prop>
 			 	<prop key="hibernate.connection.characterEncoding">UTF-8</prop>
 			 	<prop key="hibernate.connection.charSet">UTF-8</prop>
 			 	<prop key="hibernate.dialect">${hibernate.dialect}</prop>
 			  	<prop key="hibernate.hbm2ddl.auto">${hibernate.hbm2ddl.auto}</prop>
 			  	<prop key="hibernate.format_sql">${hibernate.show_sql}</prop>
-			  	<prop key="hibernate.event.merge.entity_copy_observer">allow</prop>
-			 </props>
+			  	<prop key="hibernate.event.merge.entity_copy_observer">allow</prop>  	
+			 </props> 
+			 
 		 </property>
-		<property name="packagesToScan">
-		<array>
-			<value>model</value>
-            <value>model.business</value>
-            <value>model.filer</value>
-            <value>model.ranking</value>
-            <value>model.recommendation</value>
-            <value>model.users</value>
-            <value>model.vote</value>
-            <value>resources.daos</value>
-         </array>
+		 -->
+<!-- 
+		<property name="mappingResourses">
+		<list>
+			<value>src/main/java/mapping/business/Category.hbm.xml</value>
+            <value>src/main/java/mapping/business/Category.hbm.xml</value>
+            <value>src/main/java/mapping/business/Category.hbm.xml</value>
+            <value>src/main/java/mapping/business/Category.hbm.xml</value>
+            <value>src/main/java/mapping/business/Category.hbm.xml</value>
+            <value>src/main/java/mapping/business/Category.hbm.xml</value>
+            <value>src/main/java/mapping/business/Category.hbm.xml</value>            
+         </list>
         </property>
+        		-->
 	 </bean>
  	
+ 	
+ 	
  	<!-- Transaction -->
-	<bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+	<bean id="transactionManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
 		<property name="sessionFactory" ref="sessionFactory"/>
 	</bean>
 	

@@ -52,5 +52,10 @@ public class MenuVote {
 		//The Client will not be able to input values outside the range of 1..10. This will be handled in the interface in order this method receive a valid value.
 		this.value = value;
 	}
+	
+	@Override
+	public String toString() { // For logging purposes, instead of printing the hash of the object, toString() will return useful values
+		return ("MenuVote with oid = "+oid);
+	}
 
 }

@@ -25,4 +25,9 @@ public class MenuType {
 	public String getNombre() { return name;}
 	
 	public void setNombre(String name) { this.name = name;}
+	
+	@Override
+	public String toString() { // For logging purposes, instead of printing the hash of the object, toString() will return useful values
+		return ("MenuType with oid = "+oid);
+	}
 }

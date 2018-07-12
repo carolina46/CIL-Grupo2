@@ -25,6 +25,11 @@ public class Category {
 	public String getName() { return name;}
 
 	public void setName(String name) { this.name = name;}
+	
+	@Override
+	public String toString() { // For logging purposes, instead of printing the hash of the object, toString() will return useful values
+		return ("Category with oid = "+oid);
+	}
 }
 
 

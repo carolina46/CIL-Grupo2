@@ -30,5 +30,4 @@ public class ComensalNotificationFilter extends NotificationFilter {
 		Notification notification = new Notification(comment);
 		super.responsible.addNotification(notification);
 	}
-
 }

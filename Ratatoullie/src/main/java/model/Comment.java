@@ -45,5 +45,10 @@ public class Comment {
 	public Restaurant getRestaurant() {	return restaurant;	}
 	
 	public void setRestaurant(Restaurant restaurant) {	this.restaurant = restaurant;	}
+	
+	@Override
+	public String toString() { // For logging purposes, instead of printing the hash of the object, toString() will return useful values
+		return ("Comment with oid = "+oid);
+	}
 
 }

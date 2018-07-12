@@ -43,4 +43,9 @@ public abstract class User {
 	
 	public void setPassword(String password) { this.password = password; }
 	
+	@Override
+	public String toString() { // For logging purposes, instead of printing the hash of the object, toString() will return useful values
+		return ("User with oid = "+oid);
+	}
+	
 }

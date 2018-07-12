@@ -14,5 +14,5 @@ public interface GenericDAO<E,K> {
 	    public void update(E entity) ;
 	    public void remove(E entity);
 	    public E getByID(K key);
-	    public List<E> getAll() ;
+	    public List<E> getAll();
 }

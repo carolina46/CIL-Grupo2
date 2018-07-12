@@ -64,4 +64,9 @@ public class Dish {
 	
 	public void addVote(DishVote dishVote) {this.dishVotes.add(dishVote);}
 	
+	@Override
+	public String toString() { // For logging purposes, instead of printing the hash of the object, toString() will return useful values
+		return ("Dish with oid = "+oid);
+	}
+	
 }

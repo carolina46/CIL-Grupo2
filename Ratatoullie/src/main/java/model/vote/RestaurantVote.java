@@ -53,5 +53,8 @@ public class RestaurantVote {
 		this.value = value;
 	}
 	
-	
+	@Override
+	public String toString() { // For logging purposes, instead of printing the hash of the object, toString() will return useful values
+		return ("RestaurantVote with oid = "+oid);
+	}
 }

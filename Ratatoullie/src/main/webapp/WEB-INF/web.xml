@@ -7,6 +7,8 @@
 <web-app>
 	<display-name>Grupo2</display-name>
 	
+	
+
 	<!-- The front controller of this Spring Web application,
     responsible for handling all application requests -->
 	<servlet>
@@ -17,6 +19,9 @@
             <param-value>/WEB-INF/RatatoullieDispatcher-servlet.xml</param-value>
         </init-param>
 		<load-on-startup>1</load-on-startup>
+	
+
+
 	</servlet>
 	
 <!-- Specifies what HTTP requests will be handled by it. -->
