@@ -11,15 +11,16 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping(value = "/restaurant")
 public class RestaurantController {
 	
-	@GetMapping(value = "/restaurant/{restaurantId}")
+	@GetMapping
+	//(value = "/restaurant/{restaurantId}")
 	public ModelAndView getRestaurantProfile(@PathVariable Long restaurantId) {
-		ModelAndView modelAndView=new ModelAndView("restaurantProfile.jsp"); 
+		ModelAndView modelAndView=new ModelAndView("restaurantProfile"); 
 		return modelAndView;
 	}
 	
-	@GetMapping(value = "/")
+	@GetMapping(value = "/Restaurant")
 	public ModelAndView getIndex(@PathVariable Long restaurantId) {
-		ModelAndView modelAndView=new ModelAndView("index.jsp"); 
+		ModelAndView modelAndView=new ModelAndView("index"); 
 		return modelAndView;
 	}
 
