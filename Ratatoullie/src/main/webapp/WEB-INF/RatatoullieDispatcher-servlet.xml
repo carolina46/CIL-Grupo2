@@ -63,19 +63,24 @@ http://www.springframework.org/schema/context/spring-context.xsd">
 				 
 		</property>
 		
-<!-- 
-		<property name="mappingResourses">
+ 		<property name="mappingLocations">
+        <list>
+            <value>classpath:business/*.hbm.xml</value>
+        </list>
+    	</property>
+    <!-- 
+		<property name="mappingResources">	
 		<list>
 			<value>src/main/java/mapping/business/Category.hbm.xml</value>
-            <value>src/main/java/mapping/business/Category.hbm.xml</value>
-            <value>src/main/java/mapping/business/Category.hbm.xml</value>
-            <value>src/main/java/mapping/business/Category.hbm.xml</value>
-            <value>src/main/java/mapping/business/Category.hbm.xml</value>
-            <value>src/main/java/mapping/business/Category.hbm.xml</value>
-            <value>src/main/java/mapping/business/Category.hbm.xml</value>            
+            <value>src/main/java/mapping/business/Dish.hbm.xml</value>
+            <value>src/main/java/mapping/business/Location.hbm.xml</value>
+            <value>src/main/java/mapping/business/Menu.hbm.xml</value>
+            <value>src/main/java/mapping/business/MenuType.hbm.xml</value>
+            <value>src/main/java/mapping/business/Restaurant.hbm.xml</value>
+            <value>src/main/java/mapping/business/Tag.hbm.xml</value>            
          </list>
         </property>
-        		-->
+ -->
 	 </bean>
  	
  	
