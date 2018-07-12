@@ -74,44 +74,5 @@ public class HibernateUtil {
 		
 		return modified;
 	}
-	
-	/*
-	@SuppressWarnings("unchecked")
-	public <T> List<T> getList() {
-		//Returns a list of the generic object T
-		Session session = this.sessionFactory.openSession();
-		
-		List<T> restaurants = new ArrayList<T>();
-		try{
-			
-			restaurants = session.createQuery("from T").list();
-		}catch(Exception e){
-			System.out.println("HibernateUtil: Error retrieving a list");
-		}finally{
-			session.close();
-		}
-		return restaurants;
-	}
-	*/
-	
-	/*
-	public String getByID(Long id) {
-		//Returns the generic object Type T searching by its ID
-		
-		Session session = this.sessionFactory.openSession();
-		try{
-			Transaction tx = session.beginTransaction();
-			session.load(entity);
-			tx.commit();
-		}catch(Exception e){
-			System.out.println("HibernateUtil: Error deleting "+entity.toString());
-			deleted = false;
-		}finally{
-			session.close();
-		}
-		return object;
-	}*/
-	
-	
 
 }
