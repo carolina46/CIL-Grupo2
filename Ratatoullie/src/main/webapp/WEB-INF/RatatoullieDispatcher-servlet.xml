@@ -48,22 +48,21 @@ http://www.springframework.org/schema/context/spring-context.xsd">
 	 
 	 <!-- Hibernate SessionFactory -->
 	<bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
-	<property name="dataSource" ref="dataSource"/>
-	<!-- 
-	 <property name="hibernateProperties">
-			 <props>
-			 	<prop key="connection.url">jdbc:mysql://localhost:3306/grupo2</prop>
-			 	<prop key="hibernate.connection.useUnicode">true</prop>
-			 	<prop key="hibernate.connection.characterEncoding">UTF-8</prop>
-			 	<prop key="hibernate.connection.charSet">UTF-8</prop>
-			 	<prop key="hibernate.dialect">${hibernate.dialect}</prop>
-			  	<prop key="hibernate.hbm2ddl.auto">${hibernate.hbm2ddl.auto}</prop>
-			  	<prop key="hibernate.format_sql">${hibernate.show_sql}</prop>
-			  	<prop key="hibernate.event.merge.entity_copy_observer">allow</prop>  	
-			 </props> 
-			 
-		 </property>
-		 -->
+		<property name="dataSource" ref="dataSource"/>
+		<property name="hibernateProperties">
+				 <props>
+				 	<prop key="connection.url">jdbc:mysql://localhost:3306/grupo2</prop>
+				 	<prop key="hibernate.connection.useUnicode">true</prop>
+				 	<prop key="hibernate.connection.characterEncoding">UTF-8</prop>
+				 	<prop key="hibernate.connection.charSet">UTF-8</prop>
+				 	<prop key="hibernate.dialect">${hibernate.dialect}</prop>
+				  	<prop key="hibernate.hbm2ddl.auto">${hibernate.hbm2ddl.auto}</prop>
+				  	<prop key="hibernate.format_sql">${hibernate.show_sql}</prop>
+				  	<prop key="hibernate.event.merge.entity_copy_observer">allow</prop>  	
+				 </props> 
+				 
+		</property>
+		
 <!-- 
 		<property name="mappingResourses">
 		<list>
@@ -87,5 +86,7 @@ http://www.springframework.org/schema/context/spring-context.xsd">
 	</bean>
 	
 	<tx:annotation-driven transaction-manager="transactionManager"/>
+	
+	
 
 </beans>
