@@ -2,7 +2,7 @@ import java.util.List;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import components.daos.RestaurantDAO;
+import components.daos.RestaurantDAOImpl;
 import model.business.Restaurant;
 
 public class HibernateTest {
@@ -10,9 +10,9 @@ public class HibernateTest {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("ratatoullie-dispatcher-servlet.xml");
+		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("/WEB-INF/mvc-dispatcher-servlet.xml");
 		
-		RestaurantDAO resrautantDAO = context.getBean(RestaurantDAO.class);
+		RestaurantDAOImpl resrautantDAO = context.getBean(RestaurantDAOImpl.class);
 		
 		Restaurant restaurant = new Restaurant();
 		restaurant.setName("Starbucks");
@@ -20,7 +20,7 @@ public class HibernateTest {
 		resrautantDAO.save(restaurant);
 		
 		
-		List<Restaurant> list = resrautantDAO.list();
+		List<Restaurant> list = resrautantDAO.getAll();
 		
 		for(Restaurant r : list){
 			System.out.println("Restaurant List::"+r);

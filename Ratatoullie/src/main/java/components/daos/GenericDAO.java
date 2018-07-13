@@ -10,9 +10,9 @@ import java.util.List;
  */
 public interface GenericDAO<E,K> {
 	
-		public void save(E entity) ;
-	    public void update(E entity) ;
-	    public void remove(E entity);
+		public boolean save(E entity) ;
+	    public boolean update(E entity) ;
+	    public boolean remove(E entity);
 	    public E getByID(K key);
 	    public List<E> getAll();
 }

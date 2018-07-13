@@ -3,41 +3,56 @@ package components.daos;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.hibernate.Transaction;
-import org.springframework.transaction.annotation.Transactional;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import model.business.Restaurant;
 
-@Transactional
-//CONSULTAR
-public class RestaurantDAOImpl implements RestaurantDAO{
+public class RestaurantDAOImpl implements GenericDAO<Restaurant,Long>, RestaurantDAO{
 
+	@Autowired
+	HibernateUtil util;
 	private SessionFactory sessionFactory;
 	
-	public void setSessionFactory(SessionFactory sessionFactory) {
-		this.sessionFactory =  sessionFactory;
-	}
-		
 	@Override
-	public void save(Restaurant restaurant) {
+	public boolean save(Restaurant restaurant) {
+		return util.save(restaurant);
+	}
+	
+	@Override
+	public boolean update(Restaurant restaurant) {
+		return util.modify(restaurant);
+		
+	}
+
+	@Override
+	public boolean remove(Restaurant restaurant) {
+		return util.delete(restaurant);
+	}
+
+	@Override
+	public Restaurant getByID(Long key) {
+		//Return the Restaurant that matches the key
 		Session session = this.sessionFactory.openSession();
-			
+		Restaurant restaurant = null;
 		try{
 			Transaction tx = session.beginTransaction();
-			session.save(restaurant);
+			restaurant = (Restaurant) session.load(Restaurant.class, key);
 			tx.commit();
 		}catch(Exception e){
-			System.out.println("Error saving Restaurant");
+			System.out.println("RestaurantDAOImpl: Error loading Restaurant with ID "+key);
 		}finally{
 			session.close();
 		}
+		return restaurant;
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Restaurant> list() {
+	public List<Restaurant> getAll() {
+		//Returns a list with all Restaurants
 		Session session = this.sessionFactory.openSession();
 		
 		List<Restaurant> restaurants = new ArrayList<Restaurant>();
@@ -45,10 +60,28 @@ public class RestaurantDAOImpl implements RestaurantDAO{
 			
 			restaurants = session.createQuery("from Restaurant").list();
 		}catch(Exception e){
-			System.out.println("Error retrieving Restaurants list");
+			System.out.println("RestaurantDAOImpl: Error retrieving restaurants list");
 		}finally{
 			session.close();
 		}
 		return restaurants;
+	}
+
+	@Override
+	public Restaurant getByName(String name) {
+		//Return the Restaurant that matches the name
+		Session session = this.sessionFactory.openSession();
+		Restaurant restaurant = null;
+		try{
+			Transaction tx = session.beginTransaction();
+			restaurant = (Restaurant) session.createQuery("from Restaurant where name ='"+name+"'");
+			tx.commit();
+		}catch(Exception e){
+			System.out.println("RestaurantDAOImpl: Error loading Restaurant with name "+name);
+		}finally{
+			session.close();
+		}
+		return restaurant;
+		
 	}
 }

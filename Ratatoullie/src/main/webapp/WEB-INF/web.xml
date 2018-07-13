@@ -12,11 +12,11 @@
 	<!-- The front controller of this Spring Web application,
     responsible for handling all application requests -->
 	<servlet>
-		<servlet-name>RatatoullieDispatcher</servlet-name>  
+		<servlet-name>mvc-dispatcher</servlet-name>  
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
 		<init-param>
             <param-name>contextConfigLocation</param-name>
-            <param-value>/WEB-INF/RatatoullieDispatcher-servlet.xml</param-value>
+            <param-value>/WEB-INF/mvc-dispatcher-servlet.xml</param-value>
         </init-param>
 		<load-on-startup>1</load-on-startup>
 	
@@ -26,7 +26,7 @@
 	
 <!-- Specifies what HTTP requests will be handled by it. -->
 	<servlet-mapping>
- 		<servlet-name>RatatoullieDispatcher</servlet-name>
+ 		<servlet-name>mvc-dispatcher</servlet-name>
  		<url-pattern>/</url-pattern>
  	</servlet-mapping>
 </web-app>
