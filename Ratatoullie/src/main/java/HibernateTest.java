@@ -10,7 +10,7 @@ public class HibernateTest {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("ratatoullie-dispatcher-servlet.xml");
+		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("/WEB-INF/mvc-dispatcher-servlet.xml");
 		
 		RestaurantDAOImpl resrautantDAO = context.getBean(RestaurantDAOImpl.class);
 		
