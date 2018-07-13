@@ -44,18 +44,21 @@ public abstract class GenericDaoImp<E, K extends Serializable> implements Generi
     }
      
     @Override
-    public void save(E entity) {
+    public boolean save(E entity) {
         currentSession().save(entity);
+        return true;
     }
      
     @Override
-    public void update(E entity) {
+    public boolean update(E entity) {
         currentSession().saveOrUpdate(entity);
+        return true;
     }
      
     @Override
-    public void remove(E entity) {
+    public boolean remove(E entity) {
         currentSession().delete(entity);
+        return true;
     }
      
     @Override
