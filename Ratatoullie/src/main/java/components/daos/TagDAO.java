@@ -2,7 +2,6 @@ package components.daos;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -13,21 +12,22 @@ import model.business.Tag;
 public class TagDAO implements GenericDAO<Tag, Long>{
 
 	@Override
-	public void save(Tag entity) {
+	public boolean save(Tag entity) {
 		// TODO Auto-generated method stub
+		return true;
 		
 	}
 
 	@Override
-	public void update(Tag entity) {
+	public boolean update(Tag entity) {
 		// TODO Auto-generated method stub
-		
+		return true;		
 	}
 
 	@Override
-	public void remove(Tag entity) {
+	public boolean remove(Tag entity) {
 		// TODO Auto-generated method stub
-		
+		return true;
 	}
 
 	@Override
