@@ -20,10 +20,9 @@ public class RestaurantController {
 		return modelAndView;
 	}*/
 	
-	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public ModelAndView getIndex(@PathVariable Long restaurantId) {
-		ModelAndView modelAndView=new ModelAndView("index"); 
-		return modelAndView;
+	@RequestMapping
+	public String handleRequest() {
+		return "index";
 	}
 
 	
