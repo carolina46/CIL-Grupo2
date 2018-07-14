@@ -30,6 +30,7 @@ http://www.springframework.org/schema/context/spring-context.xsd">
 		<property name="suffix" value=".jsp" />
 	</bean>
 	
+	
 	<!-- datasource -->
 	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
 		 <property name="driverClass" value="${database.driverClass}" />
@@ -42,11 +43,7 @@ http://www.springframework.org/schema/context/spring-context.xsd">
 		 <property name="maxIdleTime" value="${connection.maxIdleTime}" />
 	</bean>
 	
-	 
-	  
-	
-	 
-	 <!-- Hibernate SessionFactory -->
+	<!-- Hibernate SessionFactory -->
 	<bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
 		<property name="dataSource" ref="dataSource"/>
 		<property name="hibernateProperties">
@@ -68,22 +65,7 @@ http://www.springframework.org/schema/context/spring-context.xsd">
             <value>classpath:business/*.hbm.xml</value>
         </list>
     	</property>
-    <!-- 
-		<property name="mappingResources">	
-		<list>
-			<value>src/main/java/mapping/business/Category.hbm.xml</value>
-            <value>src/main/java/mapping/business/Dish.hbm.xml</value>
-            <value>src/main/java/mapping/business/Location.hbm.xml</value>
-            <value>src/main/java/mapping/business/Menu.hbm.xml</value>
-            <value>src/main/java/mapping/business/MenuType.hbm.xml</value>
-            <value>src/main/java/mapping/business/Restaurant.hbm.xml</value>
-            <value>src/main/java/mapping/business/Tag.hbm.xml</value>            
-         </list>
-        </property>
- -->
-	 </bean>
- 	
- 	
+     </bean>
  	
  	<!-- Transaction -->
 	<bean id="transactionManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
@@ -92,6 +74,4 @@ http://www.springframework.org/schema/context/spring-context.xsd">
 	
 	<tx:annotation-driven transaction-manager="transactionManager"/>
 	
-	
-
 </beans>
