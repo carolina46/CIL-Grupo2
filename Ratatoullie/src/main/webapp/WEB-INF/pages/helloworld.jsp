@@ -3,12 +3,17 @@
 <html>
 	<head>
 	<title>Spring 5 MVC - HelloWorld</title>
+	<%@ page isELIgnored="false" %><!-- To show the value of the variables passed to the view -->
 	</head>
+	
 <body>
 	<center>
+		
+		<h1>Spring MVC Hello World Example</h1>
 		<h2>
 			${message}
 		</h2>
+		
 	</center>
 </body>
 </html>
