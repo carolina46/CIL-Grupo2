@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="model">
+
+	<class name="Notification" table="notification" >
+	
+		<id name="oid" type="java.lang.Long" column="id_notifcation" unsaved-value="0">
+				<generator class="native" />
+		</id>
+		
+		<property name="readed" type="java.lang.Boolean" column="readed"></property>
+		
+		<one-to-one name="comment" 
+			class="model.Comment" 
+			cascade="save-update" 
+			constrained="true"			
+			lazy="false">
+        </one-to-one>
+        	
+ 	</class>
+ </hibernate-mapping>
