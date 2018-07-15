@@ -1,1 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="model.filter">
+
+	<class name="CommentFilter" table="comment_filter" >
+	
+		<id name="oid" type="java.lang.Long" column="id_comment_filter" unsaved-value="0">
+				<generator class="native" />
+		</id>
+		
+		<discriminator column="filter_type" type="java.lang.String"/>
+		
+		<subclass name="DenyCommentFilter" discriminator-value="DCF">
+			<join table="deny_comment_filter">
+				<key column="id_deny_comment_filter"/>
+			</join>
+		</subclass>
+	
+		<subclass name="VisitorCommentFilter" discriminator-value="VCF">
+			<join table="visitor_comment_filter">
+				<key column="id_visitor_comment_filter"/>
+			</join>
+		</subclass>
+		
+		<subclass name="ComensalCommentFilter" discriminator-value="CCF">
+			<join table="comensal_comment_filter">
+				<key column="id_comensal_comment_filter"/>
+			</join>
+		</subclass>
+		
+		<subclass name="GourmetCommentFilter" discriminator-value="GCF">
+			<join table="gourmet_comment_filter">
+				<key column="id_gourmet_comment_filter"/>
+			</join>
+		</subclass>
+		
+		<subclass name="CompositeCommentFilter" discriminator-value="XCF">
+			
+			<list name="configurations" lazy="false" cascade="all">
+				<!--all -  if the CompositeCommentFilter is saved, the CommentFilter too. If the CompositeCommentFilter is deleted the CommentFilter too -->
+				<key column="id_composite_comment_filter"/>
+					<index column="idx_cf"/>
+					<one-to-many class="model.filter.CommentFiler"/>
+				</list>
+		
+			<join table="composite_comment_filter">
+				<key column="id_composite_comment_filter"/>	
+				
+			</join>
+		</subclass>
+		
+    </class>
+</hibernate-mapping>
