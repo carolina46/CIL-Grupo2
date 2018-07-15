@@ -13,6 +13,14 @@
 			column="id_dish"
 			lazy="false">
 		</many-to-one>  
+		
+		<property name="description" type="java.lang.String" column="description"/>
+		
+		<list name="receivers" lazy="false" cascade="none">
+			<key column="id_client"/>
+			<index column="idx_c"/>
+			<one-to-many class="model.users.Client"/>
+		</list>
 		       	
     </class>
 </hibernate-mapping>
