@@ -1,1 +1,60 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="model.filter">
+
+	<class name="NotificationFilter" table="notification_filter" >
+	
+		<id name="oid" type="java.lang.Long" column="id_notification_filter" unsaved-value="0">
+				<generator class="native" />
+		</id>
+		
+		<discriminator column="filter_type" type="java.lang.String"/>
+		
+		<many-to-one 
+			name="responsible"
+			class="Responsible"
+			column="id_responsible"
+			lazy="false">
+		</many-to-one>
+		
+		<subclass name="DenyNotificationFilter" discriminator-value="DNF">
+			<join table="deny_notification_filter">
+				<key column="id_deny_notification_filter"/>
+			</join>
+		</subclass>
+	
+		<subclass name="VisitorNotificationFilter" discriminator-value="VNF">
+			<join table="visitor_notification_filter">
+				<key column="id_visitor_notification_filter"/>
+			</join>
+		</subclass>
+		
+		<subclass name="ComensalNotificationFilter" discriminator-value="CNF">
+			<join table="comensal_notification_filter">
+				<key column="id_comensal_notification_filter"/>
+			</join>
+		</subclass>
+		
+		<subclass name="GourmetNotificationFilter" discriminator-value="GNF">
+			<join table="gourmet_notification_filter">
+				<key column="id_gourmet_notification_filter"/>
+			</join>
+		</subclass>
+		
+		<subclass name="CompositeNotificationFilter" discriminator-value="XNF">
+			
+			<list name="configurations" lazy="false" cascade="all">
+				<!--all -  if the CompositeNotificationFilter is saved, the NotificationFilter too. If the CompositeNotificationFilter is deleted the NotificationFilter too -->
+				<key column="id_composite_notification_filter"/>
+					<index column="idx_nf"/>
+					<one-to-many class="model.filter.NotificationFiler"/>
+				</list>
+		
+			<join table="composite_notification_filter">
+				<key column="id_composite_notfication_filter"/>	
+				
+			</join>
+		</subclass>
+		
+    </class>
+</hibernate-mapping>
