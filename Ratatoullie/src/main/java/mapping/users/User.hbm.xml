@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="model.users">
+
+	<class name="User" table="user" >
+	
+		<id name="oid" type="java.lang.Long" column="id_comment_filter" unsaved-value="0">
+				<generator class="native" />
+		</id>
+		
+		<discriminator column="user_type" type="java.lang.String"/>
+		
+		<property name="fullName" type="java.lang.String" column="fullname"></property>
+		<property name="user" type="java.lang.String" column="user"></property>
+		<property name="password" type="java.lang.String" column="password"></property>
+		
+		<subclass name="Client" discriminator-value="UC">
+			
+			<list name="friends" lazy="false" cascade="none">
+				<!--none -  The user is independent from its friends (no changes are made in friends if the User changes)-->
+				<key column="id_client"/>
+					<index column="idx_c"/>
+				<one-to-many class="model.users.Client"/>
+			</list>
+				
+			<one-to-one name="location" 
+				class="model.business.Location" 
+				cascade="all" 
+				constrained="true"			
+				lazy="false">
+        	</one-to-one>
+		
+			<one-to-one name="ranking" 
+				class="model.ranking.Ranking" 
+				cascade="all" 
+				constrained="true"			
+				lazy="false">
+        	</one-to-one>
+        	
+        	<!-- Recommendations -->
+        	<list name="restaurantRecommendations" lazy="false" cascade="all">
+			<!--all -  if the Client is saved, the RestaurantRecommendation too. If the Client is deleted the RestaurantRecommendation too -->
+				<key column="id_client"/>
+					<index column="idx_c"/>
+				<one-to-many class="model.recommendation.RestaurantRecommendation"/>
+			</list>
+			
+			<list name="menuRecommendation" lazy="false" cascade="all">
+			<!--all -  if the Client is saved, the MenuRecommendation too. If the Client is deleted the MenuRecommendation too -->
+				<key column="id_client"/>
+					<index column="idx_c"/>
+				<one-to-many class="model.recommendation.MenuRecommendation"/>
+			</list>
+		
+			<list name="dishRecommendation" lazy="false" cascade="all">
+			<!--all -  if the Client is saved, the DishRecommendation too. If the Client is deleted the DishRecommendation too -->
+				<key column="id_client"/>
+					<index column="idx_c"/>
+				<one-to-many class="model.recommendation.DishRecommendation"/>
+			</list>
+			
+			<!-- Votes -->
+			<list name="restaurantVote" lazy="false" cascade="all">
+			<!--all -  if the Client is saved, the RestaurantVote too. If the Client is deleted the RestaurantVote too -->
+				<key column="id_client"/>
+					<index column="idx_c"/>
+				<one-to-many class="model.recommendation.RestaurantVote"/>
+			</list>
+			
+			<list name="menuVote" lazy="false" cascade="all">
+			<!--all -  if the Client is saved, the MenuVote too. If the Client is deleted the MenuVote too -->
+				<key column="id_client"/>
+					<index column="idx_c"/>
+				<one-to-many class="model.recommendation.MenuVote"/>
+			</list>
+		
+			<list name="dishVote" lazy="false" cascade="all">
+			<!--all -  if the Client is saved, the DishVote too. If the Client is deleted the DishVote too -->
+				<key column="id_client"/>
+					<index column="idx_c"/>
+				<one-to-many class="model.recommendation.DishVote"/>
+			</list>
+		
+			<join table="client">
+				<key column="id_client"/>
+			</join>
+			
+			<subclass name="NormalUser" discriminator-value="NC">
+			
+				<join table="normal_client">
+					<key column="id_normal_client"/>
+				</join>
+			</subclass>
+		
+			<subclass name="Responsible" discriminator-value="RC">
+			
+				<list name="notifications" lazy="false" cascade="all">
+					<!--all -  if the Responsible is saved, the Notification too. If the Responsible is deleted the Notification too -->
+						<key column="id_responsible"/>
+						<index column="idx_rc"/>
+					<one-to-many class="model.Notification"/>
+				</list>
+				
+				<list name="restaurants" lazy="false" cascade="all">
+					<!--all -  if the Responsible is saved, the Restaurant too. If the Responsible is deleted the Restaurant too -->
+						<key column="id_responsible"/>
+						<index column="idx_rc"/>
+					<one-to-many class="model.business.Restaurant"/>
+				</list>
+			
+				<join table="responsible_client">
+					<key column="id_responsible_client"/>
+				</join>
+			</subclass>
+		</subclass>
+	
+		<subclass name="Administrator" discriminator-value="UA">
+			<join table="administrator">
+				<key column="id_administrator"/>
+			</join>
+		</subclass>
+		
+    </class>
+</hibernate-mapping>
