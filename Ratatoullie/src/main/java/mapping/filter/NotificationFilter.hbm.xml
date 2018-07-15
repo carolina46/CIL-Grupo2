@@ -43,7 +43,7 @@
 		
 		<subclass name="CompositeNotificationFilter" discriminator-value="XNF">
 			
-			<list name="configurations" lazy="false" cascade="all">
+			<list name="configurationFilters" lazy="false" cascade="all">
 				<!--all -  if the CompositeNotificationFilter is saved, the NotificationFilter too. If the CompositeNotificationFilter is deleted the NotificationFilter too -->
 				<key column="id_composite_notification_filter"/>
 					<index column="idx_nf"/>

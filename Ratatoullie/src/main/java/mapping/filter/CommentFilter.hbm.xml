@@ -36,7 +36,7 @@
 		
 		<subclass name="CompositeCommentFilter" discriminator-value="XCF">
 			
-			<list name="configurations" lazy="false" cascade="all">
+			<list name="configurationFilters" lazy="false" cascade="all">
 				<!--all -  if the CompositeCommentFilter is saved, the CommentFilter too. If the CompositeCommentFilter is deleted the CommentFilter too -->
 				<key column="id_composite_comment_filter"/>
 					<index column="idx_cf"/>
