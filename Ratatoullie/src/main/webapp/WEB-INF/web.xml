@@ -15,7 +15,7 @@
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 	
-<!-- Specifies what HTTP requests will be handled by it. -->
+	<!-- Specifies what HTTP requests will be handled by it. -->
 	<servlet-mapping>
  		<servlet-name>mvc-dispatcher</servlet-name>
  		<url-pattern>/</url-pattern>
