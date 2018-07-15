@@ -3,7 +3,7 @@
 <hibernate-mapping package="model.vote">
 	<class name="RestaurantVote" table="restaurantVote" >
 
-		<id name="oid" type="java.lang.Long" column="id_restaurantVote" unsaved-value="0">
+		<id name="oid" type="java.lang.Long" column="id_restaurant_vote" unsaved-value="0">
 				<generator class="native" />
 		</id>
 
