@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="model.recommendation">
+	<class name="DishRecommendation" table="dish_recommendation" >
+
+		<id name="oid" type="java.lang.Long" column="id_dish_recomendation" unsaved-value="0">
+				<generator class="native" />
+		</id>
+		
+		<many-to-one 
+			name="dish"
+			class="model.business.Dish"
+			column="id_dish"
+			lazy="false">
+		</many-to-one>  
+		       	
+    </class>
+</hibernate-mapping>
