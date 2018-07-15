@@ -16,13 +16,6 @@
 		
 		<subclass name="Client" discriminator-value="UC">
 			
-			<list name="friends" lazy="false" cascade="none">
-				<!--none -  The user is independent from its friends (no changes are made in friends if the User changes)-->
-				<key column="id_client"/>
-					<index column="idx_c"/>
-				<one-to-many class="model.users.Client"/>
-			</list>
-				
 			<one-to-one name="location" 
 				class="model.business.Location" 
 				cascade="all" 
@@ -36,6 +29,20 @@
 				constrained="true"			
 				lazy="false">
         	</one-to-one>
+        	
+        	<list name="friends" lazy="false" cascade="none">
+				<!--none -  The user is independent from its friends (no changes are made in friends if the User changes)-->
+				<key column="id_client"/>
+					<index column="idx_c"/>
+				<one-to-many class="model.users.Client"/>
+			</list>
+        	
+        	<list name="comments" lazy="false" cascade="save-update">
+			<!--save-update -  if the Client is saved, the comment too. If the Client is deleted the comment won't be deleted -->
+				<key column="id_client"/>
+					<index column="idx_c"/>
+				<one-to-many class="model.Comment"/>
+			</list>        	
         	
         	<!-- Recommendations -->
         	<list name="restaurantRecommendations" lazy="false" cascade="all">
