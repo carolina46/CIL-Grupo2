@@ -52,14 +52,14 @@
 				<one-to-many class="model.recommendation.RestaurantRecommendation"/>
 			</list>
 			
-			<list name="menuRecommendation" lazy="false" cascade="all">
+			<list name="menuRecommendations" lazy="false" cascade="all">
 			<!--all -  if the Client is saved, the MenuRecommendation too. If the Client is deleted the MenuRecommendation too -->
 				<key column="id_client"/>
 					<index column="idx_c"/>
 				<one-to-many class="model.recommendation.MenuRecommendation"/>
 			</list>
 		
-			<list name="dishRecommendation" lazy="false" cascade="all">
+			<list name="dishRecommendations" lazy="false" cascade="all">
 			<!--all -  if the Client is saved, the DishRecommendation too. If the Client is deleted the DishRecommendation too -->
 				<key column="id_client"/>
 					<index column="idx_c"/>
@@ -67,21 +67,21 @@
 			</list>
 			
 			<!-- Votes -->
-			<list name="restaurantVote" lazy="false" cascade="all">
+			<list name="restaurantVotes" lazy="false" cascade="all">
 			<!--all -  if the Client is saved, the RestaurantVote too. If the Client is deleted the RestaurantVote too -->
 				<key column="id_client"/>
 					<index column="idx_c"/>
 				<one-to-many class="model.recommendation.RestaurantVote"/>
 			</list>
 			
-			<list name="menuVote" lazy="false" cascade="all">
+			<list name="menuVotes" lazy="false" cascade="all">
 			<!--all -  if the Client is saved, the MenuVote too. If the Client is deleted the MenuVote too -->
 				<key column="id_client"/>
 					<index column="idx_c"/>
 				<one-to-many class="model.recommendation.MenuVote"/>
 			</list>
 		
-			<list name="dishVote" lazy="false" cascade="all">
+			<list name="dishVotes" lazy="false" cascade="all">
 			<!--all -  if the Client is saved, the DishVote too. If the Client is deleted the DishVote too -->
 				<key column="id_client"/>
 					<index column="idx_c"/>
