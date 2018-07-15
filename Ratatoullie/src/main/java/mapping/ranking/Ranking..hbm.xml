@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="model.ranking">
+
+	<class name="Ranking" table="ranking" >
+	
+		<id name="oid" type="java.lang.Long" column="id_ranking" unsaved-value="0">
+				<generator class="native" />
+		</id>
+		
+		<discriminator column="ranking_type" type="java.lang.String"/>
+		
+		<subclass name="Visitor" discriminator-value="RV">
+			<join table="visitor">
+				<key column="id_visitor"/>
+			</join>
+		</subclass>
+	
+		<subclass name="Comensal" discriminator-value="RC">
+			<join table="comensal">
+				<key column="id_comensal"/>
+			</join>
+		</subclass>
+		
+		<subclass name="Gourmet" discriminator-value="RG">
+			<join table="gourmet">
+				<key column="id_gourmet"/>
+			</join>
+		</subclass>
+		
+    </class>
+</hibernate-mapping>
