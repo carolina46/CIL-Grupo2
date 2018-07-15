@@ -11,7 +11,7 @@
 		
 		<many-to-one 
 			name="dish"
-			class="Dish"
+			class="model.business.Dish"
 			column="id_dish"
 			lazy="false">
 		</many-to-one>  

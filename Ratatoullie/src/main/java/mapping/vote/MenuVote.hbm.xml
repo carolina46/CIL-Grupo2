@@ -11,7 +11,7 @@
 		
 		<many-to-one 
 			name="menu"
-			class="Menu"
+			class="model.business.Menu"
 			column="id_menu"
 			lazy="false">
 		</many-to-one>   
