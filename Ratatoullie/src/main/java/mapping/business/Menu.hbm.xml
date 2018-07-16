@@ -23,7 +23,7 @@
 			<many-to-many column="id_tag" class="Tag"/>
 		</list>
 		
-		<list name="dishes" lazy="false" cascade="save-update" table="menu-tags">
+		<list name="dishes" lazy="false" cascade="save-update" table="menu-dishes">
 		<!--save-update -  if the Menu is saved, the dishes too. If the Menu is deleted the dishes won't be deleted -->
 			<key column="id_menu" not-null="true"/>
 			<index column="id_d"/>
