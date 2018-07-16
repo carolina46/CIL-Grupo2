@@ -2,7 +2,7 @@ import java.util.List;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import components.daos.RestaurantDAOImpl;
+import components.daos.implementations.RestaurantDAOImpl;
 import model.business.Restaurant;
 
 public class HibernateTest {

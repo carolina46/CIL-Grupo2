@@ -1,10 +1,10 @@
-package components.daos;
+package components.daos.implementations;
 
 import java.util.List;
 
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
-
+import components.daos.interfaces.GenericDAO;
 import model.business.Tag;
 
 @Repository

@@ -1,4 +1,4 @@
-package components.daos;
+package components.daos.implementations;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -9,7 +9,7 @@ import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.util.List;
-
+import components.daos.interfaces.GenericDAO;
 
 /**
  * 

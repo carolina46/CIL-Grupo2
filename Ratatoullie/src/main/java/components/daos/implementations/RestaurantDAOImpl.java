@@ -1,4 +1,4 @@
-package components.daos;
+package components.daos.implementations;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,6 +8,9 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import components.daos.HibernateUtil;
+import components.daos.interfaces.GenericDAO;
+import components.daos.interfaces.RestaurantDAO;
 import model.business.Restaurant;
 
 public class RestaurantDAOImpl implements GenericDAO<Restaurant,Long>, RestaurantDAO{
