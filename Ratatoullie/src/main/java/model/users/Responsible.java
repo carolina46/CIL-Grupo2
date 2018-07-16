@@ -16,14 +16,14 @@ import model.business.Restaurant;
 public class Responsible extends Client{
 	
 	private List<Restaurant> restaurants;
-	private List<Notification> notfications;
+	private List<Notification> notifications;
 	
 	public Responsible() { super();} //For Hibernate 
 
 	public Responsible(String fullName, String user, String password, Location location) {
 		super(fullName, user, password, location);
 		restaurants = new ArrayList<Restaurant>();
-		notfications = new ArrayList<Notification>();
+		notifications = new ArrayList<Notification>();
 	}
 	
 	
@@ -50,11 +50,11 @@ public class Responsible extends Client{
 	
 	//Methods associated with list of notifications
 	
-	public List<Notification> getNotfications() { return notfications;}
+	public List<Notification> getNotifications() { return notifications;}
 
-	public void setNotfications(List<Notification> notfications) { this.notfications = notfications; }
+	public void setNotifications(List<Notification> notifications) { this.notifications = notifications; }
 	
-	public void addNotification(Notification notification) { this.notfications.add(notification);}
+	public void addNotification(Notification notification) { this.notifications.add(notification);}
 	
 	/*IMPLEMENT if can*/ public void deleteNotification(Notification notification) { }
 }
