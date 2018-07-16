@@ -66,11 +66,8 @@ http://www.springframework.org/schema/context/spring-context.xsd">
 				 
 		</property>
 		
- 		<property name="mappingLocations">
-        <list>
-            <value>classpath:business/*.hbm.xml</value>
-        </list>
-    	</property>
+ 		<property name="mappingLocations" value="classpath:mapping/**/*.hbm.xml"/>
+        
      </bean>
  	
  	<!-- Transaction -->
