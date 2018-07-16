@@ -31,7 +31,7 @@
         </one-to-one>
         
         <one-to-one name="notificationFilter"
-        	class="model.filter.NotificationFiler"
+        	class="model.filter.NotificationFilter"
         	cascade="all"
         	constrained="true"
         	lazy="false">
