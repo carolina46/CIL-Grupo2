@@ -4,11 +4,27 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-	<title>Restaurant</title>
 	<%@ page isELIgnored="false" %><!-- To show the value of the variables passed to the view -->
-</head>
+	<title>Listado de restaurantes</title>
+	</head>
 <body>
-
-
+	<center>
+		<h1>Lista de restaurantes</h1>
+		<table style="width:100%">
+  			<tr>
+    			<th>Nombre</th>
+    			<th>Categoria</th>
+    			<th>Ubicacion</th>
+    			<th>Comentarios</th>
+    			<th>Menus</th>
+    			<th>Recomendar</th>
+    			<th>Votar</th>
+    			<th>Comentar</th>
+  			</tr>
+  			
+  			<tr>
+    		</tr>
+</table>
+	</center>
 </body>
 </html>
