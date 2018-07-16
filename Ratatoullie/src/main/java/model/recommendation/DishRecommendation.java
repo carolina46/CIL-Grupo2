@@ -18,7 +18,7 @@ public class DishRecommendation {
 	private Long oid;//For Hibernate
 	private Dish dish;
 	private String description;
-	private List<Client>	receivers;
+	private List<Client> receivers;
 
 	public DishRecommendation() {}//For Hibernate
 	

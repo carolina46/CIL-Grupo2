@@ -11,8 +11,18 @@
 		<discriminator column="user_type" type="java.lang.String"/>
 		
 		<property name="fullName" type="java.lang.String" column="fullname"></property>
+		
 		<property name="user" type="java.lang.String" column="user"></property>
+		
 		<property name="password" type="java.lang.String" column="password"></property>
+		
+		
+		<subclass name="Administrator" discriminator-value="UA">
+			<join table="administrator">
+				<key column="id_administrator"/>
+			</join>
+		</subclass>
+		
 		
 		<subclass name="Client" discriminator-value="UC">
 			
@@ -44,53 +54,55 @@
 				<one-to-many class="model.Comment"/>
 			</list>        	
         	
-        	<!-- Recommendations -->
-        	<list name="restaurantRecommendations" lazy="false" cascade="all">
-			<!--all -  if the Client is saved, the RestaurantRecommendation too. If the Client is deleted the RestaurantRecommendation too -->
-				<key column="id_client"/>
-					<index column="idx_c"/>
-				<one-to-many class="model.recommendation.RestaurantRecommendation"/>
-			</list>
-			
-			<list name="menuRecommendations" lazy="false" cascade="all">
-			<!--all -  if the Client is saved, the MenuRecommendation too. If the Client is deleted the MenuRecommendation too -->
-				<key column="id_client"/>
-					<index column="idx_c"/>
-				<one-to-many class="model.recommendation.MenuRecommendation"/>
-			</list>
-		
-			<list name="dishRecommendations" lazy="false" cascade="all">
-			<!--all -  if the Client is saved, the DishRecommendation too. If the Client is deleted the DishRecommendation too -->
-				<key column="id_client"/>
-					<index column="idx_c"/>
-				<one-to-many class="model.recommendation.DishRecommendation"/>
-			</list>
-			
-			<!-- Votes -->
+        	<!-- Votes -->
 			<list name="restaurantVotes" lazy="false" cascade="all">
 			<!--all -  if the Client is saved, the RestaurantVote too. If the Client is deleted the RestaurantVote too -->
 				<key column="id_client"/>
 					<index column="idx_c"/>
-				<one-to-many class="model.recommendation.RestaurantVote"/>
+				<one-to-many class="model.vote.RestaurantVote"/>
 			</list>
 			
 			<list name="menuVotes" lazy="false" cascade="all">
 			<!--all -  if the Client is saved, the MenuVote too. If the Client is deleted the MenuVote too -->
 				<key column="id_client"/>
 					<index column="idx_c"/>
-				<one-to-many class="model.recommendation.MenuVote"/>
+				<one-to-many class="model.vote.MenuVote"/>
 			</list>
 		
 			<list name="dishVotes" lazy="false" cascade="all">
 			<!--all -  if the Client is saved, the DishVote too. If the Client is deleted the DishVote too -->
 				<key column="id_client"/>
 					<index column="idx_c"/>
-				<one-to-many class="model.recommendation.DishVote"/>
+				<one-to-many class="model.vote.DishVote"/>
 			</list>
 		
+        	
+        	<!-- Recommendations -->
+        	<list name="restaurantRecommendations" lazy="false" cascade="all">
+			<!--all -  if the Client is saved, the RestaurantRecommendation too. If the Client is deleted the RestaurantRecommendation too -->
+				<key column="id_client"/>
+				<index column="idx_c"/>
+				<one-to-many class="model.recommendation.RestaurantRecommendation"/>
+			</list>
+			
+        	<list name="dishRecommendations" lazy="false" cascade="all">
+			<!--all -  if the Client is saved, the DishRecommendation too. If the Client is deleted the DishRecommendation too -->
+				<key column="id_client"/>
+				<index column="idx_c"/>
+				<one-to-many class="model.recommendation.DishRecommendation"/>
+			</list>
+			        	
+			<list name="menuRecommendations" lazy="false" cascade="all">
+				<!--all -  if the Client is saved, the MenuRecommendation too. If the Client is deleted the MenuRecommendation too -->
+				<key column="id_client"/>
+				<index column="idx_c"/>
+				<one-to-many class="model.recommendation.MenuRecommendation"/>
+			</list>
+			
 			<join table="client">
 				<key column="id_client"/>
 			</join>
+			
 			
 			<subclass name="NormalUser" discriminator-value="NC">
 			
@@ -120,12 +132,5 @@
 				</join>
 			</subclass>
 		</subclass>
-	
-		<subclass name="Administrator" discriminator-value="UA">
-			<join table="administrator">
-				<key column="id_administrator"/>
-			</join>
-		</subclass>
-		
     </class>
 </hibernate-mapping>

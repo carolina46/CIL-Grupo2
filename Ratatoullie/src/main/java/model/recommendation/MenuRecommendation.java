@@ -18,7 +18,7 @@ public class MenuRecommendation {
 	private Long oid; //For Hibernate
 	private Menu menu;
 	private String description;
-	private List<Client>	receivers;
+	private List<Client> receivers;
 		
 	public MenuRecommendation() {}//For Hibernate
 	
