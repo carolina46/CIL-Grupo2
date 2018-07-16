@@ -104,7 +104,7 @@
 			</join>
 			
 			
-			<subclass name="NormalUser" discriminator-value="NC">
+			<subclass name="NormalClient" discriminator-value="NC">
 			
 				<join table="normal_client">
 					<key column="id_normal_client"/>
