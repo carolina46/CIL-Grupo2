@@ -55,6 +55,8 @@ public abstract class Client extends User {
 	//Methods associated with list of Comments
 	
 	public List<Comment> getComments() { return comments;}
+	
+	public void setComments(List<Comment> comments) { this.comments = comments; }
 
 	public int numberOfComments() {	return comments.size();	}
 
@@ -96,7 +98,7 @@ public abstract class Client extends User {
 	//Methods associated with list of DishVotes
 	
 	public List<DishVote> getDishVotes() { return dishVotes;}
-
+	public void setDishVotes(List<DishVote> votes) { this.dishVotes = votes;}
 	/*	IMPLEMET */ public void addDishVote(DishVote dishVote) { 
 		//verify dishVote does not exist
 		this.dishVotes.add(dishVote);
@@ -107,7 +109,8 @@ public abstract class Client extends User {
 
 	//Methods associated with list of MenuVotes
 	public List<MenuVote> getMenuVotes() { return menuVotes;}
-
+	public void setMenuVotes(List<MenuVote> votes) { this.menuVotes = votes;}
+	
 	/*	IMPLEMET */ public void addMenuVotes(MenuVote menuVote) {
 		//verify menuVote does not exist
 		this.menuVotes.add(menuVote);
@@ -118,6 +121,8 @@ public abstract class Client extends User {
 
 	//Methods associated with list of RestaurantVotes
 	public List<RestaurantVote> getRestaurantVotes() { return restaurantVotes;}
+	public void setRestaurantVotes(List<RestaurantVote> votes) { this.restaurantVotes = votes;}
+	
 
 	/*	IMPLEMET */ public void addRestaurantVotes(RestaurantVote restaurantVote) {	
 		//verify menuVote does not exist
@@ -129,7 +134,7 @@ public abstract class Client extends User {
 	
 	//Methods associated with list of DishRecommendations
 	public List<DishRecommendation> getDishRecommendations() { return dishRecommendations;}
-
+	public void setDishRecommendations(List<DishRecommendation> recommendatios) { this.dishRecommendations = recommendatios;}
 	/*IMPLEMET
 	If there can only be one recommendation on the same element, avoid repetition*/
 	public void addDishRecommendations(DishRecommendation dishRecommendation) { this.dishRecommendations.add(dishRecommendation);}
@@ -139,7 +144,7 @@ public abstract class Client extends User {
 	
 	//Methods associated with list of MenuRecommendations
 	public List<MenuRecommendation> getMenuRecommendations() { return menuRecommendations;}
-
+	public void setMenuRecommendations(List<MenuRecommendation> recommendatios) { this.menuRecommendations = recommendatios;}
 	/*IMPLEMET
 	If there can only be one recommendation on the same element, avoid repetition*/
 	public void addMenuRecommendations(MenuRecommendation menuRecommendation) { this.menuRecommendations.add(menuRecommendation);}
@@ -149,7 +154,7 @@ public abstract class Client extends User {
 	
 	//Methods associated with list of RestaurantRecommendations
 	public List<RestaurantRecommendation> getRestaurantRecommendations() {return restaurantRecommendations;	}
-
+	public void setRestaurantRecommendations(List<RestaurantRecommendation> recommendatios) { this.restaurantRecommendations = recommendatios;}
 	/*IMPLEMET
 	If there can only be one recommendation on the same element, avoid repetition*/
 	public void addRestaurantRecommendations(RestaurantRecommendation restaurantRecommendation) { this.restaurantRecommendations.add(restaurantRecommendation);	}
