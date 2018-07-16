@@ -5,9 +5,6 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-
-import model.business.Restaurant;
-
 import java.util.List;
 
 @Repository
@@ -68,9 +65,9 @@ public class HibernateUtil {
 	}
 	
 	//Delete the tuple with the id and from the class passed by parameter.
-	public <T> void deleteById(Long id, Class<T> entityClass) {
+	public <T> boolean deleteById(Long id, Class<T> entityClass) {
 		T entity = getById(id, entityClass);
-		delete(entity);
+		return delete(entity);
 	}
 	
 	//Modifies the generic entity
