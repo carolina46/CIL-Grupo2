@@ -12,7 +12,7 @@
 		
 		<many-to-one 
 			name="responsible"
-			class="Responsible"
+			class="model.users.Responsible"
 			column="id_responsible"
 			lazy="false">
 		</many-to-one>
