@@ -22,9 +22,9 @@ public class Tag {
 	
 	public void setOid(Long oid) {	this.oid = oid;	}
 	
-	public String getNombre() { return name;}
+	public String getName() { return name;}
 	
-	public void setNombre(String name) {this.name = name;}
+	public void setName(String name) {this.name = name;}
 	
 	@Override
 	public String toString() { // For logging purposes, instead of printing the hash of the object, toString() will return useful values
