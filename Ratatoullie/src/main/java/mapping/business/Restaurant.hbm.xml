@@ -37,14 +37,14 @@
         	lazy="false">
         </one-to-one>
 		
-		<list name="menus" lazy="false" cascade="save-update" table="restaurant-menus">
+		<list name="menus" lazy="false" cascade="save-update" table="restaurant_menus">
 		<!--save-update -  if the Restaurant is saved, the menus too. If the Restaurant is deleted the menus won't be deleted -->
 		<key column="id_restaurant" not-null="true"/>
 			<index column="id_m"/>
 			<many-to-many column="id_menu" class="Menu"/>
 		</list>
 	 	
-		<list name="comments" lazy="false" cascade="all">
+		<list name="comments" lazy="false" cascade="all" table="restaurant_comments">
 		<!--all -  if the Restaurant is saved, the comments too. If the Restaurant is deleted the comments too -->
 		<key column="id_restaurant_m"/>
 			<index column="idx_m"/>
