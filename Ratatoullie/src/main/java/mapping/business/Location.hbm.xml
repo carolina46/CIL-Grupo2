@@ -7,8 +7,8 @@
 		<id name="oid" type="java.lang.Long" column="id_location" unsaved-value="0">
 				<generator class="native" />
 		</id>
-		<property name="name" type="java.lang.Double" column="latitude"/>
-		<property name="name" type="java.lang.Double" column="longitude"/>
+		<property name="latitude" type="java.lang.Double" column="latitude"/>
+		<property name="longitude" type="java.lang.Double" column="longitude"/>
 	
     </class>
 </hibernate-mapping>
