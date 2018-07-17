@@ -14,7 +14,7 @@
 		<list name="tags" lazy="false" cascade="save-update" table="menu_tags">
 		<!--save-update -  if the Dish is saved, the tags too. If the Dish is deleted the tags won't be deleted -->
 			<key column="id_dish" not-null="true"/>
-			<index column="id_t"/>
+			<index column="idx_t"/>
 			<many-to-many column="id_tag" class="Tag"/>
 		</list>
 		
