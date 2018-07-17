@@ -40,14 +40,14 @@
 				lazy="false">
         	</one-to-one>
         	
-        	<list name="friends" lazy="false" cascade="none" table="client_friend">
+        	<list name="friends" lazy="false" cascade="none" table="client_friends">
 				<!--none -  The user is independent from its friends (no changes are made in friends if the User changes)-->
-				<key column="id_client"/>
-					<index column="idx_c"/>
-				<one-to-many class="model.users.Client"/>
+				<key column="id_client" not-null="true"/>
+					<index column="idx_cf"/>
+				<many-to-many column="id_client_friend" class="model.users.Client"/>
 			</list>
         	
-        	<list name="comments" lazy="false" cascade="save-update" table="restaurant_comments">
+        	<list name="comments" lazy="false" cascade="save-update">
 			<!--save-update -  if the Client is saved, the comment too. If the Client is deleted the comment won't be deleted -->
 				<key column="id_client"/>
 					<index column="idx_c"/>
@@ -55,21 +55,21 @@
 			</list>        	
         	
         	<!-- Votes -->
-			<list name="restaurantVotes" lazy="false" cascade="all" table="restaurant_vote">
+			<list name="restaurantVotes" lazy="false" cascade="all">
 			<!--all -  if the Client is saved, the RestaurantVote too. If the Client is deleted the RestaurantVote too -->
 				<key column="id_client"/>
 					<index column="idx_c"/>
 				<one-to-many class="model.vote.RestaurantVote"/>
 			</list>
 			
-			<list name="menuVotes" lazy="false" cascade="all" table="menu_vote">
+			<list name="menuVotes" lazy="false" cascade="all">
 			<!--all -  if the Client is saved, the MenuVote too. If the Client is deleted the MenuVote too -->
 				<key column="id_client"/>
 					<index column="idx_c"/>
 				<one-to-many class="model.vote.MenuVote"/>
 			</list>
 		
-			<list name="dishVotes" lazy="false" cascade="all" table="dish_vote">
+			<list name="dishVotes" lazy="false" cascade="all">
 			<!--all -  if the Client is saved, the DishVote too. If the Client is deleted the DishVote too -->
 				<key column="id_client"/>
 					<index column="idx_c"/>
@@ -78,21 +78,21 @@
 		
         	
         	<!-- Recommendations -->
-        	<list name="restaurantRecommendations" lazy="false" cascade="all" table="restaurant_recommendations">
+        	<list name="restaurantRecommendations" lazy="false" cascade="all">
 			<!--all -  if the Client is saved, the RestaurantRecommendation too. If the Client is deleted the RestaurantRecommendation too -->
 				<key column="id_client"/>
 				<index column="idx_c"/>
 				<one-to-many class="model.recommendation.RestaurantRecommendation"/>
 			</list>
 			
-        	<list name="dishRecommendations" lazy="false" cascade="all" table="dish_recommendations">
+        	<list name="dishRecommendations" lazy="false" cascade="all">
 			<!--all -  if the Client is saved, the DishRecommendation too. If the Client is deleted the DishRecommendation too -->
 				<key column="id_client"/>
 				<index column="idx_c"/>
 				<one-to-many class="model.recommendation.DishRecommendation"/>
 			</list>
 			        	
-			<list name="menuRecommendations" lazy="false" cascade="all" table="menut_recommendations">
+			<list name="menuRecommendations" lazy="false" cascade="all">
 				<!--all -  if the Client is saved, the MenuRecommendation too. If the Client is deleted the MenuRecommendation too -->
 				<key column="id_client"/>
 				<index column="idx_c"/>
@@ -113,14 +113,14 @@
 		
 			<subclass name="Responsible" discriminator-value="RC">
 			
-				<list name="notifications" lazy="false" cascade="all" table="responsible_notifications">
+				<list name="notifications" lazy="false" cascade="all">
 					<!--all -  if the Responsible is saved, the Notification too. If the Responsible is deleted the Notification too -->
 						<key column="id_responsible"/>
 						<index column="idx_rc"/>
 					<one-to-many class="model.Notification"/>
 				</list>
 				
-				<list name="restaurants" lazy="false" cascade="all" table="responsible_restaurants">
+				<list name="restaurants" lazy="false" cascade="all">
 					<!--all -  if the Responsible is saved, the Restaurant too. If the Responsible is deleted the Restaurant too -->
 						<key column="id_responsible"/>
 						<index column="idx_rc"/>
