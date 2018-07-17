@@ -44,10 +44,10 @@
 			<many-to-many column="id_menu" class="Menu"/>
 		</list>
 	 	
-		<list name="comments" lazy="false" cascade="all" table="restaurant_comments">
+		<list name="comments" lazy="false" cascade="all">
 		<!--all -  if the Restaurant is saved, the comments too. If the Restaurant is deleted the comments too -->
-		<key column="id_restaurant_m"/>
-			<index column="idx_m"/>
+		<key column="id_restaurant"/>
+			<index column="idx_r"/>
 			<one-to-many class="model.Comment"/>
 		</list>
     </class>
