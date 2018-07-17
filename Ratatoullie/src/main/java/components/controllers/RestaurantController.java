@@ -20,14 +20,14 @@ public class RestaurantController {
 	
 	private RestaurantService restaurantService;
 	
-	@RequestMapping(value = "/restaurant/Restaurantform")
+	@RequestMapping(value = "/restaurantForm")
 	public ModelAndView showRestaurantForm() {
 		ModelAndView model = new ModelAndView();
 		model.setViewName("restaurantForm");
 		return model;
 	}
 	
-	@RequestMapping(value = "/restaurant/listRestaurants")
+	@RequestMapping(value = "/listRestaurants")
 	public ModelAndView listRestaurants(){
 		List<Restaurant> list = restaurantService.getAllRestaurants();
 		ModelAndView model = new ModelAndView("listRestaurants");
@@ -35,7 +35,7 @@ public class RestaurantController {
 		return model;
 	}
 	
-	@GetMapping(value = "/restaurant/{restaurantId}")
+	@GetMapping(value = "/{restaurantId}")
 	public ModelAndView getRestaurantProfile(@PathVariable Long restaurantId) {
 		Restaurant restaurant = restaurantService.getRestuarantByID(restaurantId);
 		ModelAndView model = new ModelAndView();

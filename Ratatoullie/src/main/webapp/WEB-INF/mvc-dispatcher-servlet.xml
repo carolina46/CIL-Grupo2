@@ -20,7 +20,7 @@ http://www.springframework.org/schema/context/spring-context.xsd">
 
 
 	<!--  specifying base package of the components like controller, service, DAO -->
-	<context:component-scan base-package="src/main/java/components" />
+	<context:component-scan base-package="components" />
 	
 	<!-- Getting DB properties -->
 	<context:property-placeholder location="classpath:hibernate.properties"/>

@@ -4,9 +4,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
 </head>
 <body>
-
+<center><h1>FORMULARIO ALTA RESTAURANTE</h1></center>
 </body>
 </html>
