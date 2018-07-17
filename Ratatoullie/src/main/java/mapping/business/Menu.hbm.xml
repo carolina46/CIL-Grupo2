@@ -19,14 +19,14 @@
 		<list name="tags" lazy="false" cascade="save-update" table="menu_tags">
 		<!--save-update -  if the Menu is saved, the tags too. If the Menu is deleted the tags won't be deleted -->
 			<key column="id_menu" not-null="true"/>
-			<index column="id_t"/>
+			<index column="idx_t"/>
 			<many-to-many column="id_tag" class="Tag"/>
 		</list>
 		
 		<list name="dishes" lazy="false" cascade="save-update" table="menu_dishes">
 		<!--save-update -  if the Menu is saved, the dishes too. If the Menu is deleted the dishes won't be deleted -->
 			<key column="id_menu" not-null="true"/>
-			<index column="id_d"/>
+			<index column="idx_d"/>
 			<many-to-many column="id_dish" class="Dish"/>
 		</list>
 		
