@@ -28,11 +28,6 @@ public class RestaurantController {
 	
 	@RequestMapping(value = "/restaurantForm")
 	public ModelAndView showRestaurantForm() {
-		
-		Category category=new Category("Fast Food");
-		categoryService.saveCategory(category);
-		
-		
 		ModelAndView model = new ModelAndView();
 		model.setViewName("restaurantForm");
 		return model;
