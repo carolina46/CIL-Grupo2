@@ -34,7 +34,7 @@ public class CategoryController{
 	
 	@RequestMapping(value = "/categoryForm", method = RequestMethod.POST)
 	public ModelAndView postCategoryForm( @ModelAttribute("category") Category category, BindingResult result) {
-		categoryService.saveCategory(new Category(category.getName()));
+		categoryService.saveCategory(category);
 		return new ModelAndView("index");
 		
 	}
