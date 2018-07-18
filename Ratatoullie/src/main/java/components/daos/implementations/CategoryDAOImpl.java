@@ -2,6 +2,7 @@ package components.daos.implementations;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import components.daos.HibernateUtil;
@@ -11,6 +12,7 @@ import model.business.Category;
 @Repository
 public class CategoryDAOImpl implements CategoryDAO{
 	
+	@Autowired
 	private HibernateUtil util;
 	
 	public CategoryDAOImpl() {

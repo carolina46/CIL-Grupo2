@@ -1,6 +1,8 @@
 package components.services.implementations;
 
 import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -12,6 +14,7 @@ import model.business.Restaurant;
 @Transactional
 public class RestaurantServiceImpl implements RestaurantService {
 
+	@Autowired
 	private RestaurantDAO restaurantDAO;
 	
 	public RestaurantServiceImpl() {}

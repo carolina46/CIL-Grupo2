@@ -2,18 +2,19 @@ package components.services.implementations;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import components.daos.interfaces.CategoryDAO;
 import components.services.interfaces.CategoryService;
 import model.business.Category;
-import model.business.Category;
 
 @Service
 @Transactional
 public class CategoryServiceImpl implements CategoryService{
 
+	@Autowired
 	private CategoryDAO categoryDAO;
 	
 	public CategoryServiceImpl() {}

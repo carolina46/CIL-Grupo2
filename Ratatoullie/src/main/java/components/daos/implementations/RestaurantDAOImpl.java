@@ -2,6 +2,8 @@ package components.daos.implementations;
 
 
 import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import components.daos.HibernateUtil;
 import components.daos.interfaces.RestaurantDAO;
@@ -10,6 +12,7 @@ import model.business.Restaurant;
 @Repository
 public class RestaurantDAOImpl implements  RestaurantDAO{
 
+	@Autowired
 	private HibernateUtil util;
 	
 	public RestaurantDAOImpl() {
