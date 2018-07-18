@@ -2,11 +2,14 @@ package components.services.implementations;
 
 import java.util.List;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 import components.daos.interfaces.RestaurantDAO;
 import components.services.interfaces.RestaurantService;
 import model.business.Restaurant;
 
 @Service
+@Transactional
 public class RestaurantServiceImpl implements RestaurantService {
 
 	private RestaurantDAO restaurantDAO;
