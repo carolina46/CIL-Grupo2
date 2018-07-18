@@ -24,6 +24,8 @@
   			
   			<tr>
     		</tr>
+    		
+    		<br><a href="/Ratatoullie/">Volver</a><br>
 </table>
 	</center>
 </body>

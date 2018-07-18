@@ -7,5 +7,6 @@
 </head>
 <body>
 <center><h1>FORMULARIO ALTA RESTAURANTE</h1></center>
+<br><a href="/Ratatoullie/">Volver</a><br>
 </body>
 </html>
