@@ -9,7 +9,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import components.services.interfaces.CategoryService;
 import components.services.interfaces.RestaurantService;
+import model.business.Category;
 import model.business.Restaurant;
 
 
@@ -19,9 +21,15 @@ import model.business.Restaurant;
 public class RestaurantController {
 	
 	private RestaurantService restaurantService;
+	private CategoryService categoryService;
 	
 	@RequestMapping(value = "/restaurantForm")
 	public ModelAndView showRestaurantForm() {
+		
+		Category category=new Category("Fast Food");
+		categoryService.saveCategory(category);
+		
+		
 		ModelAndView model = new ModelAndView();
 		model.setViewName("restaurantForm");
 		return model;
