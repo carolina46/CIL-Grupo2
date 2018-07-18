@@ -1,8 +1,10 @@
 package components.daos.interfaces;
 
+import java.util.List;
+
 import model.business.Restaurant;
 
 public interface RestaurantDAO extends GenericDAO<Restaurant>{
 
-	public Restaurant getByName(String name);
+	public List<Restaurant> getByName(String name);
 }

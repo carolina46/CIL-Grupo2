@@ -107,24 +107,24 @@ public class HibernateUtil {
 		return entity;
 	}
 	
-	/*WARNING: Must be used when we are sure that the value of the attribute is not repeated.
-	 * Returns the tuple from the class passed by parameter
+	
+	/* Returns the tuples from the class passed by parameter
 	 *with the attribute passed by parameter 
 	 *equals to the value passed by parameter.
 	 */
 	@SuppressWarnings("unchecked")
-	public <T> T getByText(String atribute, String value, Class<T> entityClass) {
-			T entity = null;
+	public <T> List<T> getByText(String atribute, String value, Class<T> entityClass) {
+			List<T> list = null;
 	        try {
 	            session = this.sessionFactory.openSession();
 				tx = session.beginTransaction();
-				entity = (T) session.createQuery(" from "    + entityClass.getName()+
-												 " where "   + atribute +
-												 " = "       +value);
+				list = (List<T>) session.createQuery(" SELECT * FROM "    + entityClass.getName()+
+												 " WHERE "   + atribute +
+												 " LIKE "       + "'" + value + "'" ).list();
 	        } finally {
 	            session.close();
 	        }
-			return entity;
+			return list;
 		}
 	
 	

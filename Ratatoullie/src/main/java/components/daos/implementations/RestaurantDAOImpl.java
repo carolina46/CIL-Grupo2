@@ -42,7 +42,7 @@ public class RestaurantDAOImpl implements  RestaurantDAO{
 	}
 
 	@Override
-	public Restaurant getByName(String name) {
+	public List<Restaurant> getByName(String name) {
 		return util.getByText("name", name, Restaurant.class);		
 	}
 
