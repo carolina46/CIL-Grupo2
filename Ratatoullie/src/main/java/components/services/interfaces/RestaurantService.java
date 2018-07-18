@@ -10,6 +10,6 @@ public interface RestaurantService {
 	public boolean removeRestaurant(Restaurant restaurant);
 	public boolean removeRestaurantById(Long id);
 	public Restaurant getRestuarantByID(Long id);
-	public Restaurant getRestaurantByName(String name);
+	public List<Restaurant> getRestaurantByName(String name);
 	public List<Restaurant> getAllRestaurants();
 }

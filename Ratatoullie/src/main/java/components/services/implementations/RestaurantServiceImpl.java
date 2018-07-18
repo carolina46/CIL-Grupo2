@@ -39,7 +39,7 @@ public class RestaurantServiceImpl implements RestaurantService {
 	}
 
 	@Override
-	public Restaurant getRestaurantByName(String name) {
+	public List<Restaurant> getRestaurantByName(String name) {
 		return restaurantDAO.getByName(name);
 	}
 
