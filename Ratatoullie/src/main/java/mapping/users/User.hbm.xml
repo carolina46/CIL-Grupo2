@@ -12,7 +12,7 @@
 		
 		<property name="fullName" type="java.lang.String" column="fullname"></property>
 		
-		<property name="user" type="java.lang.String" column="user"></property>
+		<property name="user" type="java.lang.String" column="user" unique="true"></property>
 		
 		<property name="password" type="java.lang.String" column="password"></property>
 		
