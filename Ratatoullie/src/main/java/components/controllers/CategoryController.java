@@ -9,6 +9,7 @@ import org.springframework.web.servlet.mvc.AbstractController;
 import components.services.interfaces.CategoryService;
 import model.business.Category;
 
+import java.util.Iterator;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -28,10 +29,14 @@ public class CategoryController{
 		
 	@RequestMapping(value = "/categoryForm", method = RequestMethod.GET)
 	public ModelAndView getCategoryForm() {
+		System.out.println("ENTRA AL VIEW");
 		List<Category> list = categoryService.getAllCategorys();
 		
 		ModelAndView model = new ModelAndView("categoryForm");
-		model.addObject("list",list);
+		Iterator<Category> it = list.iterator();
+		while(it.hasNext())
+			System.out.println("OBJ "+it.next().getName());
+		model.addObject("categoryList",list);
 	    return model;
 	}
 	
