@@ -28,8 +28,11 @@ public class CategoryController{
 		
 	@RequestMapping(value = "/categoryForm", method = RequestMethod.GET)
 	public ModelAndView getCategoryForm() {
-		return new ModelAndView("categoryForm", "name", new Category());
-	    
+		List<Category> list = categoryService.getAllCategorys();
+		
+		ModelAndView model = new ModelAndView("categoryForm");
+		model.addObject("list",list);
+	    return model;
 	}
 	
 	@RequestMapping(value = "/categoryForm", method = RequestMethod.POST)
