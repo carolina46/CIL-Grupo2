@@ -11,8 +11,8 @@
   		<c:if test="${not empty categories}">
 
 		<ul>
-			<c:forEach var="name" items="${categories}">
-				<li>${name}</li>
+			<c:forEach var="category" items="${categories}">
+				<li>${category.name}</li>
 			</c:forEach>
 		</ul>
 
