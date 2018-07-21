@@ -8,10 +8,10 @@
 <body>
 	<center>
 		<h1>LISTA DE CATEGORIAS</h1>	
-  		<c:if test="${not empty categoryList}">
+  		<c:if test="${not empty categories}">
 
 		<ul>
-			<c:forEach var="name" items="${categoryList}">
+			<c:forEach var="name" items="${categories}">
 				<li>${name}</li>
 			</c:forEach>
 		</ul>
