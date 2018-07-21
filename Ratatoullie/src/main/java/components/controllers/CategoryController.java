@@ -29,15 +29,7 @@ public class CategoryController{
 		
 	@RequestMapping(value = "/categoryForm", method = RequestMethod.GET)
 	public ModelAndView getCategoryForm() {
-		System.out.println("ENTRA AL VIEW");
-		List<Category> list = categoryService.getAllCategorys();
-		
-		ModelAndView model = new ModelAndView("categoryForm");
-		Iterator<Category> it = list.iterator();
-		while(it.hasNext())
-			System.out.println("OBJ "+it.next().getName());
-		model.addObject("categoryList",list);
-	    return model;
+		return new ModelAndView("categoryForm", "name", new Category());
 	}
 	
 	@RequestMapping(value = "/categoryForm", method = RequestMethod.POST)
