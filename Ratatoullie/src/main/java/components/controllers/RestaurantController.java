@@ -30,7 +30,6 @@ public class RestaurantController {
 	
 	@RequestMapping(value = "/restaurantForm", method = RequestMethod.GET)
 	public ModelAndView getRestaurantForm() {
-		//return new ModelAndView("restaurantForm", "name", new Restaurant());
 		ModelAndView model = new ModelAndView("restaurantForm","restaurant",new Restaurant());
 		List<Category> list = categoryService.getAllCategorys();
 		model.addObject("categories", list);
