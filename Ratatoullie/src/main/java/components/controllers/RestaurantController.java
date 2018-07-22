@@ -57,11 +57,6 @@ public class RestaurantController {
 		model.setViewName("restaurantProfile");
 		model.addObject("restaurant", restaurant);
 		return model;
-	}
-	
-	
-
-	
-	
+	}	
 	
 }
