@@ -8,19 +8,28 @@
 <body>
 	<center>
 		<h1>FORMULARIO ALTA RESTAURANTE</h1>
-		<form:form method="POST" action="/Ratatoullie/restaurant/restaurantForm" modelAttribute="name">
+		<form:form method="POST" action="/Ratatoullie/restaurant/restaurantForm" modelAttribute="restaurant">
 		    <table>
 		    	<tr>
 		        	<td><form:label path="name">Name</form:label></td>
 		            <td><form:input path="name"/></td>
 		        </tr>
 		        <tr>
-		        	<td><form:label path="latitude">Location Latitude</form:label></td>
-		            <td><form:input path="latitude"/></td>
+		        	<td><form:label path="category">Category</form:label></td>
+		            <td><form:select modelAttribute="restaurant" path="category">
+			            	<form:options items="${categories}"></form:options>
+			            	<form:option value="NONE">Other (Please Specify)</form:option>
+			            	<form:input path="category"/>
+		            	</form:select>
+		            </td>
 		        </tr>
 		        <tr>
-		        	<td><form:label path="longitude">Location Longitude</form:label></td>
-		            <td><form:input path="longitude"/></td>
+		        	<td><form:label path="location.latitude">Location Latitude</form:label></td>
+		            <td><form:input path="location.latitude"/></td>
+		        </tr>
+		        <tr>
+		        	<td><form:label path="location.longitude">Location Longitude</form:label></td>
+		            <td><form:input path="location.longitude"/></td>
 		        </tr>
 		        <tr>
 		        	<td><input type="submit" value="Submit"/></td>
