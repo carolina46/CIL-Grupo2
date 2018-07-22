@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import components.services.interfaces.CategoryService;
 import components.services.interfaces.RestaurantService;
+import model.business.Category;
 import model.business.Restaurant;
 
 
@@ -23,6 +25,17 @@ public class RestaurantController {
 	
 	@Autowired
 	private RestaurantService restaurantService;
+	@Autowired
+	private CategoryService categoryService;
+	
+	@RequestMapping(value = "/restaurantForm", method = RequestMethod.GET)
+	public ModelAndView getRestaurantForm() {
+		//return new ModelAndView("restaurantForm", "name", new Restaurant());
+		ModelAndView model = new ModelAndView("restaurantForm","restaurant",new Restaurant());
+		List<Category> list = categoryService.getAllCategorys();
+		model.addObject("categories", list);
+		return model;
+	}
 	
 	@RequestMapping(value = "/restaurantForm", method = RequestMethod.POST)
 	public ModelAndView postRestaurantForm(@ModelAttribute("restaurant") Restaurant restaurant, BindingResult result) {
