@@ -22,7 +22,7 @@ public class CategoryDAOImpl implements CategoryDAO{
 	@Override
 	public boolean save(Category category) {
 		//Saves a Category if the category's name doesn't exist already
-		if (util.getEntitiesByText("name", category.getName(), Category.class) == null)
+		if (util.getEntitiesByTextEquals("name", category.getName(), Category.class) == null)
 			return util.save(category);
 		else
 			return false;
@@ -54,8 +54,8 @@ public class CategoryDAOImpl implements CategoryDAO{
 	}
 
 	@Override
-	public Category getCategoriesByName(String name) {
-		return util.getEntityByText("name", name, Category.class);
+	public Category getCategoryByName(String name) {
+		return util.getEntityByTextEquals("name", name, Category.class);
 	}
 
 }
