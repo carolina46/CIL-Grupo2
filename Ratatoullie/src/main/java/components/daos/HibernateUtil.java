@@ -90,7 +90,7 @@ public class HibernateUtil {
 	
 	//Returns all the tuples of the class passed by parameter
 	public <T> List<T> getAll(Class<T> entityClass) {
-		return getAllMatchQuery(" FROM " + entityClass.getName());
+		return getAllMatchQuery("FROM " + entityClass.getName());
 		
 	}
 	
@@ -108,24 +108,41 @@ public class HibernateUtil {
 	}
 	
 	
-	/* Returns the tuples from the class passed by parameter
-	 *with the attribute passed by parameter 
-	 *equals to the value passed by parameter.
+	/* Returns the tuples from the class passed by parameter with the attribute passed by parameter 
+	 * equals to the value passed by parameter.
 	 */
 	@SuppressWarnings("unchecked")
-	public <T> List<T> getByText(String atribute, String value, Class<T> entityClass) {
-			List<T> list = null;
-	        try {
-	            session = this.sessionFactory.openSession();
-				tx = session.beginTransaction();
-				list = (List<T>) session.createQuery(" SELECT * FROM "    + entityClass.getName()+
-												 " WHERE "   + atribute +
-												 " LIKE "       + "'" + value + "'" ).list();
-	        } finally {
-	            session.close();
-	        }
-			return list;
+	public <T> List<T> getEntitiesByText(String atribute, String value, Class<T> entityClass) {
+		List<T> list = null;
+	    try {
+	    	session = this.sessionFactory.openSession();
+			tx = session.beginTransaction();
+			list = (List<T>) session.createQuery("SELECT * FROM " + entityClass.getName()+
+												 "WHERE " + atribute +
+												 "LIKE " + "'" + value + "'" ).list();
+		}finally {
+			session.close();
 		}
+		return list;
+	}
+	
+	/* Returns one record from the class passed by parameter with the attribute passed by parameter 
+	 * equals to the value passed by parameter.
+	 */
+	@SuppressWarnings("unchecked")
+	public <T> T getEntityByText(String atribute, String value, Class<T> entityClass) {
+		T entity = null;
+	    try {
+	    	session = this.sessionFactory.openSession();
+			tx = session.beginTransaction();
+			entity = (T) session.createQuery("FROM " + entityClass.getName()+
+									"WHERE " + atribute +
+									"LIKE " + "'" + value + "'" ).uniqueResult();
+		}finally {
+			session.close();
+		}
+		return entity;
+	}
 	
 	
 	/*WARNING: Must be sure that the query is valid.
