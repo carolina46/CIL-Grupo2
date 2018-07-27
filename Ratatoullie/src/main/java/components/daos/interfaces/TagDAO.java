@@ -4,6 +4,6 @@ import model.business.Tag;
 
 public interface TagDAO extends GenericDAO<Tag>{
 
-	public Tag getTagByName(String name);
+	public Tag getTagByNameEqualsTo(String name);
 	
 }

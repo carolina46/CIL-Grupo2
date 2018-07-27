@@ -4,7 +4,7 @@ import model.business.Category;
 
 public interface CategoryDAO extends GenericDAO<Category>{
 	
-	public Category getCategoryByName(String name);
+	public Category getCategoryByNameEqualsTo(String name);
 	
 
 }

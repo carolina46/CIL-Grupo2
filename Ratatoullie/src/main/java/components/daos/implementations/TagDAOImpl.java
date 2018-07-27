@@ -49,7 +49,7 @@ public class TagDAOImpl implements TagDAO {
 	}
 
 	@Override
-	public Tag getTagByName(String name) {
+	public Tag getTagByNameEqualsTo(String name) {
 		return util.getEntityByTextEquals("name", name, Tag.class);
 	}
 

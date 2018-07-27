@@ -54,7 +54,7 @@ public class CategoryDAOImpl implements CategoryDAO{
 	}
 
 	@Override
-	public Category getCategoryByName(String name) {
+	public Category getCategoryByNameEqualsTo(String name) {
 		return util.getEntityByTextEquals("name", name, Category.class);
 	}
 
