@@ -21,7 +21,11 @@ public class CategoryDAOImpl implements CategoryDAO{
 
 	@Override
 	public boolean save(Category category) {
-		return util.save(category);
+		//Saves a Category if the category's name doesn't exist already
+		if (util.getEntitiesByText("name", category.getName(), Category.class) == null)
+			return util.save(category);
+		else
+			return false;
 	}
 
 	@Override
@@ -36,7 +40,7 @@ public class CategoryDAOImpl implements CategoryDAO{
 
 	@Override
 	public boolean removeById(Long key) {
-		return util.delete(key);
+		return util.deleteById(key, Category.class);
 	}
 
 	@Override
@@ -50,13 +54,8 @@ public class CategoryDAOImpl implements CategoryDAO{
 	}
 
 	@Override
-	public Category getCategory(String name) {
-		Category category=null;
-		List<Category> list= util.getByText("name", name, Category.class);
-		if(!list.isEmpty()) {
-			category=list.get(0);
-		}
-		return category;
+	public Category getCategoriesByName(String name) {
+		return util.getEntityByText("name", name, Category.class);
 	}
 
 }
