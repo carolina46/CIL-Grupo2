@@ -19,8 +19,7 @@ public class HibernateUtil {
 		super();
 	}
 	
-	/*Will be Spring who will be responsible for creating this object, 
-	and will pass it to our class through this setter*/
+	// Will be Spring who will be responsible for creating this object, and will pass it to our class through this setter
 	public void setSessionFactory(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
     }
@@ -94,6 +93,20 @@ public class HibernateUtil {
 		
 	}
 	
+	//WARNING: Must be sure that the query is valid. Returns the tuples that meet the query passed as a parameter.
+	@SuppressWarnings("unchecked")
+	public <T> List<T> getAllMatchQuery(String query) {
+		List<T> list =null;
+	    try {
+	    	session = this.sessionFactory.openSession();
+			tx = session.beginTransaction();
+	    	list = (List<T>) session.createQuery(query).list();
+	    }finally {
+	    	session.close();
+	    }
+		return list;
+	}
+	
 	//Returns the tuple with the id and from the class passed by parameter.
 	public <T> T getById(Long id, Class<T> entityClass) {
 		T entity = null;
@@ -108,57 +121,70 @@ public class HibernateUtil {
 	}
 	
 	
-	/* Returns the tuples from the class passed by parameter with the attribute passed by parameter 
-	 * equals to the value passed by parameter.
-	 */
+	// Returns the tuples from the class passed by parameter with the attribute passed by parameter equals to the value passed by parameter
 	@SuppressWarnings("unchecked")
-	public <T> List<T> getEntitiesByText(String atribute, String value, Class<T> entityClass) {
+	public <T> List<T> getEntitiesByTextEquals(String atribute, String value, Class<T> entityClass) {
 		List<T> list = null;
 	    try {
 	    	session = this.sessionFactory.openSession();
 			tx = session.beginTransaction();
 			list = (List<T>) session.createQuery("SELECT * FROM " + entityClass.getName()+
 												 "WHERE " + atribute +
-												 "LIKE " + "'" + value + "'" ).list();
+												 " = " + "'" + value + "'" ).list();
 		}finally {
 			session.close();
 		}
 		return list;
 	}
 	
-	/* Returns one record from the class passed by parameter with the attribute passed by parameter 
-	 * equals to the value passed by parameter.
-	 */
+	// Returns one record from the class passed by parameter with the attribute passed by parameter equals to the value passed by parameter.
 	@SuppressWarnings("unchecked")
-	public <T> T getEntityByText(String atribute, String value, Class<T> entityClass) {
+	public <T> T getEntityByTextEquals(String atribute, String value, Class<T> entityClass) {
 		T entity = null;
 	    try {
 	    	session = this.sessionFactory.openSession();
 			tx = session.beginTransaction();
 			entity = (T) session.createQuery("FROM " + entityClass.getName()+
 									"WHERE " + atribute +
-									"LIKE " + "'" + value + "'" ).uniqueResult();
+									" = " + "'" + value + "'" ).uniqueResult();
 		}finally {
 			session.close();
 		}
 		return entity;
 	}
 	
-	
-	/*WARNING: Must be sure that the query is valid.
-	 * Returns the tuples that meet the query passed as a parameter.
-	 */
+	//Returns tuples from the class passed by parameter with the attribute passed by parameter similar to the value passed by parameter
 	@SuppressWarnings("unchecked")
-	public <T> List<T> getAllMatchQuery(String query) {
-		List<T> list =null;
-        try {
-            session = this.sessionFactory.openSession();
+	public <T> List<T> getEntitiesByTextLike(String atribute, String value, Class<T> entityClass) {
+		List<T> list = null;
+	    try {
+	    	session = this.sessionFactory.openSession();
 			tx = session.beginTransaction();
-            list = (List<T>) session.createQuery(query).list();
-        } finally {
-            session.close();
-        }
+			list = (List<T>) session.createQuery("SELECT * FROM " + entityClass.getName()+
+												 "WHERE " + atribute +
+												 " LIKE " + "'%" + value + "%'" ).list();
+		}finally {
+			session.close();
+		}
 		return list;
-	}
+	} 
+	
+	// Returns one record from the class passed by parameter with the attribute passed by parameter similar to the value passed by parameter.
+		@SuppressWarnings("unchecked")
+		public <T> T getEntityByTextLike(String atribute, String value, Class<T> entityClass) {
+			T entity = null;
+		    try {
+		    	session = this.sessionFactory.openSession();
+				tx = session.beginTransaction();
+				entity = (T) session.createQuery("FROM " + entityClass.getName()+
+										"WHERE " + atribute +
+										" LIKE " + "'%" + value + "%'" ).uniqueResult();
+			}finally {
+				session.close();
+			}
+			return entity;
+		}
+	
+	
 	
 }
