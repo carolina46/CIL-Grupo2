@@ -45,8 +45,8 @@ public class RestaurantDAOImpl implements  RestaurantDAO{
 	}
 
 	@Override
-	public List<Restaurant> getByName(String name) {
-		return util.getByText("name", name, Restaurant.class);		
+	public List<Restaurant> getRestaurantsByName(String name) {
+		return util.getEntitiesByText("name", name, Restaurant.class);		
 	}
 
 	@Override

@@ -6,5 +6,5 @@ import model.business.Restaurant;
 
 public interface RestaurantDAO extends GenericDAO<Restaurant>{
 
-	public List<Restaurant> getByName(String name);
+	public List<Restaurant> getRestaurantsByName(String name);
 }

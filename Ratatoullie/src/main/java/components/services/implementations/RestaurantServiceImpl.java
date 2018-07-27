@@ -46,7 +46,7 @@ public class RestaurantServiceImpl implements RestaurantService {
 
 	@Override
 	public List<Restaurant> getRestaurantByName(String name) {
-		return restaurantDAO.getByName(name);
+		return restaurantDAO.getRestaurantsByName(name);
 	}
 
 	@Override

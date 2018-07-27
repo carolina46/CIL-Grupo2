@@ -46,7 +46,7 @@ public class CategoryServiceImpl implements CategoryService{
 
 	@Override
 	public Category getCategoryByName(String name) {
-		return categoryDAO.getCategory(name);
+		return categoryDAO.getCategoriesByName(name);
 	}
 
 	@Override
