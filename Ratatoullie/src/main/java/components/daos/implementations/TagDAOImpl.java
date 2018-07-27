@@ -17,7 +17,7 @@ public class TagDAOImpl implements TagDAO {
 	@Override
 	public boolean save(Tag tag) {
 		//Saves a Tag if the tag's name doesn't exist already
-		if(util.getEntityByText("name", tag.getName(), Tag.class) == null)
+		if(util.getEntityByTextEquals("name", tag.getName(), Tag.class) == null)
 			return util.save(tag);
 		else
 			return false;
@@ -50,7 +50,7 @@ public class TagDAOImpl implements TagDAO {
 
 	@Override
 	public Tag getTagByName(String name) {
-		return util.getEntityByText("name", name, Tag.class);
+		return util.getEntityByTextEquals("name", name, Tag.class);
 	}
 
 }
