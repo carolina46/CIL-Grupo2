@@ -128,8 +128,8 @@ public class HibernateUtil {
 	    try {
 	    	session = this.sessionFactory.openSession();
 			tx = session.beginTransaction();
-			list = (List<T>) session.createQuery("SELECT * FROM " + entityClass.getName()+
-												 "WHERE " + atribute +
+			list = (List<T>) session.createQuery("FROM " + entityClass.getName()+
+												 " WHERE " + atribute +
 												 " = " + "'" + value + "'" ).list();
 		}finally {
 			session.close();
@@ -145,7 +145,7 @@ public class HibernateUtil {
 	    	session = this.sessionFactory.openSession();
 			tx = session.beginTransaction();
 			entity = (T) session.createQuery("FROM " + entityClass.getName()+
-									"WHERE " + atribute +
+									" WHERE " + atribute +
 									" = " + "'" + value + "'" ).uniqueResult();
 		}finally {
 			session.close();
@@ -160,8 +160,8 @@ public class HibernateUtil {
 	    try {
 	    	session = this.sessionFactory.openSession();
 			tx = session.beginTransaction();
-			list = (List<T>) session.createQuery("SELECT * FROM " + entityClass.getName()+
-												 "WHERE " + atribute +
+			list = (List<T>) session.createQuery("FROM " + entityClass.getName()+
+												 " WHERE " + atribute +
 												 " LIKE " + "'%" + value + "%'" ).list();
 		}finally {
 			session.close();
@@ -177,7 +177,7 @@ public class HibernateUtil {
 		    	session = this.sessionFactory.openSession();
 				tx = session.beginTransaction();
 				entity = (T) session.createQuery("FROM " + entityClass.getName()+
-										"WHERE " + atribute +
+										" WHERE " + atribute +
 										" LIKE " + "'%" + value + "%'" ).uniqueResult();
 			}finally {
 				session.close();
