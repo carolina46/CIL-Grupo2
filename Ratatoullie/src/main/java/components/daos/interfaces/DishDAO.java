@@ -6,7 +6,7 @@ import model.business.Dish;
 
 public interface DishDAO extends GenericDAO<Dish> {
 	
-	public Dish getDishByName(String name);
+	public Dish getDishByNameEqualsTo(String name);
 	public List<Dish> getDishesByNameLike(String name);
 	public List<Dish> getDishesWithDescriptionLike(String description);
 

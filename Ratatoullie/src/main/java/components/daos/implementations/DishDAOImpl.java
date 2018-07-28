@@ -45,7 +45,7 @@ public class DishDAOImpl implements DishDAO {
 	}
 
 	@Override
-	public Dish getDishByName(String name) {
+	public Dish getDishByNameEqualsTo(String name) {
 		//Returns a Dish with a name exactly as the one passed as parameter
 		return util.getEntityByTextEquals("name", name, Dish.class);
 	}
