@@ -30,7 +30,7 @@ $(document).ready(function(){
 		        	<td><form:label path="name">Name</form:label></td>
 		            <td><form:input path="name"/></td>
 		        </tr>
-		        <tr>
+		        <!-- <tr>
 		        	<td><form:label path="category">Category</form:label></td>
 		            <td><form:select modelAttribute="restaurant" path="category" id="categorySelector">
 			            	<form:options items="${categories}"></form:options>
@@ -38,7 +38,21 @@ $(document).ready(function(){
 		            	</form:select>
 		            </td>
 		        </tr>
+		        <tr id="otherCategory"></tr> -->
+		        
+		        <tr>
+		        	<td><form:label path="category">CategoLOCA</form:label></td>
+		        	<td>
+		        		<form:select modelAttribute="restaurant" path="category" id="categorySelector">
+		        			<c:forEeach var="category" items="${categories}">
+		        				<form:option value="${category.id}">${category.name}</form:option>
+		        			</c:forEeach>
+		        			<form:option value="other">Other (Please Specify)</form:option>
+		        		</form:select>
+		        	</td>
+		        </tr>
 		        <tr id="otherCategory"></tr>
+		        
 		        <tr>
 		        	<td><form:label path="location.latitude">Location Latitude</form:label></td>
 		            <td><form:input path="location.latitude"/></td>
@@ -51,6 +65,13 @@ $(document).ready(function(){
 		        	<td><input type="submit" value="Submit"/></td>
 		        </tr>
 		    </table>
+		    
+		    <ul>
+		    <c:forEach var="category" items="${categories}">
+				<li>${category}</li>
+			</c:forEach>
+			</ul>
+			
 	    </form:form>
 	</center>
 <br><a href="/Ratatoullie/">Volver</a><br>
