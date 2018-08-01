@@ -67,7 +67,7 @@ $(document).ready(function(){
 		    </table>
 		    
 		    <ul>
-		    <c:forEach var="category" items="${categories}">
+		    <c:forEach var="category" path="category" items="${categories}">
 				<li>${category}</li>
 			</c:forEach>
 			</ul>
