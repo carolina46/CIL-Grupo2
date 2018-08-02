@@ -2,8 +2,6 @@ package model.business;
 import java.util.ArrayList;
 import java.util.List;
 
-import model.vote.DishVote;
-
 /**
  * Represents a dish within one or more menus of a restaurant.
  * 
@@ -18,7 +16,6 @@ public class Dish {
 	private String description;
 	private String picture;
 	private List<Tag> tags; 
-	private List<DishVote> dishVotes;
 	
 	public Dish() {} //For Hibernate
 	
@@ -27,9 +24,7 @@ public class Dish {
 		this.description = description;
 		this.picture = picture;
 		this.tags = new ArrayList<Tag>();
-		this.dishVotes = new ArrayList<DishVote>();
 	}
-	
 	
 	public Long getOid() { return oid;}
 
@@ -54,15 +49,6 @@ public class Dish {
 	public void addTag(Tag tag) {this.tags.add(tag);}
 	
 	public void setTags(List<Tag> tags) {this.tags = tags;}
-	
-
-	//Methods associated with list of votes
-	
-	public List<DishVote> getDishVotes() { return dishVotes;}
-	
-	public void setDishVotes(List<DishVote> dishVotes) { this.dishVotes = dishVotes;}
-	
-	public void addVote(DishVote dishVote) {this.dishVotes.add(dishVote);}
 	
 	@Override
 	public String toString() { // For logging purposes, instead of printing the hash of the object, toString() will return useful values
