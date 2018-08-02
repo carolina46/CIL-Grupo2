@@ -30,6 +30,7 @@ http://www.springframework.org/schema/context/spring-context.xsd">
 		<property name="suffix" value=".jsp" />
 	</bean>
 	
+	<bean id="modelMapper" class="org.modelmapper.ModelMapper"/>
 	
 	<!-- datasource -->
 	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
