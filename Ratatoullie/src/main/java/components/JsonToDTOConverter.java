@@ -9,21 +9,17 @@ public class JsonToDTOConverter {
 	
 	private static Gson gson = new Gson();
 
-	public static String convertirAJason(Object DTO) {
+	public static String convertToJason(Object DTO) {
 		String json = gson.toJson(DTO);
+        System.out.println("DEBUG: Printing JSON: "+ json);
 		return json;
 	}
 	
-	public static Object convertListJsonToDTO(String json) {
-		
-		return 	gson.fromJson(json, new TypeToken<List<Object>>(){}.getType());
-		
+	public static Object convertListJsonToDTO(String json) {		
+		return gson.fromJson(json, new TypeToken<List<Object>>(){}.getType());	
 	}
 	
-	public static <T> Object convertJsonToDTO(String json, Class<T> entityClass) {
-		
-		return gson.fromJson(json, entityClass);
-		
-		
+	public static <T> Object convertJsonToDTO(String json, Class<T> entityClass) {	
+		return gson.fromJson(json, entityClass);	
 	}
 }
