@@ -4,7 +4,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 import org.modelmapper.ModelMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import components.dtos.CategoryDTO;
 import model.business.Category;
