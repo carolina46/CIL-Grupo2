@@ -13,17 +13,19 @@ import model.business.Category;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 
-
 @Controller
 @RequestMapping(value = "/category/")
 public class CategoryController{
-	 
+	
 	@Autowired
 	private CategoryService categoryService;
+	@Autowired
+    private ModelMapper modelMapper;
 		
 	@RequestMapping(value = "/categoryForm", method = RequestMethod.GET)
 	public ModelAndView getCategoryForm() {
@@ -62,18 +64,14 @@ public class CategoryController{
 	
 	public Category convertToEntity(CategoryDTO categoryDTO) {
 		//Converts the DTO to the actual object
-		Category category = new Category();
-		category.setName(categoryDTO.getName());
-		category.setOid(categoryDTO.getOid());
-		return category;		
+		Category category = modelMapper.map(categoryDTO, Category.class);
+		return category;
+		
 	}
 	
 	public CategoryDTO convertToDTO(Category category) {
 		//Converts the Object to its DTO
-		CategoryDTO categoryDTO = new CategoryDTO();
-		categoryDTO.setName(category.getName());
-		categoryDTO.setOid(category.getOid());	
-		return categoryDTO;
-	
-}
+		CategoryDTO categoryDTO = modelMapper.map(category, CategoryDTO.class);
+	    return categoryDTO;
+	}
   }
