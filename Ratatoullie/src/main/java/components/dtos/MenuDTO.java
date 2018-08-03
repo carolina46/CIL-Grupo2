@@ -2,10 +2,6 @@ package components.dtos;
 
 import java.util.List;
 
-import model.business.Dish;
-import model.business.MenuType;
-import model.business.Tag;
-
 public class MenuDTO {
 
 	private Long oid;
@@ -13,7 +9,6 @@ public class MenuDTO {
 	private List<DishDTO> dtoDishes;
 	private List<TagDTO> dtoTags;
 	private MenuTypeDTO menuType;
-	
 	
 	public Long getOid() {
 		return oid;
