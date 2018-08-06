@@ -1,6 +1,6 @@
 package components.dtos.filter;
 
-public abstract class CommentFilterDTO {
+public abstract class NotificationFilterDTO {
 
 	public abstract String getName();
 }
