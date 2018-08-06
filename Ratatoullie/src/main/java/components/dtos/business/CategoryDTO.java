@@ -1,10 +1,10 @@
-package components.dtos;
+package components.dtos.business;
 
-public class MenuTypeDTO {
+public class CategoryDTO {
 
 	private Long oid;
 	private String name;
-	
+		
 	public Long getOid() {
 		return oid;
 	}
@@ -17,4 +17,6 @@ public class MenuTypeDTO {
 	public void setName(String name) {
 		this.name = name;
 	}
+	
+	
 }
