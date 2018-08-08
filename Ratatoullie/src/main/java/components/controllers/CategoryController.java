@@ -1,12 +1,13 @@
 package components.controllers;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import components.JsonToDTOConverter;
-import components.dtos.CategoryDTO;
+import components.dtos.business.CategoryDTO;
 import components.services.interfaces.CategoryService;
 import model.business.Category;
 
@@ -15,10 +16,13 @@ import java.util.List;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 
 @Controller
+@CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
 @RequestMapping(value = "/category/")
 public class CategoryController{
 	
@@ -42,7 +46,7 @@ public class CategoryController{
 	
 	@SuppressWarnings("unchecked")
 	@RequestMapping(value = "/listCategory")
-	public ModelAndView listCategories() {
+	public ResponseEntity<String> listCategories() {
 		List<CategoryDTO> listDTO = new ArrayList<CategoryDTO>();
 		List<Category> list = categoryService.getAllCategorys();
 		
@@ -54,12 +58,13 @@ public class CategoryController{
 		
 		//Converts the list of CategoryDTO to JSON string
         String jsonResult = JsonToDTOConverter.convertToJason(listDTO);
-    	
-        List<CategoryDTO> listDTO2 = (List<CategoryDTO>) JsonToDTOConverter.convertListJsonToDTO(jsonResult);
+    	System.out.println(jsonResult);
+        //List<CategoryDTO> listDTO2 = (List<CategoryDTO>) JsonToDTOConverter.convertListJsonToDTO(jsonResult);
 		
-    	ModelAndView modelo= new ModelAndView("listCategories");
-		modelo.addObject("categories", listDTO2);
-	    return modelo;
+    	//ModelAndView modelo= new ModelAndView("listCategories");
+		//modelo.addObject("categories", listDTO2);
+	   // return modelo;
+        return new ResponseEntity<String>(jsonResult, HttpStatus.OK);
 	}
 	
 	public Category convertToEntity(CategoryDTO categoryDTO) {
