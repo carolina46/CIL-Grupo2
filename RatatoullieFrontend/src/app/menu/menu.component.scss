@@ -1,0 +1,15 @@
+ul{
+    clear: both;
+    list-style: none;
+  }
+
+a:hover, a:active {
+    background-color: rgb(0, 183, 255);
+}
+
+li {
+    padding: .3em;
+    display: inline;
+    text-decoration: none;
+    background: rgb(173, 168, 202);
+  }
