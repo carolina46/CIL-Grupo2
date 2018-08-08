@@ -1,4 +1,4 @@
-package components.dtos;
+package components.dtos.business;
 
 import java.util.List;
 

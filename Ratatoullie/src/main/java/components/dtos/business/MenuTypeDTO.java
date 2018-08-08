@@ -1,6 +1,6 @@
-package components.dtos;
+package components.dtos.business;
 
-public class TagDTO {
+public class MenuTypeDTO {
 
 	private Long oid;
 	private String name;

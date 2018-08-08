@@ -16,12 +16,10 @@ public abstract class Ranking {
 	private Long oid; //For Hibernate
 	
 	public Ranking() {} //For Hibernate
-	
-	
+		
 	public Long getOid() { return oid;}
-
 	public void setOid(Long oid) { this.oid = oid;}
-	
+
 	/**
 	 * Update the Client's state according to the total number of comments made.
 	 * @param Receives the user to whom it belongs.
@@ -42,5 +40,5 @@ public abstract class Ranking {
 	public String toString() { // For logging purposes, instead of printing the hash of the object, toString() will return useful values
 		return ("Ranking with oid = "+oid);
 	}
-
+	
 }
