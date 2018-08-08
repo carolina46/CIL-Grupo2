@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 import org.modelmapper.ModelMapper;
 
-import components.dtos.CategoryDTO;
+import components.dtos.business.CategoryDTO;
 import model.business.Category;
 
 class ModelMapperTest {
