@@ -8,7 +8,7 @@ import { CategoryService } from '../category.service';
 })
 export class ListCategoryComponent implements OnInit {
 
-  categoties: object;
+  categories: object;
 
   constructor(private categoryService: CategoryService) { }
 
@@ -17,7 +17,7 @@ export class ListCategoryComponent implements OnInit {
   }
 
   getCategories(): void {
-    this.categoryService.getCategories().subscribe(categories => this.categoties = categories);
+    this.categoryService.getCategories().subscribe(categories => this.categories = categories);
   }
 
 }
