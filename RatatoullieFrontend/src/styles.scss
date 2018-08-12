@@ -2,6 +2,7 @@
 *{
     padding: 0;
     margin: 0;
+    font-family: Merienda;
 }
 
 body {
@@ -13,3 +14,8 @@ body {
     background-color: #464646;
     //Fuente: https://www.webfx.com/blog/web-design/responsive-background-image/
 }
+
+@font-face{
+    font-family: Merienda;
+    src: url(src/assets/fonts/Merienda-Regular.ttf);
+  }
