@@ -44,7 +44,6 @@ public class CategoryController{
 		
 	}
 	
-	@SuppressWarnings("unchecked")
 	@RequestMapping(value = "/listCategory")
 	public ResponseEntity<String> listCategories() {
 		List<CategoryDTO> listDTO = new ArrayList<CategoryDTO>();
