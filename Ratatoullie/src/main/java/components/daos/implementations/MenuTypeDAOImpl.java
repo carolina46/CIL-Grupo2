@@ -1,12 +1,16 @@
 package components.daos.implementations;
 
 import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
 import components.daos.HibernateUtil;
 import components.daos.interfaces.MenuTypeDAO;
 import model.business.MenuType;
 
 public class MenuTypeDAOImpl implements MenuTypeDAO {
 
+	@Autowired
 	private HibernateUtil util;
 	
 	public MenuTypeDAOImpl() {
