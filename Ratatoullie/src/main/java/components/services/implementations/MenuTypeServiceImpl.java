@@ -3,12 +3,15 @@ package components.services.implementations;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import components.daos.interfaces.MenuTypeDAO;
 import components.services.interfaces.MenuTypeService;
 import model.business.MenuType;
 
-
+@Service
+@Transactional
 public class MenuTypeServiceImpl implements MenuTypeService{
 
 	@Autowired

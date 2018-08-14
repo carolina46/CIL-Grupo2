@@ -11,6 +11,7 @@
 <a href="/Ratatoullie/category/listCategory">Listar categorias</a><br>
 <a href="/Ratatoullie/restaurant/restaurantForm">Crear Restaurante</a><br>
 <a href="/Ratatoullie/restaurant/listRestaurants">Listar Restaurantes</a><br>
+<a href="/Ratatoullie/menuType/list">MenuTypes</a><br>
 
 </center>
 </body>
