@@ -24,7 +24,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 
 @Controller
-@CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
+@CrossOrigin(origins = "http://localhost:4200", maxAge = 3600, allowedHeaders="Access-Control-Allow-Origin: http://localhost:4200")
 @RequestMapping(value = "/category/")
 public class CategoryController{
 	
@@ -46,7 +46,7 @@ public class CategoryController{
 		
 	}*/
 	
-	@RequestMapping(value="categoryForm", headers="*/*", method = RequestMethod.POST, produces="application/json; charset=UTF-8")
+	@RequestMapping(value="categoryForm", headers="Access-Control-Allow-Origin: http://localhost:4200", method = RequestMethod.POST, produces="application/json; charset=UTF-8")
 	public @ResponseBody ModelAndView postCategoryForm(@RequestBody String object){
 		Category category = (Category)JsonToDTOConverter.convertJsonToDTO(object, Category.class);
 		categoryService.saveCategory(category);
