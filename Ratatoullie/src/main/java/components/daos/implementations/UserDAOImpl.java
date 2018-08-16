@@ -49,7 +49,7 @@ public class UserDAOImpl implements UserDAO{
 
 	@Override
 	public List<User> getAll() {
-		return util.getAll(User.class);
+		return util.getAllMatchQuery("FROM user WHERE user_type <> " + "'" + "UA" + "';");
 	}
 
 	@Override
