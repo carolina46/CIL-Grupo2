@@ -2,8 +2,10 @@ package components.controllers;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import components.JsonToDTOConverter;
@@ -36,12 +38,19 @@ public class CategoryController{
 		return new ModelAndView("categoryForm", "name", new Category());
 	}
 	
-	@RequestMapping(value = "/categoryForm", method = RequestMethod.POST)
+	/*@RequestMapping(value = "/categoryForm", method = RequestMethod.POST)
 	public ModelAndView postCategoryForm( @ModelAttribute("category") CategoryDTO categoryDTO, BindingResult result) {
 		Category category = convertToEntity(categoryDTO);
 		categoryService.saveCategory(category);
 		return new ModelAndView("index");
 		
+	}*/
+	
+	@RequestMapping(value="categoryForm", headers="*/*", method = RequestMethod.POST, produces="application/json; charset=UTF-8")
+	public @ResponseBody ModelAndView postCategoryForm(@RequestBody String object){
+		Category category = (Category)JsonToDTOConverter.convertJsonToDTO(object, Category.class);
+		categoryService.saveCategory(category);
+		return new ModelAndView("index");
 	}
 	
 	@RequestMapping(value = "/listCategory")
