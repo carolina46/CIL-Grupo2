@@ -1,8 +1,7 @@
 package components.dtos.business;
 
 import java.util.List;
-
-import components.dtos.LocationDTO;
+import components.dtos.CommentDTO;
 import components.dtos.filter.CommentFilterDTO;
 import components.dtos.filter.NotificationFilterDTO;
 import components.dtos.business.CategoryDTO;
