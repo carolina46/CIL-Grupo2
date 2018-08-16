@@ -61,11 +61,35 @@ public class MenuTypeController {
 		menuTypeService.saveMenuType(menuType);
 		
 		return new ResponseEntity<String>("", HttpStatus.OK);
-		
-		
-		
 	}
 	
+	@RequestMapping(value = "/update", method = RequestMethod.POST, headers="Accept=*/*", produces="application/json; charset=UTF-8")
+	public @ResponseBody ResponseEntity<String> updateMenuType( @RequestBody String object) {
+		//Converts the JSON to MenuTypeDTO
+		MenuTypeDTO menuTypeDTO = new Gson().fromJson(object, MenuTypeDTO.class);
+		
+		//Converts the MenuTypeDTO to MenuType
+		MenuType menuType = modelMapper.map(menuTypeDTO, MenuType.class);
+		
+		//Update the menuType in the DB
+		menuTypeService.updateMenuType(menuType);
+		
+		return new ResponseEntity<String>("", HttpStatus.OK);
+	}
+	
+	@RequestMapping(value = "/delete", method = RequestMethod.POST, headers="Accept=*/*", produces="application/json; charset=UTF-8")
+	public @ResponseBody ResponseEntity<String> deleteMenuType( @RequestBody String object) {
+		//Converts the JSON to MenuTypeDTO
+		MenuTypeDTO menuTypeDTO = new Gson().fromJson(object, MenuTypeDTO.class);
+		
+		//Converts the MenuTypeDTO to MenuType
+		MenuType menuType = modelMapper.map(menuTypeDTO, MenuType.class);
+		
+		//Save the menuType in the DB
+		menuTypeService.removeMenuType(menuType);
+		
+		return new ResponseEntity<String>("", HttpStatus.OK);
+	}
 	
 	
 }
