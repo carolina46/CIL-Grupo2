@@ -21,11 +21,16 @@ public class MenuTypeDAOImpl implements MenuTypeDAO {
 	
 	@Override
 	public boolean save(MenuType menuType) {
-		//Saves a MenuType if the MenuType's name doesn't exist already
-		if(util.getEntityByTextEquals("name", menuType.getName(), MenuType.class) == null)
-			return util.save(menuType);
-		else
+		if (menuType.getName()==null) {
 			return false;
+		}
+		else {
+			//Saves a MenuType if the MenuType's name doesn't exist already
+			if(util.getEntityByTextEquals("name", menuType.getName(), MenuType.class) == null)
+				return util.save(menuType);
+			else
+				return false;
+		}
 	}
 
 	@Override

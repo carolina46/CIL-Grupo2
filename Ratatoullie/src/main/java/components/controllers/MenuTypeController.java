@@ -16,8 +16,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.google.gson.Gson;
 
 import components.JsonToDTOConverter;
+import components.dtos.business.CategoryDTO;
 import components.dtos.business.MenuTypeDTO;
 import components.services.interfaces.MenuTypeService;
+import model.business.Category;
 import model.business.MenuType;
 
 
@@ -54,13 +56,29 @@ public class MenuTypeController {
 		//Converts the JSON to MenuTypeDTO
 		MenuTypeDTO menuTypeDTO = new Gson().fromJson(object, MenuTypeDTO.class);
 		
+		System.out.println("menuTypeDTO.getName() " + menuTypeDTO.getName());
 		//Converts the MenuTypeDTO to MenuType
 		MenuType menuType = modelMapper.map(menuTypeDTO, MenuType.class);
-		
+				
 		//Save the menuType in the DB
-		menuTypeService.saveMenuType(menuType);
+		boolean res= menuTypeService.saveMenuType(menuType);
 		
-		return new ResponseEntity<String>("", HttpStatus.OK);
+		if(res) {//It was added correctly
+			//I get the MenuType from the BD.
+			menuType = menuTypeService.getMenuTypeByName(menuType.getName());
+			
+			//Converts the MenuType to MenuTypeDTO
+			menuTypeDTO = modelMapper.map(menuType, MenuTypeDTO.class);
+			
+			//Converts the MenuTypeDTO to JSON string
+			String jsonResult = JsonToDTOConverter.convertToJason(menuTypeDTO);
+			
+			return new ResponseEntity<String>(jsonResult, HttpStatus.OK);
+		}
+		else{
+			return new ResponseEntity<String>("", HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+		
 	}
 	
 	@RequestMapping(value = "/update", method = RequestMethod.POST, headers="Accept=*/*", produces="application/json; charset=UTF-8")
