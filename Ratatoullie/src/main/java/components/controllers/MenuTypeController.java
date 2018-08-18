@@ -14,12 +14,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import com.google.gson.Gson;
-
 import components.JsonToDTOConverter;
-import components.dtos.business.CategoryDTO;
 import components.dtos.business.MenuTypeDTO;
 import components.services.interfaces.MenuTypeService;
-import model.business.Category;
 import model.business.MenuType;
 
 
@@ -56,14 +53,13 @@ public class MenuTypeController {
 		//Converts the JSON to MenuTypeDTO
 		MenuTypeDTO menuTypeDTO = new Gson().fromJson(object, MenuTypeDTO.class);
 		
-		System.out.println("menuTypeDTO.getName() " + menuTypeDTO.getName());
 		//Converts the MenuTypeDTO to MenuType
 		MenuType menuType = modelMapper.map(menuTypeDTO, MenuType.class);
 				
 		//Save the menuType in the DB
 		boolean res= menuTypeService.saveMenuType(menuType);
 		
-		if(res) {//It was added correctly
+		if(res) {//Was added correctly
 			//I get the MenuType from the BD.
 			menuType = menuTypeService.getMenuTypeByName(menuType.getName());
 			
