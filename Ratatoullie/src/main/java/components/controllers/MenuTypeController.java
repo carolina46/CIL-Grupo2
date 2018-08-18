@@ -23,7 +23,7 @@ import model.business.MenuType;
 
 
 @Controller
-@CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
+@CrossOrigin(origins = "http://localhost:4200", maxAge =13600)
 @RequestMapping(value = "/menuType/")
 public class MenuTypeController {
 
@@ -90,6 +90,4 @@ public class MenuTypeController {
 		
 		return new ResponseEntity<String>("", HttpStatus.OK);
 	}
-	
-	
 }
