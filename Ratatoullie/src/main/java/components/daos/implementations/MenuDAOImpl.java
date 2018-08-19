@@ -2,12 +2,17 @@ package components.daos.implementations;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
 import components.daos.HibernateUtil;
 import components.daos.interfaces.MenuDAO;
 import model.business.Menu;
 
+@Repository
 public class MenuDAOImpl implements MenuDAO {
 
+	@Autowired
 	private HibernateUtil util;
 	
 	public MenuDAOImpl() {

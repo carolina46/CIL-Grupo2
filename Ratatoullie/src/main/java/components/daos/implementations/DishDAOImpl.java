@@ -2,12 +2,17 @@ package components.daos.implementations;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
 import components.daos.HibernateUtil;
 import components.daos.interfaces.DishDAO;
 import model.business.Dish;
 
+@Repository
 public class DishDAOImpl implements DishDAO {
 
+	@Autowired
 	private HibernateUtil util;
 	
 	public DishDAOImpl() {
