@@ -1,7 +1,6 @@
 package components.controllers;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -21,10 +20,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.validation.BindingResult;
 
 @Controller
-@CrossOrigin(origins = "http://localhost:4200", maxAge = 3600, allowedHeaders="Access-Control-Allow-Origin: http://localhost:4200")
+@CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
 @RequestMapping(value = "/category/")
 public class CategoryController{
 	
@@ -32,25 +30,26 @@ public class CategoryController{
 	private CategoryService categoryService;
 	@Autowired
     private ModelMapper modelMapper;
-		
+	
 	@RequestMapping(value = "/categoryForm", method = RequestMethod.GET)
 	public ModelAndView getCategoryForm() {
 		return new ModelAndView("categoryForm", "name", new Category());
 	}
-	
-	/*@RequestMapping(value = "/categoryForm", method = RequestMethod.POST)
-	public ModelAndView postCategoryForm( @ModelAttribute("category") CategoryDTO categoryDTO, BindingResult result) {
-		Category category = convertToEntity(categoryDTO);
-		categoryService.saveCategory(category);
-		return new ModelAndView("index");
 		
-	}*/
-	
-	@RequestMapping(value="categoryForm", headers="Access-Control-Allow-Origin: http://localhost:4200", method = RequestMethod.POST, produces="application/json; charset=UTF-8")
-	public @ResponseBody ModelAndView postCategoryForm(@RequestBody String object){
+	@RequestMapping(value="/categoryForm", headers="Accept=*/*", method = RequestMethod.POST, produces="application/json; charset=UTF-8")
+	public @ResponseBody ResponseEntity<String> postCategoryForm(@RequestBody String object){
+		System.out.println("ENTRA PUTOOOOOOOOOOOOOOO");
 		Category category = (Category)JsonToDTOConverter.convertJsonToDTO(object, Category.class);
-		categoryService.saveCategory(category);
-		return new ModelAndView("index");
+		
+		System.out.println("Se va a guardar");
+		System.out.println("id: "+ category.getOid());
+		System.out.println("name: "+ category.getName());
+		boolean saved = categoryService.saveCategory(category);
+		if(saved) {
+			return new ResponseEntity<String>(object, HttpStatus.OK);
+		}else{
+			return new ResponseEntity<String>("", HttpStatus.INTERNAL_SERVER_ERROR);
+		}
 	}
 	
 	@RequestMapping(value = "/listCategory")
