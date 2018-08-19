@@ -35,12 +35,27 @@ public class MenuTypeDAOImpl implements MenuTypeDAO {
 
 	@Override
 	public boolean update(MenuType menuType) {
-		return util.modify(menuType);
+		if(menuType==null)
+			return false;
+		else 
+			if(menuType.getName().equals(" ") || menuType.getOid()==null)
+				return false;
+			else 
+				if(this.getByID(menuType.getOid())==null)
+					return false;
+				else
+					return util.modify(menuType);
 	}
 
 	@Override
 	public boolean remove(MenuType menuType) {
-		return util.delete(menuType);
+		if (menuType.getName()==null) {
+			return false;
+		}
+		else {
+			return util.delete(menuType);
+		}
+		
 	}
 
 	@Override

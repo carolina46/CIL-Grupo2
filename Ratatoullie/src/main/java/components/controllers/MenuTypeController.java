@@ -78,24 +78,31 @@ public class MenuTypeController {
 		
 	}
 	
-	@RequestMapping(value = "/update", method = RequestMethod.POST, headers="Accept=*/*", produces="application/json; charset=UTF-8")
-	public @ResponseBody ResponseEntity<String> updateMenuType( @RequestBody String object) {
+	@RequestMapping(value = "/update", method = RequestMethod.PUT, headers="Accept=*/*", produces="application/json; charset=UTF-8")
+	public @ResponseBody ResponseEntity<Boolean> updateMenuType( @RequestBody String object) {
 		//Converts the JSON to MenuTypeDTO
 		MenuTypeDTO menuTypeDTO = new Gson().fromJson(object, MenuTypeDTO.class);
 		
 		//Converts the MenuTypeDTO to MenuType
 		MenuType menuType = modelMapper.map(menuTypeDTO, MenuType.class);
 		
-		//Update the menuType in the DB
-		menuTypeService.updateMenuType(menuType);
-		
-		return new ResponseEntity<String>("", HttpStatus.OK);
+		//Update the menuType in the DB and return result of the operation
+		if(menuTypeService.updateMenuType(menuType))
+			return new ResponseEntity<Boolean>(true, HttpStatus.OK);
+		else return new ResponseEntity<Boolean>(false, HttpStatus.INTERNAL_SERVER_ERROR);
 	}
+	
 	
 	@DeleteMapping(value = "/delete/{id}")
 	//@RequestMapping(value = "/delete/{id}", method = RequestMethod.POST, headers="Accept=*/*", produces="application/json; charset=UTF-8")
-	public ResponseEntity<String> deleteMenuType( @PathVariable long id) {
-		menuTypeService.removeMenuTypeById(id);
-		return new ResponseEntity<String>("", HttpStatus.OK);
+	public ResponseEntity<Boolean> deleteMenuType( @PathVariable long id) {
+		boolean deleted= menuTypeService.removeMenuTypeById(id);
+		if(deleted) {//The value 1 means that it was deleted correctly
+			return new ResponseEntity<Boolean>(true, HttpStatus.OK);
+		}
+		else {//The value 0 means that it can not be deleted
+			return new ResponseEntity<Boolean>(false, HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+		
 	}
 }
