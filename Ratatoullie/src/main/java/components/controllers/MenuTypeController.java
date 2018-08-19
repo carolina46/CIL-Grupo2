@@ -9,6 +9,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -91,17 +93,10 @@ public class MenuTypeController {
 		return new ResponseEntity<String>("", HttpStatus.OK);
 	}
 	
-	@RequestMapping(value = "/delete", method = RequestMethod.POST, headers="Accept=*/*", produces="application/json; charset=UTF-8")
-	public @ResponseBody ResponseEntity<String> deleteMenuType( @RequestBody String object) {
-		//Converts the JSON to MenuTypeDTO
-		MenuTypeDTO menuTypeDTO = new Gson().fromJson(object, MenuTypeDTO.class);
-		
-		//Converts the MenuTypeDTO to MenuType
-		MenuType menuType = modelMapper.map(menuTypeDTO, MenuType.class);
-		
-		//Save the menuType in the DB
-		menuTypeService.removeMenuType(menuType);
-		
+	@DeleteMapping(value = "/delete/{id}")
+	//@RequestMapping(value = "/delete/{id}", method = RequestMethod.POST, headers="Accept=*/*", produces="application/json; charset=UTF-8")
+	public ResponseEntity<String> deleteMenuType( @PathVariable long id) {
+		menuTypeService.removeMenuTypeById(id);
 		return new ResponseEntity<String>("", HttpStatus.OK);
 	}
 }
