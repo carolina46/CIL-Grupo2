@@ -51,7 +51,6 @@ public class CategoryController{
 			
 			//Converts the DTO to JSON
 			String savedJSONCategory = JsonToDTOConverter.convertToJason(savedDTOCategory);
-			System.out.println("JSON a devolver = "+ savedJSONCategory);
 			//Return the saved Category in JSON format
 			return new ResponseEntity<String>(savedJSONCategory, HttpStatus.OK);
 		}else{
