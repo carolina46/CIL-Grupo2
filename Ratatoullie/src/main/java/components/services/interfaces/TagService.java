@@ -4,7 +4,7 @@ import java.util.List;
 import model.business.Tag;
 
 public interface TagService {
-	public boolean saveTag(Tag tag);
+	public Long saveTag(Tag tag);
 	public boolean updateTag(Tag tag);
 	public boolean removeTag(Tag tag);
 	public boolean removeTagById(Long id);

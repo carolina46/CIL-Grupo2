@@ -19,7 +19,7 @@ public class UserServiceImpl implements UserService{
 	public UserServiceImpl() {}
 	
 	@Override
-	public boolean saveUser(User user) {
+	public Long saveUser(User user) {
 		return userDAO.save(user);
 	}
 

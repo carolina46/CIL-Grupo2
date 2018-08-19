@@ -20,7 +20,7 @@ public class MenuTypeServiceImpl implements MenuTypeService{
 	public MenuTypeServiceImpl() {}
 	
 	@Override
-	public boolean saveMenuType(MenuType menuType) {
+	public Long saveMenuType(MenuType menuType) {
 		return menuTypeDAO.save(menuType);
 	}
 

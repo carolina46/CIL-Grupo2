@@ -20,7 +20,7 @@ public class CategoryServiceImpl implements CategoryService{
 	public CategoryServiceImpl() {}
 	
 	@Override
-	public boolean saveCategory(Category Category) {
+	public Long saveCategory(Category Category) {
 		return categoryDAO.save(Category);
 	}
 

@@ -5,7 +5,7 @@ import model.users.User;
 
 public interface UserService {
 	
-	public boolean saveUser(User user);
+	public Long saveUser(User user);
 	public boolean updateUser(User user);
 	public boolean removeUser(User user);
 	public boolean removeUserById(Long id);
