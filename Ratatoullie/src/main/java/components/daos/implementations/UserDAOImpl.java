@@ -19,12 +19,12 @@ public class UserDAOImpl implements UserDAO{
 	}
 
 	@Override
-	public boolean save(User user) {
+	public Long save(User user) {
 		//Saves a User if the User's name doesn't exist already
 		if (util.getEntityByTextEquals("user", user.getUser(), User.class) == null)
 			return util.save(user);
 		else
-			return false;
+			return 0l;
 	}
 
 	@Override

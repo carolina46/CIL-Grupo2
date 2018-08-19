@@ -15,7 +15,7 @@ public class MenuDAOImpl implements MenuDAO {
 	}
 	
 	@Override
-	public boolean save(Menu menu) {
+	public Long save(Menu menu) {
 		return util.save(menu);
 	}
 

@@ -20,12 +20,12 @@ public class CategoryDAOImpl implements CategoryDAO{
 	}
 
 	@Override
-	public boolean save(Category category) {
+	public Long save(Category category) {
 		//Saves a Category if the category's name doesn't exist already
 		if (util.getEntityByTextEquals("name", category.getName(), Category.class) == null)
 			return util.save(category);
 		else
-			return false;
+			return 0l;
 	}
 
 	@Override

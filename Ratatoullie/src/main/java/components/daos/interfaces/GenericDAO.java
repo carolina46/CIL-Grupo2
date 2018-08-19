@@ -9,7 +9,7 @@ import java.util.List;
  */
 public interface GenericDAO<E> {
 	
-		public boolean save(E entity) ;
+		public Long save(E entity) ;
 	    public boolean update(E entity) ;
 	    public boolean remove(E entity);
 	    public boolean removeById(Long key);

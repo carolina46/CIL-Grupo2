@@ -20,12 +20,12 @@ public class TagDAOImpl implements TagDAO {
 	}
 	
 	@Override
-	public boolean save(Tag tag) {
+	public Long save(Tag tag) {
 		//Saves a Tag if the tag's name doesn't exist already
 		if(util.getEntityByTextEquals("name", tag.getName(), Tag.class) == null)
 			return util.save(tag);
 		else
-			return false;
+			return 0l;
 	}
 
 	@Override
