@@ -20,7 +20,7 @@ public class RestaurantDAOImpl implements  RestaurantDAO{
 	}
 
 	@Override
-	public boolean save(Restaurant restaurant) {
+	public Long save(Restaurant restaurant) {
 		return util.save(restaurant);
 	}
 	

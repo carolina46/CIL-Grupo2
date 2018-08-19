@@ -5,7 +5,7 @@ import model.business.Restaurant;
 
 public interface RestaurantService {
 	
-	public boolean saveRestaurant(Restaurant restaurant);
+	public Long saveRestaurant(Restaurant restaurant);
 	public boolean updateRestaurant(Restaurant restaurant);
 	public boolean removeRestaurant(Restaurant restaurant);
 	public boolean removeRestaurantById(Long id);

@@ -5,7 +5,7 @@ import model.business.Category;
 
 public interface CategoryService {
 	
-	public boolean saveCategory(Category category);
+	public Long saveCategory(Category category);
 	public boolean updateCategory(Category category);
 	public boolean removeCategory(Category category);
 	public boolean removeCategoryById(Long id);

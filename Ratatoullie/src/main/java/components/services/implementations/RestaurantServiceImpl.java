@@ -20,7 +20,7 @@ public class RestaurantServiceImpl implements RestaurantService {
 	public RestaurantServiceImpl() {}
 	
 	@Override
-	public boolean saveRestaurant(Restaurant restaurant) {
+	public Long saveRestaurant(Restaurant restaurant) {
 		return restaurantDAO.save(restaurant);
 	}
 

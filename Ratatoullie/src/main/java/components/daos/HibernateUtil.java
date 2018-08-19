@@ -28,21 +28,20 @@ public class HibernateUtil {
 		return sessionFactory;
 	}
 	
-	//Saves a generic the object entity
-	public <T> boolean save(final T entity) {	
-		boolean saved=true;
+	//Saves a generic the object entity and returns the oid
+	public <T> Long save(final T entity) {	
+		Long oid = 0l;
 		try{
 			session = this.sessionFactory.openSession();
 			tx = session.beginTransaction();
-			session.save(entity);
+			oid = (Long) session.save(entity);
 			tx.commit();
 		}catch(Exception e){
 			System.out.println("HibernateUtil: Error saving "+entity.toString());
-			saved = false;
 		}finally{
 			session.close();
 		}
-		return saved;
+		return oid;
 	}
 		
 	

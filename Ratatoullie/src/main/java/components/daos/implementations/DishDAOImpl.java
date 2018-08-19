@@ -15,7 +15,7 @@ public class DishDAOImpl implements DishDAO {
 	}
 	
 	@Override
-	public boolean save(Dish dish) {
+	public Long save(Dish dish) {
 		return util.save(dish);
 	}
 

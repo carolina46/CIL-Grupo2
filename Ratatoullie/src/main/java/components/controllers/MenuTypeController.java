@@ -59,11 +59,10 @@ public class MenuTypeController {
 		MenuType menuType = modelMapper.map(menuTypeDTO, MenuType.class);
 				
 		//Save the menuType in the DB
-		boolean res= menuTypeService.saveMenuType(menuType);
+		Long savedOid = menuTypeService.saveMenuType(menuType);
 		
-		if(res) {//Was added correctly
-			//I get the MenuType from the BD.
-			menuType = menuTypeService.getMenuTypeByName(menuType.getName());
+		if(savedOid != 0l) { //oid is not zero, it was saved without errors
+			menuType.setOid(savedOid);
 			
 			//Converts the MenuType to MenuTypeDTO
 			menuTypeDTO = modelMapper.map(menuType, MenuTypeDTO.class);
