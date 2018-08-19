@@ -38,12 +38,8 @@ public class CategoryController{
 		
 	@RequestMapping(value="/categoryForm", headers="Accept=*/*", method = RequestMethod.POST, produces="application/json; charset=UTF-8")
 	public @ResponseBody ResponseEntity<String> postCategoryForm(@RequestBody String object){
-		System.out.println("ENTRA PUTOOOOOOOOOOOOOOO");
 		Category category = (Category)JsonToDTOConverter.convertJsonToDTO(object, Category.class);
 		
-		System.out.println("Se va a guardar");
-		System.out.println("id: "+ category.getOid());
-		System.out.println("name: "+ category.getName());
 		boolean saved = categoryService.saveCategory(category);
 		if(saved) {
 			return new ResponseEntity<String>(object, HttpStatus.OK);
