@@ -38,11 +38,22 @@ public class CategoryController{
 		
 	@RequestMapping(value="/categoryForm", headers="Accept=*/*", method = RequestMethod.POST, produces="application/json; charset=UTF-8")
 	public @ResponseBody ResponseEntity<String> postCategoryForm(@RequestBody String object){
+		//Convert the JSON objetct to the actual Category
 		Category category = (Category)JsonToDTOConverter.convertJsonToDTO(object, Category.class);
 		
-		boolean saved = categoryService.saveCategory(category);
-		if(saved) {
-			return new ResponseEntity<String>(object, HttpStatus.OK);
+		Long savedOid = categoryService.saveCategory(category);
+		
+		if(savedOid != 0l) { //oid is not zero, it was saved without errors
+			category.setOid(savedOid);
+			
+			//Converts the actual saved Category to its DTO
+			CategoryDTO savedDTOCategory = modelMapper.map(category, CategoryDTO.class);
+			
+			//Converts the DTO to JSON
+			String savedJSONCategory = JsonToDTOConverter.convertToJason(savedDTOCategory);
+			System.out.println("JSON a devolver = "+ savedJSONCategory);
+			//Return the saved Category in JSON format
+			return new ResponseEntity<String>(savedJSONCategory, HttpStatus.OK);
 		}else{
 			return new ResponseEntity<String>("", HttpStatus.INTERNAL_SERVER_ERROR);
 		}
@@ -55,7 +66,7 @@ public class CategoryController{
 		
 		//Iterates the list of Category to make a list of CategoryDTO
 		for (Category c : list) {
-			CategoryDTO categoryDTO = convertToDTO(c);
+			CategoryDTO categoryDTO = modelMapper.map(c, CategoryDTO.class);
 			listDTO.add(categoryDTO);	
 		}
 		
@@ -68,18 +79,5 @@ public class CategoryController{
 		//modelo.addObject("categories", listDTO2);
 	   // return modelo;
         return new ResponseEntity<String>(jsonResult, HttpStatus.OK);
-	}
-	
-	public Category convertToEntity(CategoryDTO categoryDTO) {
-		//Converts the DTO to the actual object
-		Category category = modelMapper.map(categoryDTO, Category.class);
-		return category;
-		
-	}
-	
-	public CategoryDTO convertToDTO(Category category) {
-		//Converts the Object to its DTO
-		CategoryDTO categoryDTO = modelMapper.map(category, CategoryDTO.class);
-	    return categoryDTO;
 	}
   }
