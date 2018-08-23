@@ -12,7 +12,7 @@ import components.dtos.vote.MenuVoteDTO;
 import components.dtos.vote.RestaurantVoteDTO;
 
 
-public class ClientDTO extends UserDTO{
+public abstract class ClientDTO extends UserDTO{
 
 	
 	private LocationDTO locationDTO;
@@ -56,4 +56,5 @@ public class ClientDTO extends UserDTO{
 	
 	public List<RestaurantRecommendationDTO> getRestaurantRecommendationsDTO() {return restaurantRecommendationsDTO;}
 	public void setRestaurantRecommendationsDTO(List<RestaurantRecommendationDTO> restaurantRecommendationsDTO) {this.restaurantRecommendationsDTO = restaurantRecommendationsDTO;}
+	
 }

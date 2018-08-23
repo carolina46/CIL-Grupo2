@@ -14,7 +14,4 @@ public class ResponsibleDTO extends ClientDTO{
 	
 	public List<NotificationDTO> getNotificationsDTO() {return notificationsDTO;}
 	public void setNotificationsDTO(List<NotificationDTO> notificationsDTO) {this.notificationsDTO = notificationsDTO;}
-	
-	
-
 }

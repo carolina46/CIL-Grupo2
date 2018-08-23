@@ -11,12 +11,16 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import com.google.gson.Gson;
+import components.JsonToDTOConverter;
 import components.dtos.users.NormalClientDTO;
 import components.dtos.users.ResponsibleDTO;
+import components.dtos.users.UserLoginDTO;
+import components.dtos.users.UserSessionDTO;
 import components.services.interfaces.UserService;
 import model.business.Location;
 import model.users.NormalClient;
 import model.users.Responsible;
+import model.users.User;
 
 
 
@@ -57,7 +61,6 @@ public class UserController {
 									  responsible.getPassword(),
 									  new Location (0.0, 0.0));
 		
-				
 		//Save the Responsible in the DB
 		Long savedOid = this.userService.saveUser(responsible);
 		
@@ -71,7 +74,7 @@ public class UserController {
 	
 	//Save a normal user
 	@RequestMapping(value = "/saveNormal", method = RequestMethod.POST, headers="Accept=*/*", produces="application/json; charset=UTF-8")
-		public ResponseEntity<Boolean>  saveNormal( @RequestBody String object) {
+	public ResponseEntity<Boolean>  saveNormal( @RequestBody String object) {
 			//Converts the JSON to NormalClientDTO
 			NormalClientDTO normalDTO = new Gson().fromJson(object, NormalClientDTO.class);
 			
@@ -94,6 +97,30 @@ public class UserController {
 				return new ResponseEntity<Boolean>(false, HttpStatus.INTERNAL_SERVER_ERROR);
 			}
 		}
+	
+	//control a user's login
+	@RequestMapping(value = "/login", method = RequestMethod.POST, headers="Accept=application/json")
+	public ResponseEntity<String> login(@RequestBody String object) {
+		//Converts the JSON to userLoginDTO
+		UserLoginDTO userLoginDTO = new Gson().fromJson(object, UserLoginDTO.class);
+		
+		//I get the user if the password and the user are correct
+		User user = this.userService.login(userLoginDTO.getPassword(), userLoginDTO.getUser()) ;
+				
+		if(user == null) return new ResponseEntity<String>("", HttpStatus.OK);
+		else {
+			//Converts the user to UserSessionDTO
+			UserSessionDTO userSessionDTO = new UserSessionDTO(user);
+			
+			//Converts the UserSessionDTO to json
+			String jsonResult = JsonToDTOConverter.convertToJason(userSessionDTO); 
+
+			return new ResponseEntity<String>(jsonResult, HttpStatus.OK);
+		}
+		
+		
+		
+	}
 	
 	
 	

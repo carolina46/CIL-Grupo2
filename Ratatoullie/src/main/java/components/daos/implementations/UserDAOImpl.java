@@ -21,7 +21,7 @@ public class UserDAOImpl implements UserDAO{
 	@Override
 	public Long save(User user) {
 		//Saves a User if the User's name doesn't exist already
-		if (util.getEntityByTextEquals("user", user.getUser(), User.class) == null)
+		if (getUserByNameEqualsTo(user.getUser()) == null)
 			return util.save(user);
 		else
 			return 0l;
@@ -55,6 +55,17 @@ public class UserDAOImpl implements UserDAO{
 	@Override
 	public User getUserByNameEqualsTo(String name) {
 		return util.getEntityByTextEquals("user", name, User.class);
+	}
+
+	@Override
+	public User login(String password, String user) {
+			User anUser = getUserByNameEqualsTo(user);
+			if (anUser == null)
+				return null;
+			else
+				if(anUser.getPassword().equals(password))
+					return anUser;
+				else return null;
 	}
 
 }
