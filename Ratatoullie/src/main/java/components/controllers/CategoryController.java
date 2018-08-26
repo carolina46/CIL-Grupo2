@@ -33,7 +33,7 @@ public class CategoryController{
     private ModelMapper modelMapper;
 	
 	@DeleteMapping(value = "/delete/{id}")
-	public ResponseEntity<Boolean> deleteMenuType( @PathVariable long id) {
+	public ResponseEntity<Boolean> deleteCategory( @PathVariable long id) {
 		boolean deleted = categoryService.removeCategoryById(id);
 		if(deleted) {//The category was deleted correctly
 			return new ResponseEntity<Boolean>(true, HttpStatus.OK);
