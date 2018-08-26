@@ -4,6 +4,7 @@ public class DenyNotificationFilterDTO extends NotificationFilterDTO{
 
 	@Override
 	public String getName() {
-		return "Deny Notifications";
+		name = "Deny Notifications";
+		return name;
 	}
 }

@@ -4,7 +4,8 @@ public class VisitorCommentFilterDTO extends CommentFilterDTO {
 
 	@Override
 	public String getName() {
-		return "Visitor Comments";
+		name = "Visitor Comments";
+		return name;
 	}
 
 }
