@@ -2,9 +2,12 @@ package components.dtos.filter;
 
 public class ComensalCommentFilterDTO extends CommentFilterDTO {
 
+	public ComensalCommentFilterDTO() {
+		name = "Comensal Comments";
+	}
+	
 	@Override
 	public String getName() {
-		name = "Comensal Comments";
 		return name;
 	}
 

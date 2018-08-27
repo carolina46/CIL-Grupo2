@@ -2,9 +2,12 @@ package components.dtos.filter;
 
 public class DenyCommentFilterDTO extends CommentFilterDTO {
 
+	public DenyCommentFilterDTO() {
+		name = "Deny Comments";
+	}
+	
 	@Override
 	public String getName() {
-		name = "Deny Comments";
 		return name;
 	}
 
