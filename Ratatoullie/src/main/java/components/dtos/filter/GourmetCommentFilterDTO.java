@@ -4,7 +4,8 @@ public class GourmetCommentFilterDTO extends CommentFilterDTO {
 
 	@Override
 	public String getName() {
-		return "Gourmet Comments";
+		name = "Gourmet Comments";
+		return name;
 	}
 
 }

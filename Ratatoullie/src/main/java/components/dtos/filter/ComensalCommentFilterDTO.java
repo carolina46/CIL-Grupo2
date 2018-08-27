@@ -4,7 +4,8 @@ public class ComensalCommentFilterDTO extends CommentFilterDTO {
 
 	@Override
 	public String getName() {
-		return "Comensal Comments";
+		name = "Comensal Comments";
+		return name;
 	}
 
 }

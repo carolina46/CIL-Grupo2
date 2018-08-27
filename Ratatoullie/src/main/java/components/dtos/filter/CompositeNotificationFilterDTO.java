@@ -4,7 +4,8 @@ public class CompositeNotificationFilterDTO extends NotificationFilterDTO {
 
 	@Override
 	public String getName() {
-		return "Mixed Notifications";
+		name = "Mixed Notifications";
+		return name;
 	}
 
 }

@@ -4,6 +4,7 @@ public class VisitorNotificationFilterDTO extends NotificationFilterDTO{
 
 	@Override
 	public String getName() {
-		return "Visitor Notifications";
+		name = "Visitor Notifications";
+		return name;
 	}
 }

@@ -94,13 +94,12 @@ public class MenuTypeController {
 	
 	
 	@DeleteMapping(value = "/delete/{id}")
-	//@RequestMapping(value = "/delete/{id}", method = RequestMethod.POST, headers="Accept=*/*", produces="application/json; charset=UTF-8")
 	public ResponseEntity<Boolean> deleteMenuType( @PathVariable long id) {
 		boolean deleted= menuTypeService.removeMenuTypeById(id);
-		if(deleted) {//The value 1 means that it was deleted correctly
+		if(deleted) {//The menuType was deleted correctly
 			return new ResponseEntity<Boolean>(true, HttpStatus.OK);
 		}
-		else {//The value 0 means that it can not be deleted
+		else {//The menyType couldn't be deleted
 			return new ResponseEntity<Boolean>(false, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 		

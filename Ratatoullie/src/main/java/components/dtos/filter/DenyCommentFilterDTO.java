@@ -4,7 +4,8 @@ public class DenyCommentFilterDTO extends CommentFilterDTO {
 
 	@Override
 	public String getName() {
-		return "Deny Comments";
+		name = "Deny Comments";
+		return name;
 	}
 
 }

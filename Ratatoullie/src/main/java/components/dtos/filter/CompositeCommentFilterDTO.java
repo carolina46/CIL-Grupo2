@@ -4,7 +4,8 @@ public class CompositeCommentFilterDTO extends CommentFilterDTO {
 
 	@Override
 	public String getName() {
-		return "Mixed Comments";
+		name = "Mixed Comments";
+		return name;
 	}
 
 }

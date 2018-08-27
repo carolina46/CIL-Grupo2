@@ -4,6 +4,7 @@ public class ComensalNotificationFilterDTO extends NotificationFilterDTO {
 
 	@Override
 	public String getName() {
-		return "Comensal Notifications";
+		name = "Comensal Notifications";
+		return name;
 	}
 }

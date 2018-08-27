@@ -1,11 +1,12 @@
 package components.controllers;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
 
 import components.JsonToDTOConverter;
 import components.dtos.business.CategoryDTO;
@@ -31,15 +32,25 @@ public class CategoryController{
 	@Autowired
     private ModelMapper modelMapper;
 	
-	@RequestMapping(value = "/categoryForm", method = RequestMethod.GET)
-	public ModelAndView getCategoryForm() {
-		return new ModelAndView("categoryForm", "name", new Category());
-	}
+	@DeleteMapping(value = "/delete/{id}")
+	public ResponseEntity<Boolean> deleteCategory( @PathVariable long id) {
+		boolean deleted = categoryService.removeCategoryById(id);
+		if(deleted) {//The category was deleted correctly
+			return new ResponseEntity<Boolean>(true, HttpStatus.OK);
+		}
+		else {//The category couldn't be deleted
+			return new ResponseEntity<Boolean>(false, HttpStatus.INTERNAL_SERVER_ERROR);
+		}
 		
+	}
+	
 	@RequestMapping(value="/categoryForm", headers="Accept=*/*", method = RequestMethod.POST, produces="application/json; charset=UTF-8")
 	public @ResponseBody ResponseEntity<String> postCategoryForm(@RequestBody String object){
 		//Convert the JSON objetct to the actual Category
-		Category category = (Category)JsonToDTOConverter.convertJsonToDTO(object, Category.class);
+		CategoryDTO categoryDTO = (CategoryDTO)JsonToDTOConverter.convertJsonToDTO(object, CategoryDTO.class);
+		
+		//Converts the DTO to the actual class
+		Category category = modelMapper.map(categoryDTO, Category.class);
 		
 		Long savedOid = categoryService.saveCategory(category);
 		
@@ -78,5 +89,20 @@ public class CategoryController{
 		//modelo.addObject("categories", listDTO2);
 	   // return modelo;
         return new ResponseEntity<String>(jsonResult, HttpStatus.OK);
+	}
+	
+	@RequestMapping(value = "/update", method = RequestMethod.PUT, headers="Accept=*/*", produces="application/json; charset=UTF-8")
+	public @ResponseBody ResponseEntity<Boolean> updateCategory(@RequestBody String object) {
+		//Converts the JSON to CategoryDTO
+		CategoryDTO categoryDTO = (CategoryDTO) JsonToDTOConverter.convertJsonToDTO(object, CategoryDTO.class);
+		
+		//Converts the DTO to the actual class
+		Category category = modelMapper.map(categoryDTO, Category.class);
+		
+		//Update the category in the DB and return result of the operation
+		if(categoryService.updateCategory(category))
+			return new ResponseEntity<Boolean>(true, HttpStatus.OK);
+		else 
+			return new ResponseEntity<Boolean>(false, HttpStatus.INTERNAL_SERVER_ERROR);
 	}
   }
