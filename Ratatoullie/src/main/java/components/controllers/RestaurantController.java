@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import components.JsonToDTOConverter;
-import components.dtos.business.CategoryDTO;
 import components.dtos.filter.CommentFilterDTO;
 import components.dtos.filter.NotificationFilterDTO;
 import components.services.interfaces.CategoryService;
@@ -84,6 +83,23 @@ public class RestaurantController {
 		}
 		
 		//Converts the list of CommentFilter to JSON string
+        String jsonResult = JsonToDTOConverter.convertToJason(listDTO);
+    	
+        return new ResponseEntity<String>(jsonResult, HttpStatus.OK);
+	}
+	
+	@RequestMapping(value = "/getNotificationFilters")
+	public ResponseEntity<String> getNotificationFilters() {
+		List<NotificationFilterDTO> listDTO = new ArrayList<NotificationFilterDTO>();
+		List<NotificationFilter> list = restaurantService.getNotificationFilters();
+		
+		//Iterates the list of NotificationFilter to make a list of NotificationFilterDTO
+		for (NotificationFilter cf : list) {
+			NotificationFilterDTO notificationFilterDTO = modelMapper.map(cf, NotificationFilterDTO.class);
+			listDTO.add(notificationFilterDTO);	
+		}
+		
+		//Converts the list of NotificationFilter to JSON string
         String jsonResult = JsonToDTOConverter.convertToJason(listDTO);
     	
         return new ResponseEntity<String>(jsonResult, HttpStatus.OK);
