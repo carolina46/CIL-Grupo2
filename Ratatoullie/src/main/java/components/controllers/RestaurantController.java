@@ -81,14 +81,12 @@ public class RestaurantController {
 		//I get a list of all CommentFilterDTO and return in JSON format
 		ArrayList<CommentFilterDTO> filtersDTO = new ArrayList<CommentFilterDTO>();  
 		
-		DenyCommentFilterDTO f1 = new DenyCommentFilterDTO();
-		VisitorCommentFilterDTO f2 = new VisitorCommentFilterDTO();
-		ComensalCommentFilterDTO f3 = new ComensalCommentFilterDTO();
-		GourmetCommentFilterDTO f4 = new GourmetCommentFilterDTO();
+		VisitorCommentFilterDTO f1 = new VisitorCommentFilterDTO();
+		ComensalCommentFilterDTO f2 = new ComensalCommentFilterDTO();
+		GourmetCommentFilterDTO f3 = new GourmetCommentFilterDTO();
 		filtersDTO.add(f1);
 		filtersDTO.add(f2);
 		filtersDTO.add(f3);
-		filtersDTO.add(f4);
 		
 		//Converts the list of CommentFilter to JSON string
         String jsonResult = JsonToDTOConverter.convertToJason(filtersDTO);
@@ -101,14 +99,12 @@ public class RestaurantController {
 		//I get a list of all NotificationFilterDTO and return in JSON format
 		ArrayList<NotificationFilterDTO> filtersDTO = new ArrayList<NotificationFilterDTO>();  
 				
-		DenyNotificationFilterDTO f1 = new DenyNotificationFilterDTO();
-		VisitorNotificationFilterDTO f2 = new VisitorNotificationFilterDTO();
-		ComensalNotificationFilterDTO f3 = new ComensalNotificationFilterDTO();
-		GourmetNotificationFilterDTO f4 = new GourmetNotificationFilterDTO();
+		VisitorNotificationFilterDTO f1 = new VisitorNotificationFilterDTO();
+		ComensalNotificationFilterDTO f2 = new ComensalNotificationFilterDTO();
+		GourmetNotificationFilterDTO f3 = new GourmetNotificationFilterDTO();
 		filtersDTO.add(f1);
 		filtersDTO.add(f2);
 		filtersDTO.add(f3);
-		filtersDTO.add(f4);
 				
 		//Converts the list of CommentFilter to JSON string
 		String jsonResult = JsonToDTOConverter.convertToJason(filtersDTO);
