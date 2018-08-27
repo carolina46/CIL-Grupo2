@@ -20,8 +20,6 @@ import components.JsonToDTOConverter;
 import components.dtos.filter.ComensalCommentFilterDTO;
 import components.dtos.filter.ComensalNotificationFilterDTO;
 import components.dtos.filter.CommentFilterDTO;
-import components.dtos.filter.DenyCommentFilterDTO;
-import components.dtos.filter.DenyNotificationFilterDTO;
 import components.dtos.filter.GourmetCommentFilterDTO;
 import components.dtos.filter.GourmetNotificationFilterDTO;
 import components.dtos.filter.NotificationFilterDTO;
