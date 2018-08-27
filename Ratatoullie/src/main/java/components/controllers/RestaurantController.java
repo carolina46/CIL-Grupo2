@@ -9,6 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -30,6 +31,7 @@ import model.filter.NotificationFilter;
 
 @Controller
 @RequestMapping(value = "/restaurant/")
+@CrossOrigin(origins = "http://localhost:4200", maxAge =13600)
 public class RestaurantController {
 	
 	@Autowired
@@ -71,7 +73,7 @@ public class RestaurantController {
 	}
 	
 	
-	@RequestMapping(value = "/getCommentFilters")
+	@RequestMapping(value = "/getCommentFilters", method = RequestMethod.GET, headers="Accept=application/json")
 	public ResponseEntity<String> getCommentFilters() {
 		List<CommentFilterDTO> listDTO = new ArrayList<CommentFilterDTO>();
 		List<CommentFilter> list = restaurantService.getCommentFilters();
@@ -88,7 +90,7 @@ public class RestaurantController {
         return new ResponseEntity<String>(jsonResult, HttpStatus.OK);
 	}
 	
-	@RequestMapping(value = "/getNotificationFilters")
+	@RequestMapping(value = "/getNotificationFilters", method = RequestMethod.GET, headers="Accept=application/json")
 	public ResponseEntity<String> getNotificationFilters() {
 		List<NotificationFilterDTO> listDTO = new ArrayList<NotificationFilterDTO>();
 		List<NotificationFilter> list = restaurantService.getNotificationFilters();
