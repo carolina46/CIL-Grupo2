@@ -6,8 +6,8 @@ public class MenuDTO {
 
 	private Long oid;
 	private String name;
-	private List<DishDTO> dtoDishes;
-	private List<TagDTO> dtoTags;
+	private List<DishDTO> dishes;
+	private List<TagDTO> tags;
 	private MenuTypeDTO menuType;
 	
 	public Long getOid() {
@@ -23,16 +23,16 @@ public class MenuDTO {
 		this.name = name;
 	}
 	public List<DishDTO> getDtoDishes() {
-		return dtoDishes;
+		return dishes;
 	}
 	public void setDtoDishes(List<DishDTO> dtoDishes) {
-		this.dtoDishes = dtoDishes;
+		this.dishes = dtoDishes;
 	}
 	public List<TagDTO> getDtoTags() {
-		return dtoTags;
+		return tags;
 	}
 	public void setDtoTags(List<TagDTO> dtoTags) {
-		this.dtoTags = dtoTags;
+		this.tags = dtoTags;
 	}
 	public MenuTypeDTO getMenuType() {
 		return menuType;

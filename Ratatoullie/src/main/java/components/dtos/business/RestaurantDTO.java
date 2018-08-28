@@ -11,9 +11,9 @@ public class RestaurantDTO {
 	private Long oid;
 	private String name;
 	private CategoryDTO category;
-	private List<MenuDTO> dtoMenus;
+	private List<MenuDTO> menus;
 	private LocationDTO location;
-	private List<CommentDTO> dtosComments;
+	private List<CommentDTO> comments;
 	private CommentFilterDTO commentFilter;
 	private NotificationFilterDTO notificationFilter;
 	
@@ -36,10 +36,10 @@ public class RestaurantDTO {
 		this.category = category;
 	}
 	public List<MenuDTO> getDtoMenus() {
-		return dtoMenus;
+		return menus;
 	}
 	public void setDtoMenus(List<MenuDTO> dtoMenus) {
-		this.dtoMenus = dtoMenus;
+		this.menus = dtoMenus;
 	}
 	public LocationDTO getLocation() {
 		return location;
@@ -48,10 +48,10 @@ public class RestaurantDTO {
 		this.location = location;
 	}
 	public List<CommentDTO> getDtosComments() {
-		return dtosComments;
+		return comments;
 	}
 	public void setDtosComments(List<CommentDTO> dtosComments) {
-		this.dtosComments = dtosComments;
+		this.comments = dtosComments;
 	}
 	public CommentFilterDTO getCommentFilter() {
 		return commentFilter;

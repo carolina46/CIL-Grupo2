@@ -6,12 +6,12 @@ import components.dtos.business.RestaurantDTO;
 
 public class ResponsibleDTO extends ClientDTO{
 	
-	private List<RestaurantDTO> restaurantsDTO;
-	private List<NotificationDTO> notificationsDTO;
+	private List<RestaurantDTO> restaurants;
+	private List<NotificationDTO> notifications;
 	
-	public List<RestaurantDTO> getRestaurantsDTO() {return restaurantsDTO;}
-	public void setRestaurantsDTO(List<RestaurantDTO> restaurantsDTO) {this.restaurantsDTO = restaurantsDTO;}
+	public List<RestaurantDTO> getRestaurantsDTO() {return restaurants;}
+	public void setRestaurantsDTO(List<RestaurantDTO> restaurantsDTO) {this.restaurants = restaurantsDTO;}
 	
-	public List<NotificationDTO> getNotificationsDTO() {return notificationsDTO;}
-	public void setNotificationsDTO(List<NotificationDTO> notificationsDTO) {this.notificationsDTO = notificationsDTO;}
+	public List<NotificationDTO> getNotificationsDTO() {return notifications;}
+	public void setNotificationsDTO(List<NotificationDTO> notificationsDTO) {this.notifications = notificationsDTO;}
 }

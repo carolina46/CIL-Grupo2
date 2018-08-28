@@ -8,7 +8,13 @@ public class CommentDTO {
 	private Long oid; 
 	private String description;
 	private LocalDateTime date;
-	private RestaurantDTO restaurantDTO;
+	private RestaurantDTO restaurant;
+	
+	
+	
+	public CommentDTO() {
+		super();
+	}
 	
 	public Long getOid() {return oid;}
 	public void setOid(Long oid) {this.oid = oid;}
@@ -19,8 +25,8 @@ public class CommentDTO {
 	public LocalDateTime getDate() {return date;}
 	public void setDate(LocalDateTime date) {this.date = date;}
 	
-	public RestaurantDTO getRestaurantDTO() {return restaurantDTO;}
-	public void setRestaurantDTO(RestaurantDTO restaurantDTO) {this.restaurantDTO = restaurantDTO;}
+	public RestaurantDTO getRestaurantDTO() {return restaurant;}
+	public void setRestaurantDTO(RestaurantDTO restaurantDTO) {this.restaurant = restaurantDTO;}
 	
 	
 }

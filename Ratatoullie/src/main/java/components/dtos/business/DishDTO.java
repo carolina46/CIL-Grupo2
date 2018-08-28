@@ -8,7 +8,7 @@ public class DishDTO {
 	private String name;
 	private String description;
 	private String picture;
-	private List<TagDTO> dtoTags; 
+	private List<TagDTO> tags; 
 	
 	public Long getOid() {
 		return oid;
@@ -35,9 +35,9 @@ public class DishDTO {
 		this.picture = picture;
 	}
 	public List<TagDTO> getDTOTags() {
-		return dtoTags;
+		return tags;
 	}
 	public void setDTOTags(List<TagDTO> tags) {
-		this.dtoTags = tags;
+		this.tags = tags;
 	}
 }

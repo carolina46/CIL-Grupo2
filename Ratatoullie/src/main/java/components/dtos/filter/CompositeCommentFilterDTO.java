@@ -1,11 +1,27 @@
 package components.dtos.filter;
 
+import java.util.ArrayList;
+
+
 public class CompositeCommentFilterDTO extends CommentFilterDTO {
 
-	@Override
-	public String getName() {
-		name = "Mixed Comments";
-		return name;
+	
+	
+	public CompositeCommentFilterDTO() {
+		super();
+		
 	}
+
+	private ArrayList<CommentFilterDTO> configurationFilters;
+
+	public ArrayList<CommentFilterDTO> getConfigurationFilters() {
+		return configurationFilters;
+	}
+
+	public void setConfigurationFilters(ArrayList<CommentFilterDTO> configurationFilters) {
+		this.configurationFilters = configurationFilters;
+	}
+	
+	
 
 }

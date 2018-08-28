@@ -2,10 +2,9 @@ package components.dtos.filter;
 
 public class GourmetNotificationFilterDTO extends NotificationFilterDTO {
 
-	@Override
-	public String getName() {
-		name = "Gourmet Notitifications";
-		return name;
+	public GourmetNotificationFilterDTO() {
+		super();
 	}
 
+	
 }

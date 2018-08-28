@@ -2,8 +2,8 @@ package components.controllers;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import org.modelmapper.ModelMapper;
+import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,16 +13,26 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.google.gson.Gson;
+
 import components.JsonToDTOConverter;
+import components.daos.interfaces.MenuDAO;
+import components.dtos.business.MenuTypeDTO;
+import components.dtos.business.RestaurantDTO;
 import components.dtos.filter.CommentFilterDTO;
 import components.dtos.filter.NotificationFilterDTO;
 import components.services.interfaces.CategoryService;
 import components.services.interfaces.RestaurantService;
 import model.business.Category;
+import model.business.Menu;
+import model.business.MenuType;
 import model.business.Restaurant;
 import model.filter.CommentFilter;
 import model.filter.NotificationFilter;
@@ -40,6 +50,8 @@ public class RestaurantController {
 	private CategoryService categoryService;
 	@Autowired
     private ModelMapper modelMapper;
+	
+	
 	
 	@RequestMapping(value = "/restaurantForm", method = RequestMethod.GET)
 	public ModelAndView getRestaurantForm() {
@@ -63,14 +75,52 @@ public class RestaurantController {
 		return model;
 	}
 	
-	@GetMapping(value = "/{restaurantId}")
-	public ModelAndView getRestaurantProfile(@PathVariable Long restaurantId) {
+	//---------------------------------------------------------------------------------
+	//RECOVER FROM THE BD THE RESTAURANT WITH A CERTAIN ID
+	@GetMapping(value = "get/{restaurantId}")
+	public ResponseEntity<String> getRestaurant(@PathVariable Long restaurantId) {
+		//I get the restaurant from the BD.
 		Restaurant restaurant = restaurantService.getRestuarantByID(restaurantId);
-		ModelAndView model = new ModelAndView();
-		model.setViewName("restaurantProfile");
-		model.addObject("restaurant", restaurant);
-		return model;
+		//Converts the Restaurant to RestaurantDTO
+		RestaurantDTO restaurantDTO = modelMapper.map(restaurant, RestaurantDTO.class);
+		//Converts the RestaurantDTO to JSON string
+		String jsonResult = JsonToDTOConverter.convertToJason(restaurantDTO);
+		   	        
+		return new ResponseEntity<String>(jsonResult, HttpStatus.OK);
 	}
+	
+	
+	//---------------------------------------------------------------------------------
+	//ADD A NEW MENU TO THE RESTAURANT WITH A DETEMINATE ID
+	@PostMapping(value = "/saveMenu")
+	public @ResponseBody void saveMenu( @RequestBody String object) {
+		//Converts the JSON to RestaurantDTO
+		RestaurantDTO restaurantDTO = new Gson().fromJson(object, RestaurantDTO.class);
+		
+		//Converts the RestaurantDTO to Restaurant
+		Restaurant restaurant = modelMapper.map(restaurantDTO, Restaurant.class);
+		
+        //create a new menu
+		Menu menuIn, menuNew;
+        menuIn = restaurant.getMenus().get(0);
+        menuNew = new Menu(menuIn.getMenuType(), menuIn.getName());
+        menuNew.setTags(menuIn.getTags());
+        
+        //Get the restaurant from the BD.
+        restaurant = restaurantService.getRestuarantByID(restaurant.getOid());
+		
+        //Add the new menu to the restaurant 
+        restaurant.addMenu(menuNew);
+        restaurantService.updateRestaurant(restaurant);
+    }
+	
+	//---------------------------------------------------------------------------------
+	//GET THE MENU LIST OF THE RESTAURANT WITH CERTAIN ID
+	
+	
+	
+	
+	
 	
 	
 	@RequestMapping(value = "/getCommentFilters", method = RequestMethod.GET, headers="Accept=application/json")
