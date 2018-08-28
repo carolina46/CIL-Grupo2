@@ -15,6 +15,7 @@ public abstract class NotificationFilterDTO {
 		return oid;
 	}
 
+
 	
 	public void setOid(Long oid) {
 		this.oid = oid;
@@ -27,5 +28,8 @@ public abstract class NotificationFilterDTO {
 	}
 	
 	
-	
+
+	String name;
+		
+	public abstract String getName();
 }

@@ -2,16 +2,14 @@ package components.controllers;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import org.modelmapper.ModelMapper;
-import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -23,19 +21,19 @@ import org.springframework.web.servlet.ModelAndView;
 import com.google.gson.Gson;
 
 import components.JsonToDTOConverter;
-import components.daos.interfaces.MenuDAO;
-import components.dtos.business.MenuTypeDTO;
 import components.dtos.business.RestaurantDTO;
+import components.dtos.filter.ComensalCommentFilterDTO;
+import components.dtos.filter.ComensalNotificationFilterDTO;
 import components.dtos.filter.CommentFilterDTO;
+import components.dtos.filter.GourmetCommentFilterDTO;
+import components.dtos.filter.GourmetNotificationFilterDTO;
 import components.dtos.filter.NotificationFilterDTO;
+import components.dtos.filter.VisitorCommentFilterDTO;
+import components.dtos.filter.VisitorNotificationFilterDTO;
 import components.services.interfaces.CategoryService;
 import components.services.interfaces.RestaurantService;
-import model.business.Category;
 import model.business.Menu;
-import model.business.MenuType;
 import model.business.Restaurant;
-import model.filter.CommentFilter;
-import model.filter.NotificationFilter;
 
 
 
@@ -50,7 +48,6 @@ public class RestaurantController {
 	private CategoryService categoryService;
 	@Autowired
     private ModelMapper modelMapper;
-	
 	
 	
 	
@@ -73,7 +70,6 @@ public class RestaurantController {
 		RestaurantDTO restaurantDTO = modelMapper.map(restaurant, RestaurantDTO.class);
 		//Converts the RestaurantDTO to JSON string
 		String jsonResult = JsonToDTOConverter.convertToJason(restaurantDTO);
-		   	        
 		return new ResponseEntity<String>(jsonResult, HttpStatus.OK);
 	}
 	
@@ -106,36 +102,38 @@ public class RestaurantController {
 	
 	@RequestMapping(value = "/getCommentFilters", method = RequestMethod.GET, headers="Accept=application/json")
 	public ResponseEntity<String> getCommentFilters() {
-		List<CommentFilterDTO> listDTO = new ArrayList<CommentFilterDTO>();
-		List<CommentFilter> list = restaurantService.getCommentFilters();
+		//I get a list of all CommentFilterDTO and return in JSON format
+		ArrayList<CommentFilterDTO> filtersDTO = new ArrayList<CommentFilterDTO>();  
 		
-		//Iterates the list of CommentFilter to make a list of CommentFilterDTO
-		for (CommentFilter cf : list) {
-			CommentFilterDTO commentFilterDTO = modelMapper.map(cf, CommentFilterDTO.class);
-			listDTO.add(commentFilterDTO);	
-		}
+		VisitorCommentFilterDTO f1 = new VisitorCommentFilterDTO();
+		ComensalCommentFilterDTO f2 = new ComensalCommentFilterDTO();
+		GourmetCommentFilterDTO f3 = new GourmetCommentFilterDTO();
+		filtersDTO.add(f1);
+		filtersDTO.add(f2);
+		filtersDTO.add(f3);
 		
 		//Converts the list of CommentFilter to JSON string
-        String jsonResult = JsonToDTOConverter.convertToJason(listDTO);
+        String jsonResult = JsonToDTOConverter.convertToJason(filtersDTO);
     	
         return new ResponseEntity<String>(jsonResult, HttpStatus.OK);
 	}
 	
 	@RequestMapping(value = "/getNotificationFilters", method = RequestMethod.GET, headers="Accept=application/json")
 	public ResponseEntity<String> getNotificationFilters() {
-		List<NotificationFilterDTO> listDTO = new ArrayList<NotificationFilterDTO>();
-		List<NotificationFilter> list = restaurantService.getNotificationFilters();
-		
-		//Iterates the list of NotificationFilter to make a list of NotificationFilterDTO
-		for (NotificationFilter cf : list) {
-			NotificationFilterDTO notificationFilterDTO = modelMapper.map(cf, NotificationFilterDTO.class);
-			listDTO.add(notificationFilterDTO);	
-		}
-		
-		//Converts the list of NotificationFilter to JSON string
-        String jsonResult = JsonToDTOConverter.convertToJason(listDTO);
-    	
-        return new ResponseEntity<String>(jsonResult, HttpStatus.OK);
+		//I get a list of all NotificationFilterDTO and return in JSON format
+		ArrayList<NotificationFilterDTO> filtersDTO = new ArrayList<NotificationFilterDTO>();  
+				
+		VisitorNotificationFilterDTO f1 = new VisitorNotificationFilterDTO();
+		ComensalNotificationFilterDTO f2 = new ComensalNotificationFilterDTO();
+		GourmetNotificationFilterDTO f3 = new GourmetNotificationFilterDTO();
+		filtersDTO.add(f1);
+		filtersDTO.add(f2);
+		filtersDTO.add(f3);
+				
+		//Converts the list of CommentFilter to JSON string
+		String jsonResult = JsonToDTOConverter.convertToJason(filtersDTO);
+		    	
+		return new ResponseEntity<String>(jsonResult, HttpStatus.OK);
 	}
 	
 }

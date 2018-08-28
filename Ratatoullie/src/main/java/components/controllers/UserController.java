@@ -1,10 +1,7 @@
 package components.controllers;
 
-import java.lang.reflect.Modifier;
 import java.util.List;
-
 import org.modelmapper.ModelMapper;
-import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,12 +14,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 
 import components.JsonToDTOConverter;
-import components.dtos.business.MenuTypeDTO;
 import components.dtos.business.NewRestaurantDTO;
-import components.dtos.business.RestaurantDTO;
 import components.dtos.users.NormalClientDTO;
 import components.dtos.users.ResponsibleDTO;
 import components.dtos.users.UserLoginDTO;
@@ -31,7 +25,6 @@ import components.services.interfaces.CategoryService;
 import components.services.interfaces.UserService;
 import model.business.Category;
 import model.business.Location;
-import model.business.MenuType;
 import model.business.Restaurant;
 import model.filter.ComensalCommentFilter;
 import model.filter.CompositeCommentFilter;

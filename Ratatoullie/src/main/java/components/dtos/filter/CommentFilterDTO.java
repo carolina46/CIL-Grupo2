@@ -2,6 +2,7 @@ package components.dtos.filter;
 
 public abstract class CommentFilterDTO {
 	
+
 	
 	
 	public CommentFilterDTO() {
@@ -19,4 +20,9 @@ public abstract class CommentFilterDTO {
 		this.oid = oid;
 	}
 	
+
+	String name;
+	
+	public abstract String getName();
+
 }

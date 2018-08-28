@@ -2,8 +2,6 @@ package components.services.interfaces;
 
 import java.util.List;
 import model.business.Restaurant;
-import model.filter.CommentFilter;
-import model.filter.NotificationFilter;
 
 public interface RestaurantService {
 	
@@ -14,7 +12,4 @@ public interface RestaurantService {
 	public Restaurant getRestuarantByID(Long id);
 	public List<Restaurant> getRestaurantByName(String name);
 	public List<Restaurant> getAllRestaurants();
-	
-	public List<CommentFilter> getCommentFilters();
-	public List<NotificationFilter> getNotificationFilters();
 }

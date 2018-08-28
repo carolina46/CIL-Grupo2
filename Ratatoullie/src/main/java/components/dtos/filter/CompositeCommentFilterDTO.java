@@ -5,12 +5,6 @@ import java.util.ArrayList;
 
 public class CompositeCommentFilterDTO extends CommentFilterDTO {
 
-	
-	
-	public CompositeCommentFilterDTO() {
-		super();
-		
-	}
 
 	private ArrayList<CommentFilterDTO> configurationFilters;
 
@@ -19,7 +13,16 @@ public class CompositeCommentFilterDTO extends CommentFilterDTO {
 	}
 
 	public void setConfigurationFilters(ArrayList<CommentFilterDTO> configurationFilters) {
-		this.configurationFilters = configurationFilters;
+		this.configurationFilters = configurationFilters;}
+
+	public CompositeCommentFilterDTO() {
+		name = "Mixed Comments";
+	}
+	
+	@Override
+	public String getName() {
+		return name;
+
 	}
 	
 	
