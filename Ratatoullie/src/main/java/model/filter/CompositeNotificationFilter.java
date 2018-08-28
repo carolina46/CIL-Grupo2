@@ -16,7 +16,7 @@ public class CompositeNotificationFilter extends NotificationFilter {
 
 	private ArrayList<NotificationFilter> configurationFilters;
 	
-	public CompositeNotificationFilter() {} //For Hibernate
+	public CompositeNotificationFilter() {super();} //For Hibernate
 	
 	public CompositeNotificationFilter(Responsible responsible) {
 		super(responsible);

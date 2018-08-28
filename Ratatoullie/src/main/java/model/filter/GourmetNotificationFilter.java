@@ -12,7 +12,7 @@ import model.users.Responsible;
 
 public class GourmetNotificationFilter extends NotificationFilter {
 	
-	public GourmetNotificationFilter() {} //For Hibernate
+	public GourmetNotificationFilter() {super();} //For Hibernate
 
 	public GourmetNotificationFilter(Responsible responsible) {
 		super(responsible);

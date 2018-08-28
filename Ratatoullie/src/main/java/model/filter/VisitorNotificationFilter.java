@@ -12,7 +12,7 @@ import model.users.Responsible;
 
 public class VisitorNotificationFilter extends NotificationFilter {
 
-	public VisitorNotificationFilter() {} //For Hibernate
+	public VisitorNotificationFilter() {super();} //For Hibernate
 	
 	public VisitorNotificationFilter(Responsible responsible) {
 		super(responsible);

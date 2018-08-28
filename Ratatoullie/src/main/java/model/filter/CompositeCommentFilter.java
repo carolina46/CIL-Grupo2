@@ -1,6 +1,7 @@
 package model.filter;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Represents the variant configuration for confirmation of ability to comment depending on Client's ranking.
@@ -11,7 +12,7 @@ import java.util.ArrayList;
 
 public class CompositeCommentFilter extends CommentFilter {
 	
-	private ArrayList<CommentFilter> configurationFilters;
+	private List<CommentFilter> configurationFilters;
 	
 	
 	public CompositeCommentFilter() {
@@ -22,9 +23,9 @@ public class CompositeCommentFilter extends CommentFilter {
 	
 	public void addFilter(CommentFilter configurationFilter){ configurationFilters.add(configurationFilter);}
 
-	public ArrayList<CommentFilter> getConfigurationFilters() {	return configurationFilters;}
+	public List<CommentFilter> getConfigurationFilters() {	return configurationFilters;}
 
-	public void setConfigurationFilters(ArrayList<CommentFilter> configurationFilter) {	this.configurationFilters = configurationFilter;}
+	public void setConfigurationFilters(List<CommentFilter> configurationFilter) {	this.configurationFilters = configurationFilter;}
 
 	
 	@Override

@@ -13,7 +13,7 @@ public abstract class NotificationFilter {
 	private Long oid; //For Hibernate
 	protected Responsible responsible;
 	
-	public NotificationFilter() {} //For Hibernate
+	protected NotificationFilter() {super();} //For Hibernate
 	
 	public NotificationFilter(Responsible responsible) {
 		super();

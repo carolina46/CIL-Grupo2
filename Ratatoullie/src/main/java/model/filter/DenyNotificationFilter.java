@@ -10,7 +10,7 @@ import model.users.Responsible;
 
 public class DenyNotificationFilter extends NotificationFilter {
 	
-	public DenyNotificationFilter() {} //For Hibernate
+	public DenyNotificationFilter() {super();} //For Hibernate
 
 	public DenyNotificationFilter(Responsible responsible) {
 		super(responsible);

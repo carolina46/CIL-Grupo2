@@ -18,7 +18,7 @@ public class Responsible extends Client{
 	private List<Restaurant> restaurants;
 	private List<Notification> notifications;
 	
-	public Responsible() { super();} //For Hibernate 
+	public Responsible() {} //For Hibernate 
 
 	public Responsible(String fullName, String user, String password, Location location) {
 		super(fullName, user, password, location);

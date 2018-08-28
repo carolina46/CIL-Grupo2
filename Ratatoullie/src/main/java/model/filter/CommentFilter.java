@@ -9,7 +9,7 @@ public abstract class CommentFilter {
 	
 	private Long oid;//For Hibernate
 	
-	public CommentFilter() {} //For Hibernate
+	protected CommentFilter() {} //For Hibernate
 	
 	public Long getOid() {	return oid;	}
 	
