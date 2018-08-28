@@ -1,6 +1,8 @@
 package components.services.interfaces;
 
 import java.util.List;
+
+import model.business.Restaurant;
 import model.users.User;
 
 public interface UserService {
@@ -13,6 +15,7 @@ public interface UserService {
 	public User getUserByUser(String user);
 	public List<User> getAllUsers();
 	public User login(String password, String user);
+	public List<Restaurant> getUserRestaurants(Long id);
 
 }
 

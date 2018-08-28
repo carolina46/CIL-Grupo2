@@ -53,19 +53,7 @@ public class RestaurantController {
 	
 	
 	
-	@RequestMapping(value = "/restaurantForm", method = RequestMethod.GET)
-	public ModelAndView getRestaurantForm() {
-		ModelAndView model = new ModelAndView("restaurantForm","restaurant",new Restaurant());
-		List<Category> list = categoryService.getAllCategorys();
-		model.addObject("categories", list);
-		return model;
-	}
 	
-	@RequestMapping(value = "/restaurantForm", method = RequestMethod.POST)
-	public ModelAndView postRestaurantForm(@ModelAttribute("restaurant") Restaurant restaurant, BindingResult result) {
-		restaurantService.saveRestaurant(restaurant);
-		return new ModelAndView("index");
-	}
 	
 	@RequestMapping(value = "/listRestaurants")
 	public ModelAndView listRestaurants(){
@@ -113,13 +101,6 @@ public class RestaurantController {
         restaurant.addMenu(menuNew);
         restaurantService.updateRestaurant(restaurant);
     }
-	
-	//---------------------------------------------------------------------------------
-	//GET THE MENU LIST OF THE RESTAURANT WITH CERTAIN ID
-	
-	
-	
-	
 	
 	
 	

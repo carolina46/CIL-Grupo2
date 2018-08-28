@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import components.daos.HibernateUtil;
 import components.daos.interfaces.UserDAO;
+import model.business.Restaurant;
 import model.users.User;
 
 @Repository
@@ -66,6 +67,11 @@ public class UserDAOImpl implements UserDAO{
 				if(anUser.getPassword().equals(password))
 					return anUser;
 				else return null;
+	}
+
+	@Override
+	public List<Restaurant> getUserRestaurants(Long id) {
+		return util.getAllMatchQuery("FROM Restaurant WHERE id_responsible = " +id );
 	}
 
 }

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import components.daos.interfaces.UserDAO;
 import components.services.interfaces.UserService;
+import model.business.Restaurant;
 import model.users.User;
 
 @Service
@@ -56,6 +57,11 @@ public class UserServiceImpl implements UserService{
 	@Override
 	public User login(String password, String user) {
 		return userDAO.login(password, user);
+	}
+
+	@Override
+	public List<Restaurant> getUserRestaurants(Long id) {
+		return userDAO.getUserRestaurants(id);
 	}
 
 	

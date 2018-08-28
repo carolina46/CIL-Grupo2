@@ -1,23 +1,43 @@
 package components.controllers;
 
+import java.lang.reflect.Modifier;
+import java.util.List;
+
 import org.modelmapper.ModelMapper;
+import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
 import components.JsonToDTOConverter;
+import components.dtos.business.MenuTypeDTO;
+import components.dtos.business.NewRestaurantDTO;
+import components.dtos.business.RestaurantDTO;
 import components.dtos.users.NormalClientDTO;
 import components.dtos.users.ResponsibleDTO;
 import components.dtos.users.UserLoginDTO;
 import components.dtos.users.UserSessionDTO;
+import components.services.interfaces.CategoryService;
 import components.services.interfaces.UserService;
+import model.business.Category;
 import model.business.Location;
+import model.business.MenuType;
+import model.business.Restaurant;
+import model.filter.ComensalCommentFilter;
+import model.filter.CompositeCommentFilter;
+import model.filter.DenyCommentFilter;
+import model.filter.GourmetCommentFilter;
+import model.filter.VisitorCommentFilter;
 import model.users.NormalClient;
 import model.users.Responsible;
 import model.users.User;
@@ -31,6 +51,8 @@ public class UserController {
 	
 	@Autowired
 	private UserService userService;
+	@Autowired
+	private CategoryService categoryService;
 	@Autowired
     private ModelMapper modelMapper;
 	
@@ -123,6 +145,58 @@ public class UserController {
 	}
 	
 	
+	//Add a new restaurant to the Responsible
+	@PostMapping(value = "responsible/addRestaurant")
+	public ResponseEntity<Boolean> addRestaurant(@RequestBody String object) {
+		//Converts the JSON to NewRestaurantDTO
+		NewRestaurantDTO newRestaurantDTO = new Gson().fromJson(object, NewRestaurantDTO.class);
+		
+		//Looking for the user in the bd
+		Responsible aResponsible = (Responsible) this.userService.getUserByID(newRestaurantDTO.getResponsible());
+		
+		//Looking for the category in the bd
+		Category category = categoryService.getCategoryByID(newRestaurantDTO.getCategory());
+		
+		//create the Location
+		Location location = new Location(newRestaurantDTO.getLatitude(), newRestaurantDTO.getLongitude());
+		
+		//Create the new restaurant
+		Restaurant restaurant = new Restaurant(newRestaurantDTO.getName(), category, location);
+		
+		//Create the commentfilter
+		CompositeCommentFilter composite = new CompositeCommentFilter();
+	    if(newRestaurantDTO.getVisitor()) composite.addFilter(new VisitorCommentFilter());
+	    if(newRestaurantDTO.getComensal()) composite.addFilter(new ComensalCommentFilter());
+	    if(newRestaurantDTO.getGourmet()) composite.addFilter(new GourmetCommentFilter());
+	    if(composite.getConfigurationFilters().size() == 0) restaurant.setCommentFilter(new DenyCommentFilter());
+	    else
+	      if(composite.getConfigurationFilters().size() > 1) restaurant.setCommentFilter(composite);
+	      else restaurant.setCommentFilter( composite.getConfigurationFilters().get(0));
+				
+		//Add the restaurant to the responsible and save.
+		aResponsible.addRestaurant(restaurant);
+		if(this.userService.updateUser(aResponsible))
+				return new ResponseEntity<Boolean>(true, HttpStatus.OK);
+		else
+				return new ResponseEntity<Boolean>(false, HttpStatus.OK);
+
+	}
+	
+	
+	//Return a user's restaurants
+	@RequestMapping(value = "myRestaurants/{user}", method = RequestMethod.GET, headers="Accept=*/*", produces="application/json; charset=UTF-8")
+	public ResponseEntity<String> getMyRestaurants( @PathVariable Long user) {
+			List<Restaurant> listOfRestaurants = this.userService.getUserRestaurants(user);
+			//Converts the List<Restaurant> to List<RestaurantDTO>
+			//java.lang.reflect.Type targetListType = new TypeToken<List<RestaurantDTO>>() {}.getType();
+		   // List<RestaurantDTO> listOfRestaurantDTOs = modelMapper.map(listOfRestaurants, targetListType);
+			
+		    //Converts the list of MenuTypeDTO to JSON string
+	        String jsonResult = JsonToDTOConverter.convertToJason(listOfRestaurants);
+	    	        
+	        return new ResponseEntity<String>(jsonResult, HttpStatus.OK);
+				
+	}
 	
 	
 	
