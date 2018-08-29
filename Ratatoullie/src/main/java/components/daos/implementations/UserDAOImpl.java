@@ -71,7 +71,7 @@ public class UserDAOImpl implements UserDAO{
 
 	@Override
 	public List<Restaurant> getUserRestaurants(Long id) {
-		return util.getAllMatchQuery("FROM Restaurant WHERE id_responsible = " +id );
+		return util.getAllMatchQuery("SELECT rest FROM Responsible resp JOIN resp.restaurants rest WHERE resp.oid = " + id);
 	}
 
 }
