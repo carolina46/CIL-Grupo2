@@ -21,6 +21,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.google.gson.Gson;
 
 import components.JsonToDTOConverter;
+import components.dtos.business.NewMenuDTO;
 import components.dtos.business.RestaurantDTO;
 import components.dtos.filter.ComensalCommentFilterDTO;
 import components.dtos.filter.ComensalNotificationFilterDTO;
@@ -31,23 +32,24 @@ import components.dtos.filter.NotificationFilterDTO;
 import components.dtos.filter.VisitorCommentFilterDTO;
 import components.dtos.filter.VisitorNotificationFilterDTO;
 import components.services.interfaces.CategoryService;
+import components.services.interfaces.MenuTypeService;
 import components.services.interfaces.RestaurantService;
 import model.business.Menu;
+import model.business.MenuType;
 import model.business.Restaurant;
 
 
 
 @Controller
 @RequestMapping(value = "/restaurant/")
-@CrossOrigin(origins = "http://localhost:4200", maxAge =13600)
+@CrossOrigin(origins = "http://localhost:4200", maxAge =100000)
 public class RestaurantController {
 	
 	@Autowired
 	private RestaurantService restaurantService;
 	@Autowired
-	private CategoryService categoryService;
-	@Autowired
-    private ModelMapper modelMapper;
+	private MenuTypeService menuTypeService;
+	
 	
 	
 	
@@ -67,9 +69,9 @@ public class RestaurantController {
 		//I get the restaurant from the BD.
 		Restaurant restaurant = restaurantService.getRestuarantByID(restaurantId);
 		//Converts the Restaurant to RestaurantDTO
-		RestaurantDTO restaurantDTO = modelMapper.map(restaurant, RestaurantDTO.class);
+		//RestaurantDTO restaurantDTO = modelMapper.map(restaurant, RestaurantDTO.class);
 		//Converts the RestaurantDTO to JSON string
-		String jsonResult = JsonToDTOConverter.convertToJason(restaurantDTO);
+		String jsonResult = JsonToDTOConverter.convertToJason(restaurant);
 		return new ResponseEntity<String>(jsonResult, HttpStatus.OK);
 	}
 	
@@ -77,25 +79,22 @@ public class RestaurantController {
 	//---------------------------------------------------------------------------------
 	//ADD A NEW MENU TO THE RESTAURANT WITH A DETEMINATE ID
 	@PostMapping(value = "/saveMenu")
-	public @ResponseBody void saveMenu( @RequestBody String object) {
-		//Converts the JSON to RestaurantDTO
-		RestaurantDTO restaurantDTO = new Gson().fromJson(object, RestaurantDTO.class);
-		
-		//Converts the RestaurantDTO to Restaurant
-		Restaurant restaurant = modelMapper.map(restaurantDTO, Restaurant.class);
-		
-        //create a new menu
-		Menu menuIn, menuNew;
-        menuIn = restaurant.getMenus().get(0);
-        menuNew = new Menu(menuIn.getMenuType(), menuIn.getName());
-        menuNew.setTags(menuIn.getTags());
-        
-        //Get the restaurant from the BD.
-        restaurant = restaurantService.getRestuarantByID(restaurant.getOid());
-		
-        //Add the new menu to the restaurant 
+	public ResponseEntity<Boolean>  saveMenu( @RequestBody String object) {
+		//Converts the JSON to Restaurant
+		NewMenuDTO newMenuDTO = new Gson().fromJson(object, NewMenuDTO.class);
+		//I get the menuType from the BD.
+		MenuType menuType = menuTypeService.getMenuTypeByID(newMenuDTO.getType());
+		//create a new menu
+		Menu menuNew = new Menu(menuType, newMenuDTO.getName());
+		menuNew.setTags(newMenuDTO.getTags());
+        //I get the restaurant from the BD.
+        Restaurant restaurant = restaurantService.getRestuarantByID(newMenuDTO.getRestaurant());
+		//Add the new menu to the restaurant 
         restaurant.addMenu(menuNew);
-        restaurantService.updateRestaurant(restaurant);
+        if( restaurantService.updateRestaurant(restaurant))
+        	return new ResponseEntity<Boolean>(true, HttpStatus.OK);
+        else
+        	return new ResponseEntity<Boolean>(false, HttpStatus.OK);
     }
 	
 	
