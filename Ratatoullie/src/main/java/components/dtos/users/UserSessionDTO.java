@@ -11,14 +11,14 @@ public class UserSessionDTO {
 
 	private Long oid; 
 	private String user;
-	private String rol; //Administrator or NormalClient or Responsible
+	private String role; //Administrator or NormalClient or Responsible
 	private String ranking;
 	
 	public UserSessionDTO(User user){
 		this.oid = user.getOid();
 		this.user = user.getUser();
-		this.rol = user.getClass().getSimpleName();
-		if(!rol.equals("Administrator")) {
+		this.role = user.getClass().getSimpleName();
+		if(!role.equals("Administrator")) {
 			Client client = (Client) user;
 			this.ranking = client.getRanking().getClass().getSimpleName();
 		}
@@ -26,6 +26,6 @@ public class UserSessionDTO {
 
 	public Long getOid() { return oid; }
 	public String getUser() { return user; }
-	public String getRol() { return rol; }
+	public String getRole() { return role; }
 	public String getRanking() { return ranking;}
 }
