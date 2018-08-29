@@ -24,7 +24,7 @@ class ConfigurationFilterTest {
 		System.out.println("init()");
 		
 		//Create a Dish
-		Dish dish = new Dish("Milanesas","Milanesas con papas fritas y un muniequito de regalo","/resources/01_01_mila.jpg");
+		Dish dish = new Dish("Milanesas","Milanesas con papas fritas y un muniequito de regalo",null);
 						
 		//Createa MenuType
 		MenuType mt = new MenuType("Menu infantil");

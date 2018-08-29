@@ -35,7 +35,7 @@ class UserTest {
 	void initialize(){
 		
 		//Create a Dish
-		Dish dish = new Dish("Milanesas","Milanesas con papas fritas y un mu�equito de regalo","/resources/01_01_mila.jpg");
+		Dish dish = new Dish("Milanesas","Milanesas con papas fritas y un mu�equito de regalo",null);
 						
 		//Createa MenuType
 		MenuType mt = new MenuType("Menu infantil");

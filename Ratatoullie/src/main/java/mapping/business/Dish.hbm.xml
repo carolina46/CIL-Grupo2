@@ -9,7 +9,7 @@
 		</id>
 		<property name="name" type="java.lang.String" column="name"/>
 		<property name="description" type="java.lang.String" column="description"/>
-		<property name="picture" type="java.lang.String" column="picture"/>
+		<property name="picture" type="blod" column="picture"/>
 		
 		<list name="tags" lazy="false" cascade="save-update" table="dish_tags">
 		<!--save-update -  if the Dish is saved, the tags too. If the Dish is deleted the tags won't be deleted -->

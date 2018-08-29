@@ -55,8 +55,10 @@ public class RestaurantServiceImpl implements RestaurantService {
 	}
 
 	@Override
-	public List<Menu> getMyMenus(Long restaurantId) {
-		return restaurantDAO.getMyMenus(restaurantId);
+	public boolean updateMenu(Menu menu) {
+		return restaurantDAO.updateMenu(menu);
 	}
+
+	
 
 }
