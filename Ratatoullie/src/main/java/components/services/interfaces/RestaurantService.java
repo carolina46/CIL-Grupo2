@@ -1,6 +1,8 @@
 package components.services.interfaces;
 
 import java.util.List;
+
+import model.business.Menu;
 import model.business.Restaurant;
 
 public interface RestaurantService {
@@ -12,4 +14,5 @@ public interface RestaurantService {
 	public Restaurant getRestuarantByID(Long id);
 	public List<Restaurant> getRestaurantByName(String name);
 	public List<Restaurant> getAllRestaurants();
+	public List<Menu> getMyMenus(Long restaurantId);
 }

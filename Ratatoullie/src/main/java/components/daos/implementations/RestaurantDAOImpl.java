@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import components.daos.HibernateUtil;
 import components.daos.interfaces.RestaurantDAO;
+import model.business.Menu;
 import model.business.Restaurant;
 
 @Repository
@@ -53,5 +54,11 @@ public class RestaurantDAOImpl implements  RestaurantDAO{
 	@Override
 	public boolean removeById(Long key) {
 		return util.deleteById(key, Restaurant.class);
+	}
+
+	@Override
+	public List<Menu> getMyMenus(Long restaurantId) {
+		return null;
+				//util.getAllMatchQuery("FROM Menu LEFT JOIN restaurant_menus WHERE restaurant_menus.id_menu=Menu.id_menu AND id_restaurant = " + restaurantId );
 	}
 }

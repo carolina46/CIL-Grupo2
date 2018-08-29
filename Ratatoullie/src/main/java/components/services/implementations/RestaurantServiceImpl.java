@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import components.daos.interfaces.RestaurantDAO;
 import components.services.interfaces.RestaurantService;
+import model.business.Menu;
 import model.business.Restaurant;
 @Service
 @Transactional
@@ -51,6 +52,11 @@ public class RestaurantServiceImpl implements RestaurantService {
 	@Override
 	public List<Restaurant> getAllRestaurants() {
 		return restaurantDAO.getAll();
+	}
+
+	@Override
+	public List<Menu> getMyMenus(Long restaurantId) {
+		return restaurantDAO.getMyMenus(restaurantId);
 	}
 
 }

@@ -51,16 +51,25 @@ public class RestaurantController {
 	private MenuTypeService menuTypeService;
 	
 	
+	//---------------------------------------------------------------------------------
+	//RECOVER FROM THE BD THE RESTAURANT`S MENUS
+	@GetMapping(value = "getMenus/{restaurantId}")
+	public ResponseEntity<String> getRestaurantWithMenus(@PathVariable Long restaurantId) {
+			//I get the restaurant from the BD.
+			Restaurant restaurant = restaurantService.getRestuarantByID(restaurantId);
+			//I get the restaurant`s menus from the BD.
+			List<Menu> listMenus = restaurantService.getMyMenus(restaurantId);
+			
+			String jsonResult = JsonToDTOConverter.convertToJason(listMenus);
+			System.out.println("//---------------------------------------------------------------------------------");
+			System.out.println(jsonResult);
+			
+			//Converts the RestaurantDTO to JSON string
+			//String jsonResult = JsonToDTOConverter.convertToJason(restaurant);
+			return new ResponseEntity<String>(jsonResult, HttpStatus.OK);
+		}
+		
 	
-	
-	
-	@RequestMapping(value = "/listRestaurants")
-	public ModelAndView listRestaurants(){
-		List<Restaurant> list = restaurantService.getAllRestaurants();
-		ModelAndView model = new ModelAndView("listRestaurants");
-		model.addObject("restaurants", list);
-		return model;
-	}
 	
 	//---------------------------------------------------------------------------------
 	//RECOVER FROM THE BD THE RESTAURANT WITH A CERTAIN ID
@@ -96,6 +105,9 @@ public class RestaurantController {
         else
         	return new ResponseEntity<Boolean>(false, HttpStatus.OK);
     }
+	
+	
+	
 	
 	
 	
