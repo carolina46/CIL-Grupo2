@@ -4,7 +4,7 @@
 
 	<class name="User" table="user" >
 	
-		<id name="oid" type="java.lang.Long" column="id_comment_filter" unsaved-value="0">
+		<id name="oid" type="java.lang.Long" column="id_user" unsaved-value="0">
 				<generator class="native" />
 		</id>
 		
