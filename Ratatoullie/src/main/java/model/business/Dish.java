@@ -1,5 +1,4 @@
 package model.business;
-import java.sql.Blob;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,12 +14,12 @@ public class Dish {
 	private Long oid; //For Hibernate
 	private String name;
 	private String description;
-	private Blob picture;
+	private byte[] picture;
 	private List<Tag> tags; 
 	
 	public Dish() {} //For Hibernate
 	
-	public Dish(String name, String description, Blob picture) {
+	public Dish(String name, String description, byte[] picture) {
 		this.name = name;
 		this.description = description;
 		this.picture = picture;
@@ -39,9 +38,9 @@ public class Dish {
 	
 	public void setDescription(String description) { this.description = description; }
 	
-	public Blob getPicture() { return picture; }
+	public byte[] getPicture() { return picture; }
 	
-	public void setPicture(Blob picture) { this.picture = picture; }
+	public void setPicture(byte[] picture) { this.picture = picture; }
 
 	//Methods associated with list of Tag
 	

@@ -1,6 +1,5 @@
 package components.dtos.business;
 
-import java.sql.Blob;
 import java.util.List;
 
 public class DishDTO {
@@ -8,7 +7,7 @@ public class DishDTO {
 	private Long oid;
 	private String name;
 	private String description;
-	private Blob picture;
+	private byte[] picture;
 	private List<TagDTO> tags; 
 	
 	public Long getOid() {
@@ -29,10 +28,10 @@ public class DishDTO {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public Blob getPicture() {
+	public byte[] getPicture() {
 		return picture;
 	}
-	public void setPicture(Blob picture) {
+	public void setPicture(byte[] picture) {
 		this.picture = picture;
 	}
 	public List<TagDTO> getDTOTags() {

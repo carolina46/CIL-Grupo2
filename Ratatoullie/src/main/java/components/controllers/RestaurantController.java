@@ -27,9 +27,11 @@ import components.dtos.filter.VisitorCommentFilterDTO;
 import components.dtos.filter.VisitorNotificationFilterDTO;
 import components.services.interfaces.MenuTypeService;
 import components.services.interfaces.RestaurantService;
+import components.services.interfaces.TagService;
 import model.business.Menu;
 import model.business.MenuType;
 import model.business.Restaurant;
+import model.business.Tag;
 
 
 
@@ -42,6 +44,8 @@ public class RestaurantController {
 	private RestaurantService restaurantService;
 	@Autowired
 	private MenuTypeService menuTypeService;
+	@Autowired
+	private TagService tagService;
 	@Autowired
     private ModelMapper modelMapper;
 	
@@ -67,7 +71,8 @@ public class RestaurantController {
 		MenuType menuType = menuTypeService.getMenuTypeByID(newMenuDTO.getType());
 		//create a new menu
 		Menu menuNew = new Menu(menuType, newMenuDTO.getName());
-		menuNew.setTags(newMenuDTO.getTags());
+		for (Tag t : newMenuDTO.getTags())
+			menuNew.addTag(tagService.getTagByID(t.getOid()));
         //I get the restaurant from the BD.
         Restaurant restaurant = restaurantService.getRestuarantByID(newMenuDTO.getRestaurant());
 		//Add the new menu to the restaurant 
