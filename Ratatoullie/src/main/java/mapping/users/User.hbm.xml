@@ -26,19 +26,25 @@
 		
 		<subclass name="Client" discriminator-value="UC">
 			
-			<one-to-one name="location" 
-				class="model.business.Location" 
-				cascade="all" 
-				constrained="true"			
-				lazy="false">
-        	</one-to-one>
-		
-			<one-to-one name="ranking" 
+			<!-- ONE TO ONE - But It can be mapped this way. One-to-one is bugged -->
+        	<many-to-one 
+				name = "location"
+				class = "model.business.Location"
+				cascade = "all"
+				unique = "true"
+				lazy = "false"
+				column = "id_location">
+			</many-to-one>
+        	
+			<!-- ONE TO ONE - But It can be mapped this way. One-to-one is bugged -->
+			<many-to-one 
+				name="ranking" 
 				class="model.ranking.Ranking" 
-				cascade="all" 
-				constrained="true"			
-				lazy="false">
-        	</one-to-one>
+				cascade="all" 	
+				unique = "true"	
+				lazy="false"
+				column = "id_ranking">
+        	</many-to-one>
         	
         	<list name="friends" lazy="false" cascade="none" table="client_friends">
 				<!--none -  The user is independent from its friends (no changes are made in friends if the User changes)-->

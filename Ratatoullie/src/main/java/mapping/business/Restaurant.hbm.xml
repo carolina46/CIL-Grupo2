@@ -9,12 +9,15 @@
 		</id>
 		<property name="name" type="java.lang.String" column="name"/>
 		
-		<one-to-one name="location" 
+		<!-- ONE TO ONE - But It can be mapped this way. One-to-one is bugged -->
+		<many-to-one 
+			name="location" 
 			class="Location" 
-			cascade="all" 
-			constrained="true"			
-			lazy="false">
-        </one-to-one>
+			cascade="all" 	
+			unique = "true"		
+			lazy="false"
+			column = "id_location">
+        </many-to-one>
         
         <many-to-one 
 			name="category"
@@ -23,19 +26,25 @@
 			lazy="false">
 		</many-to-one>   
        
-        <one-to-one name="commentFilter"
+       	<!-- ONE TO ONE - But It can be mapped this way. One-to-one is bugged -->
+        <many-to-one 
+        	name="commentFilter"
         	class="model.filter.CommentFilter"
         	cascade="all"
-        	constrained="true"
-        	lazy="false">
-        </one-to-one>
+			unique = "true"
+        	lazy="false"
+        	column = "id_comment_filter">
+        </many-to-one>
         
-        <one-to-one name="notificationFilter"
+        <!-- ONE TO ONE - But It can be mapped this way. One-to-one is bugged -->
+        <many-to-one 
+        	name="notificationFilter"
         	class="model.filter.NotificationFilter"
         	cascade="all"
-        	constrained="true"
-        	lazy="false">
-        </one-to-one>
+			unique = "true"
+        	lazy="false"
+        	column = "id_notification_filter">
+        </many-to-one>
 		
 		<list name="menus" lazy="false" cascade="save-update" table="restaurant_menus">
 		<!--save-update -  if the Restaurant is saved, the menus too. If the Restaurant is deleted the menus won't be deleted -->
