@@ -24,7 +24,7 @@ import model.business.MenuType;
 
 
 @Controller
-@CrossOrigin(origins = "http://localhost:4200", maxAge =100000)
+@CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
 @RequestMapping(value = "/menuType/")
 public class MenuTypeController {
 
