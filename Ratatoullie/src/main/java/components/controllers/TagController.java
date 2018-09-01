@@ -18,7 +18,7 @@ import model.business.Tag;
 
 
 @Controller
-@CrossOrigin(origins = "http://localhost:4200", maxAge = 100000)
+@CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
 @RequestMapping(value = "/tag/")
 public class TagController {
 	
