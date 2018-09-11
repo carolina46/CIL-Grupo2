@@ -1,13 +1,13 @@
 package unitTests;
 
-import org.junit.jupiter.api.Test;
+//import org.junit.jupiter.api.Test;
 
-import model.ranking.Comensal;
-import model.ranking.Gourmet;
-import model.ranking.Ranking;
-import model.ranking.Visitor;
-import model.users.Client;
-import model.users.NormalClient;
+//import model.ranking.Comensal;
+//import model.ranking.Gourmet;
+//import model.ranking.Ranking;
+//import model.ranking.Visitor;
+//import model.users.Client;
+//import model.users.NormalClient;
 
 //import static org.mockito.Mockito.*; 
 
@@ -26,7 +26,7 @@ import model.users.NormalClient;
 class RankingUnitTest {
 
 //	private Client client= mock(NormalClient.class);
-	private Ranking ranking;
+	//private Ranking ranking;
 	
 	/*
 	 * Verification of the state visitor.
