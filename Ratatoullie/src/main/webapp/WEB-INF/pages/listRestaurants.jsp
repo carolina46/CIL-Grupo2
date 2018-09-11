@@ -24,9 +24,11 @@
   			
   			<tr>
     		</tr>
-    		
-    		<br><a href="/Ratatoullie/">Volver</a><br>
-</table>
+    		<tr>
+    			<td><a href="/Ratatoullie/">Volver</a></td>	
+    		</tr>
+		</table>
+		
 	</center>
 </body>
 </html>
